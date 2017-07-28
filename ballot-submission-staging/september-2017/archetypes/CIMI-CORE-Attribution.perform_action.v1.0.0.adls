@@ -1,0 +1,64 @@
+archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
+  CIMI-CORE-Attribution.perform_action.v1.0.0
+
+specialize
+  CIMI-CORE-Attribution.attribution.v1
+
+language
+  original_language = <[ISO_639-1::en]>
+
+description
+  original_author = <
+    ["name"] = <"Joey Coyle">
+    ["organisation"] = <"XCoyle">
+    ["email"] = <"joey@xcoyle.com">
+    ["date"] = <"24/07/2017">
+  >
+  details = <
+    ["en"] = <
+      language = <[ISO_639-1::en]>
+      purpose = <"Archetype for CIMI 'record action' concept">
+      use = <"Use for data recording action.">
+      keywords = <"record","action">
+    >
+  >
+  lifecycle_state = <"unmanaged">
+  other_details = <["model_level"] = <"reference">>
+  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>","Claude Nanjo <cnanjo@cogmedsys.com>","Patrick Langford <patrick@neuronsong.com>">
+  custodian_namespace = <"org.opencimi">
+  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
+  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
+  ip_acknowledgements = <
+    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+  >
+
+definition
+  Attribution[id1.1] matches { -- Perform action
+    activityTimeRange matches {  -- Peform action datetime range
+      INTERVAL_VALUE<DATE_TIME>[id6.1]
+    }
+    location matches {
+      PARTICIPATION[id8.1]  -- Location of perform action
+    }
+    agent matches { -- Data Performer
+      PARTICIPATION[id10.1]
+    }
+  }
+
+terminology
+  term_definitions = <
+    ["en"] = <
+      ["id1.1"] = < text = <"Perform action"> >
+      ["id6.1"] = < text = <"Peform action datetime range"> >
+      ["id8.1"] = < text = <"Location of perform action"> >
+      ["id10.1"] = < text = <"Performer"> >
+    >
+  >
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+      >
+    >
+  >

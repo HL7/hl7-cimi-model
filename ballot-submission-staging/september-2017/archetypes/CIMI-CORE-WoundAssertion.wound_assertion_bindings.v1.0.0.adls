@@ -1,0 +1,122 @@
+archetype (adl_version=2.0.6; rm_release=0.0.1)
+	CIMI-CORE-WoundAssertion.wound_assertion_bindings.v1.0.0
+
+specialize
+	CIMI-CORE-WoundAssertion.wound_assertion_struct.v1
+
+language
+  original_language = <[ISO_639-1::en]>
+
+description
+  original_author = <
+    ["name"] = <"Claude Nanjo">
+    ["organisation"] = <"Cognitive Medical Systems">
+    ["email"] = <"cnanjo@gmail.com">
+    ["date"] = <"06/15/2016">
+  >
+  details = <
+    ["en"] = <
+      language = <[ISO_639-1::en]>
+      purpose = <"CIMI base assertion archetype">
+      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+      keywords = <"assertion","wound">
+    >
+  >
+  other_details = <["model_level"] = <"reference">>
+  lifecycle_state = <"unmanaged">
+  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
+  custodian_namespace = <"org.opencimi">
+  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
+  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
+  ip_acknowledgements = <
+    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+  >
+
+definition
+	WoundAssertion[id1.1.1.1.1.1.1.1] matches {
+		/periwoundCondition matches {[ac0.0.0.0.0.0.0.1]}
+		/tunneling/direction matches {[ac0.0.0.0.0.0.0.2]}
+		/undermining/direction matches {[ac0.0.0.0.0.0.0.3]}
+		/woundBedAndEdge/woundBaseAppearance matches {[ac0.0.0.0.0.0.0.4]}
+		/woundBedAndEdge/woundBaseColor matches {[ac0.0.0.0.0.0.0.5]}
+		/woundBedAndEdge/woundEdgeAppearance matches {[ac0.0.0.0.0.0.0.6]}
+		/woundBedAndEdge/woundEdgeColor matches {[ac0.0.0.0.0.0.0.7]}
+		/woundBedAndEdge/woundClosureType matches {[ac0.0.0.0.0.0.0.8]}
+		/exudate/odor matches {[ac0.0.0.0.0.0.0.9]}
+		/exudate/color matches {[ac0.0.0.0.0.0.0.10]}
+		/exudate/appearance matches {[ac0.0.0.0.0.0.0.11]}
+	}
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1.1.1.1.1.1.1.1"] = <
+				text = <"Wound Assertion">
+				description = <"-">
+			>
+			["ac0.0.0.0.0.0.0.1"] = <
+				text = <"Periwound Condition">
+				description = <"-">
+			>
+			["ac0.0.0.0.0.0.0.2"] = <
+				text = <"Tunneling Direction">
+				description = <"-">
+			>
+			["ac0.0.0.0.0.0.0.3"] = <
+				text = <"Undermining Direction">
+				description = <"-">
+			>
+			["ac0.0.0.0.0.0.0.4"] = <
+				text = <"Wound Bed and Edge Wound Base Appearance">
+				description = <"-">
+			>
+			["ac0.0.0.0.0.0.0.5"] = <
+				text = <"Wound Bed and Edge Wound Base Color">
+				description = <"-">
+			>
+			["ac0.0.0.0.0.0.0.6"] = <
+				text = <"Wound Bed and Edge Wound Edge Appearance">
+				description = <"-">
+			>
+			["ac0.0.0.0.0.0.0.7"] = <
+				text = <"Wound Base and Edge Wound Edge Color">
+				description = <"-">
+			>
+			["ac0.0.0.0.0.0.0.8"] = <
+				text = <"Wound Base and Edge Wound Closure Type">
+				description = <"-">
+			>
+			["ac0.0.0.0.0.0.0.9"] = <
+				text = <"Exudate Odor">
+				description = <"-">
+			>
+			["ac0.0.0.0.0.0.0.10"] = <
+				text = <"Exudate Color">
+				description = <"-">
+			>
+			["ac0.0.0.0.0.0.0.11"] = <
+				text = <"Exudate Appearance">
+				description = <"-">
+			>
+		>
+	>
+
+	term_bindings = <
+		["snomed-ct"] = <
+		    items = <
+		        ["ac0.0.0.0.0.0.0.1"] = <http://example.com/valueset/periwound_condition_range_vs.v0.0.1>
+		        ["ac0.0.0.0.0.0.0.2"] = <http://example.com/valueset/tunneling_direction_range_vs.v0.0.1>
+		        ["ac0.0.0.0.0.0.0.3"] = <http://example.com/valueset/undermining_direction_range_vs.v0.0.1>
+		        ["ac0.0.0.0.0.0.0.4"] = <http://example.com/valueset/wound_bed_and_edge_wound_base_appearance_range_vs.v0.0.1>
+		        ["ac0.0.0.0.0.0.0.5"] = <http://example.com/valueset/wound_bed_and_edge_wound_base_color_range_vs.v0.0.1>
+		        ["ac0.0.0.0.0.0.0.6"] = <http://example.com/valueset/wound_bed_and_edge_wound_edge_appearance_range_vs.v0.0.1>
+		        ["ac0.0.0.0.0.0.0.7"] = <http://example.com/valueset/wound_bed_and_edge_wound_edge_color_range_vs.v0.0.1>
+		        ["ac0.0.0.0.0.0.0.8"] = <http://example.com/valueset/wound_bed_and_edge_wound_closure_type_range_vs.v0.0.1>
+		        ["ac0.0.0.0.0.0.0.9"] = <http://example.com/valueset/wound_exudate_odor_range_vs.v0.0.1>
+		        ["ac0.0.0.0.0.0.0.10"] = <http://example.com/valueset/wound_exudate_color_range_vs.v0.0.1>
+		        ["ac0.0.0.0.0.0.0.11"] = <http://example.com/valueset/wound_exudate_appearance_range_vs.v0.0.1>
+		    >
+		>
+  	>

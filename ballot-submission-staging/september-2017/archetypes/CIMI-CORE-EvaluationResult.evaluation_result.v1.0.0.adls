@@ -1,0 +1,136 @@
+archetype (adl_version=2.0.6; rm_release=2.0.2)
+  CIMI-CORE-EvaluationResult.evaluation_result.v1.0.0
+
+specialize
+  CIMI-CORE-FindingTopic.finding_topic.v1
+
+language
+  original_language = <[ISO_639-1::en]>
+
+description
+  original_author = <
+    ["name"] = <"Claude Nanjo">
+    ["organisation"] = <"Cognitive Medical Systems">
+    ["email"] = <"cnanjo@gmail.com">
+    ["date"] = <"11/24/2016">
+  >
+  details = <
+    ["en"] = <
+      language = <[ISO_639-1::en]>
+      purpose = <"CIMI base assertion archetype">
+      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+      keywords = <"evaluation result","observation">
+    >
+  >
+  other_details = <["model_level"] = <"reference">>
+  lifecycle_state = <"unmanaged">
+  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
+  custodian_namespace = <"org.opencimi">
+  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
+  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
+  ip_acknowledgements = <
+    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+  >
+
+definition
+  EvaluationResult[id1.1.1] matches {
+    exceptionValue matches {
+      CODED_TEXT[id0.0.1]
+    }
+    method matches {
+      CODED_TEXT[id0.0.2]
+    }
+    deviceCode matches {
+      CODED_TEXT[id0.0.3]
+    }
+    device matches {
+      Device[id0.0.4] 
+    }
+    priority matches {
+      CODED_TEXT[id0.0.5]
+    }
+    sequence matches {
+      CODED_TEXT[id0.0.51]
+    }
+    deltaFlag matches {
+      CODED_TEXT[id0.0.6]
+    }
+    referenceRange matches {
+      ReferenceRange[id0.0.7]
+    }
+    evaluationProcedureCode matches {
+      CODED_TEXT[id0.0.81]
+    }
+    evaluationProcedure matches {
+      ClinicalStatement[id0.0.8]
+    }
+    interpretation matches {
+      Interpretation[id0.0.9]
+    }
+    interpretationCode matches {
+      CODED_TEXT[id0.0.91]
+    }
+    precondition matches {
+      CODED_TEXT[id0.0.10]
+    }
+  }
+
+terminology
+  term_definitions = <
+    ["en"] = <
+      ["id1.1.1"] = <
+        text = <"Evaluation result">
+        description = <"The outcome of an evaluation of a characteristic. This model holds a 'question' in the key and holds a value in the result. This value is further qualified through the model's properties.">
+      >
+      ["id0.0.2"] = <
+        text = <"Method">
+        description = <"The means by which a measurement, evaluation, or assessment was made.">
+      >
+      ["id0.0.3"] = <
+        text = <"Device Code">
+        description = <"The coded device used to evaluate the characteristic such as the type of blood pressure cuff used on a patient.">
+      >
+      ["id0.0.4"] = <
+        text = <"Device">
+        description = <"The device used to evaluate the characteristic such as the type of blood pressure cuff used on a patient.">
+      >
+      ["id0.0.5"] = <
+        text = <"Priority">
+        description = <"The urgency of the evaluation result.">
+      >
+      ["id0.0.51"] = <
+        text = <"Sequence">
+        description = <"Sequence is a number placed onto the data which refers to the order it occurred in or needs to be retrieved by.">
+      >
+      ["id0.0.6"] = <
+        text = <"Delta flag">
+        description = <"Flag indicating whether there was a significant change from previous results.">
+      >
+      ["id0.0.7"] = <
+        text = <"Reference range">
+        description = <"The range for the measurement.">
+      >
+      ["id0.0.8"] = <
+        text = <"evaluationProcedure">  -- restrict to procedure
+        description = <"The means by which a measurement, evaluation, or assessment was made align with method code">
+      >
+      ["id0.0.9"] = <
+        text = <"Interpretation">
+        description = <"A clinical judgment about the significance of an evaluation result. Interpretation is used to clarify data from measurements and other evaluations. For example, if a measured analyte is greater than a predetermined threshold the interpretation could be Positive, or if a measurement is lower than a normal physiological range the interpretation could be low or critical low. Some values include normal, abnormal, panic high, panic low, ...">
+      >
+      ["id0.0.10"] = <
+        text = <"Multimedia">
+        description = <"Associated media produced during the evaluation such as an X-ray.">
+      >
+    >
+  >
+
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+        ["id0.0.2"] = <http://snomed.info/id/246501002> -- |Technique (attribute)|
+      >
+    >
+  >
