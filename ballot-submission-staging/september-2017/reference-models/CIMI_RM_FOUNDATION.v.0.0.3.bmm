@@ -12,7 +12,7 @@ rm_release = <"0.0.3">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Thu Jul 27 12:13:17 PDT 2017">
+schema_revision = <"Fri Jul 28 17:57:05 PDT 2017">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_FOUNDATION.v0.0.3.mdzip - Schema generated from UML">
 

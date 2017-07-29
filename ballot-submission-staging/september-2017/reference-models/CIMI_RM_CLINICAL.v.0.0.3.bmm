@@ -12,7 +12,7 @@ rm_release = <"0.0.3">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Thu Jul 27 12:13:17 PDT 2017">
+schema_revision = <"Fri Jul 28 17:57:05 PDT 2017">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_CLINICAL.v0.0.3.mdzip - Schema generated from UML">
 
@@ -39,7 +39,7 @@ packages = <
 			>
 			["CommonDataStructures"] = <
 				name = <"CommonDataStructures">
-				classes = <"DetailedAddress", "Part", "Street", "StreetNumber", "ElectronicContact", "Location", "LocationName", "ReferenceRange", "PartyName", "ActorName", "Use", "BasePersonName", "CommonPersonName", "BaseOrganizationName", "QuantitativeReferenceRange", "QualitativeReferenceRange", "Registration", "Qualification", "Accreditation", "AdvanceDirective", "Age", "BiometricData", "BirthData", "ContactInformation", "Citizenship", "DeathData", "Entitlement", "Industry", "LanguageCapability", "Occupation", "Residency", "Timing", "BaseAddress", "GenericAddress", "Annotation", "TimingRepeat", "ResearchStudy", "GenericPersonName", "GenericOrganizationName">
+				classes = <"DetailedAddress", "Part", "Street", "StreetNumber", "ElectronicContact", "Location", "LocationName", "ReferenceRange", "PartyName", "ActorName", "Use", "BasePersonName", "CommonPersonName", "BaseOrganizationName", "QuantitativeReferenceRange", "QualitativeReferenceRange", "Registration", "Qualification", "Accreditation", "AdvanceDirective", "Age", "BiometricData", "BirthData", "ContactInformation", "Citizenship", "DeathData", "Entitlement", "Industry", "LanguageCapability", "Occupation", "Residency", "Timing", "BaseAddress", "GenericAddress", "Annotation", "TimingRepeat", "ResearchStudy", "GenericPersonName", "GenericOrganizationName", "HealthCareFacilityLocation", "GeographicalLocation">
 			>
 			["Party"] = <
 				name = <"Party">
@@ -576,15 +576,6 @@ The mime type for the communication. ">
 				name = <"condition">
 				type = <"TEXT">
 			>
-			["address"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The postal addresses associated with this location.">
-				name = <"address">
-				type_def = <
-					container_type = <"List">
-					type = <"BaseAddress">
-				>
-				cardinality = <|>=0|>
-			>
 			["electronicContact"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"Contact information associated with this location - for instance, contact information to reserve the location.">
 				name = <"electronicContact">
@@ -607,49 +598,9 @@ The mime type for the communication. ">
 				name = <"status">
 				type = <"CODED_TEXT">
 			>
-			["mobileIndicator"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"An indicator of whether or not the location is mobile.">
-				name = <"mobileIndicator">
-				type = <"CODED_TEXT">
-			>
 			["directions"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"How to navigate to the location. May be context-sensitive.">
 				name = <"directions">
-				type = <"TEXT">
-			>
-			["position"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Description of the position of the location.">
-				name = <"position">
-				type = <"TEXT">
-			>
-			["gpsLocation"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The location's geospatial coordinates such as latitude and longitude.">
-				name = <"gpsLocation">
-				type = <"TEXT">
-			>
-			["pointOfCare"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The care setting at the location.">
-				name = <"pointOfCare">
-				type = <"TEXT">
-			>
-			["room"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The room at the specified location and floor - E.g., 10 West">
-				name = <"room">
-				type = <"TEXT">
-			>
-			["bed"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The bed at the specified location, floor, and room - E.g., 10 West Bed 2">
-				name = <"bed">
-				type = <"TEXT">
-			>
-			["floor"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The floor at the specified location.">
-				name = <"floor">
-				type = <"TEXT">
-			>
-			["building"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The building at the specified location.">
-				name = <"building">
 				type = <"TEXT">
 			>
 		>
@@ -1598,6 +1549,67 @@ WE SOLICIT COMMENTS FOR A BETTER DEFINITION.">
 				type_def = <
 					container_type = <"List">
 					type = <"Part">
+				>
+				cardinality = <|>=0|>
+			>
+		>
+	>
+	["HealthCareFacilityLocation"] = <
+		name = <"HealthCareFacilityLocation">
+		ancestors = <"GeographicalLocation",...>
+		properties = <
+			["pointOfCare"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The care setting at the location.">
+				name = <"pointOfCare">
+				type = <"TEXT">
+			>
+			["room"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The room at the specified location and floor - E.g., 10 West">
+				name = <"room">
+				type = <"TEXT">
+			>
+			["bed"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The bed at the specified location, floor, and room - E.g., 10 West Bed 2">
+				name = <"bed">
+				type = <"TEXT">
+			>
+			["floor"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The floor at the specified location.">
+				name = <"floor">
+				type = <"TEXT">
+			>
+			["building"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The building at the specified location.">
+				name = <"building">
+				type = <"TEXT">
+			>
+			["mobileIndicator"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"An indicator of whether or not the location is mobile.">
+				name = <"mobileIndicator">
+				type = <"CODED_TEXT">
+			>
+			["position"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Description of the position of the location.">
+				name = <"position">
+				type = <"TEXT">
+			>
+		>
+	>
+	["GeographicalLocation"] = <
+		name = <"GeographicalLocation">
+		ancestors = <"Location",...>
+		properties = <
+			["gpsLocation"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The location's geospatial coordinates such as latitude and longitude.">
+				name = <"gpsLocation">
+				type = <"TEXT">
+			>
+			["address"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The postal addresses associated with this location.">
+				name = <"address">
+				type_def = <
+					container_type = <"List">
+					type = <"BaseAddress">
 				>
 				cardinality = <|>=0|>
 			>
@@ -2923,9 +2935,9 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 		name = <"BaseAssertion">
 		ancestors = <"FindingTopic",...>
 		properties = <
-			["diagnosisDate"] = (P_BMM_SINGLE_PROPERTY) <
+			["dateAsserted"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Date and time the health problem was diagnosed. Added for Public Health Reporting Initiative, 10&#47;5&#47;2012.">
-				name = <"diagnosisDate">
+				name = <"dateAsserted">
 				type = <"DATE_TIME">
 			>
 			["verificationStatus"] = (P_BMM_SINGLE_PROPERTY) <
