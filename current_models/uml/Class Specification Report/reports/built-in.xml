@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<report>
+   <name>Built-in</name>
+   <description>A built-in class diagram data</description>
+   <defaultReport>true</defaultReport>
+   <variables>
+      <variable>
+         <name>CompanyName</name>
+         <description>A company's name</description>
+			<type/>	
+         <value xml:space="preserve">No Magic</value>
+      </variable>
+	  <variable>
+			<name>CompanyAddress</name>
+			<description>A company's address</description>
+			<type/>			
+			<value xml:space="preserve">One Allen Center, 700 Central Expressway South, Suite 110 Allen, Texas 75013 USA</value>
+	  </variable>	
+      <variable>
+         <name>Author</name>
+         <description>Author who edited document in this revision</description>
+			<type/>
+         <value xml:space="preserve">Author</value>
+      </variable>
+      <variable>
+         <name>DocumentTitle</name>
+         <description>A title of document that is shown on header of every page in document expect the first page.</description>
+			<type/>	
+         <value xml:space="preserve">Class Specification Report</value>
+      </variable>
+      <variable>
+         <name>Description</name>
+         <description>Document description</description>
+			<type/>
+         <value xml:space="preserve">Initial version created.</value>
+      </variable>
+      <variable>
+         <name>Revisions</name>
+         <variable>
+            <name>0.1</name>
+            <variable>
+               <name>date</name>
+               <description>Date that document was edited in this revision</description>
+					<type/>	
+               <value>&lt;date 1&gt;</value>
+            </variable>
+            <variable>
+               <name>author</name>
+               <description>Author who edited document in this revision</description>
+					<type/>	
+               <value>&lt;Author name&gt;</value>
+            </variable>
+            <variable>
+               <name>description</name>
+               <description>Description about this revision</description>
+					<type/>
+               <value>&lt;draft&gt;</value>
+            </variable>
+         </variable>
+         <variable>
+            <name>0.2</name>
+            <variable>
+               <name>date</name>
+               <description>Date that document was edited in this revision</description>
+					<type/>	
+               <value>&lt;date 2&gt;</value>
+            </variable>
+            <variable>
+               <name>author</name>
+               <description>Author who edited document in this revision</description>
+					<type/>	
+               <value>&lt;Author name&gt;</value>
+            </variable>
+            <variable>
+               <name>description</name>
+               <description>Description about this revision</description>
+					<type/>
+               <value>&lt;release&gt;</value>
+            </variable>
+         </variable>
+         <value/>
+      </variable>
+      <variable>
+         <name>Purpose</name>
+         <description>Describe the objective of this document</description>
+			<type/>	
+         <value xml:space="preserve">This document provides class, interface, and enumeration specification. The specification provides the details of the types being modeled within the system</value>
+      </variable>
+      <variable>
+         <name>Scope</name>
+         <description>Provide a short description of the system being specified and its purpose, including relevant benefits, objectives, and goals</description>
+			<type/>
+         <value xml:space="preserve">This document is intended to define class specification for the {System Name}.</value>
+      </variable>
+      <variable>
+         <name>Overview</name>
+         <description>Describe what the document contains and explain how the document is organized</description>
+			<type/>
+         <value xml:space="preserve">This document provides a list of all packages with a summary for each. Each package has a section that contains a list of its classes, interfaces and enumeration type, with a summary for each. Class and Interface contains description, summary tables, detailed member descriptions, and relation table.</value>
+      </variable>
+      <variable>
+         <name>Footer</name>
+         <description>Footer note that is show in footer section in every page expect the first page</description>
+			<type/>
+         <value xml:space="preserve">Confidential</value>
+      </variable>
+   </variables>
+   <selectedPackage>
+      <packageId></packageId>
+      <selectRecursive>true</selectRecursive>
+      <showAuxiliary>false</showAuxiliary>
+      <showOnlyPackageElement>true</showOnlyPackageElement>
+   </selectedPackage>
+   <outputProperty>
+      <outputFile></outputFile>
+      <outputImageFormat>jpg</outputImageFormat>
+      <outputFitImageSize>1</outputFitImageSize>
+      <outputOnBlankField/>
+      <displayInViewer>false</displayInViewer>
+      <outputFormat/>
+      <uploadProfile/>
+   </outputProperty>
+</report>

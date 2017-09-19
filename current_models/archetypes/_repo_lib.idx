@@ -1,0 +1,4 @@
+name = <"CIMI Core archetypes">
+short_name = <"CIMI-CORE">
+maintainer = <"CIMI">
+description = <"Core CIMI archetypes based on expanded reference model">
