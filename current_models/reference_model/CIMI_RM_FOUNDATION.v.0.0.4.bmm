@@ -12,7 +12,7 @@ rm_release = <"0.0.4">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Sat Dec 02 12:42:59 PST 2017">
+schema_revision = <"Sat Dec 02 19:23:27 PST 2017">
 schema_lifecycle_state = <"ForComment">
 schema_description = <"CIMI_RM_FOUNDATION.v0.0.4.mdzip - Schema generated from UML">
 
@@ -151,7 +151,7 @@ class_definitions = <
 			["rank"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Specifies a preferred order in which to use a set of contacts. Contacts are ranked with lower values coming before higher values.">
 				name = <"rank">
-				type = <"Integer">
+				type = <"IntegerType">
 			>
 			["periodOfUse"] = (P_BMM_GENERIC_PROPERTY) <
 				documentation = <"Time period when the contact point was&#47;is in use">
@@ -278,7 +278,7 @@ class_definitions = <
 			["jurisdiction"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The identity of the authoritative source for UDI generation within a jurisdiction. All UDIs are globally unique within a single namespace. with the appropriate repository uri as the system. For example, UDIs of devices managed in the U.S. by the FDA, the value is http:&#47;&#47;hl7.org&#47;fhir&#47;NamingSystem&#47;fda-udi.">
 				name = <"jurisdiction">
-				type = <"Uri">
+				type = <"UriType">
 			>
 			["carrierHrf"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The full UDI carrier as the human readable form (HRF) representation of the barcode string as printed on the packaging of the device.">
@@ -294,7 +294,7 @@ class_definitions = <
 			["issuer"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Organization that is charged with issuing UDIs for devices. For example, the US FDA issuers include : 1) GS1: http:&#47;&#47;hl7.org&#47;fhir&#47;NamingSystem&#47;gs1-di, 2) HIBCC: http:&#47;&#47;hl7.org&#47;fhir&#47;NamingSystem&#47;hibcc-dI, 3) ICCBBA for blood containers: http:&#47;&#47;hl7.org&#47;fhir&#47;NamingSystem&#47;iccbba-blood-di, 4) ICCBA for other devices: http:&#47;&#47;hl7.org&#47;fhir&#47;NamingSystem&#47;iccbba-other-di.">
 				name = <"issuer">
-				type = <"Uri">
+				type = <"UriType">
 			>
 			["entryType"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"A coded entry to indicate how the data was entered.">
@@ -330,9 +330,9 @@ class_definitions = <
 		name = <"Qualification">
 		ancestors = <"Locatable",...>
 		properties = <
-			["name"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The name of the qualification">
-				name = <"name">
+			["code"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Concept representing the type of qualification">
+				name = <"code">
 				type = <"Concept">
 				is_mandatory = <True>
 			>
@@ -446,12 +446,12 @@ class_definitions = <
 			["birthPlurality"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The number of babies resulting from a single pregnancy">
 				name = <"birthPlurality">
-				type = <"Integer">
+				type = <"IntegerType">
 			>
 			["birthOrder"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Integer indicating the sequence number of this birth.">
 				name = <"birthOrder">
-				type = <"Integer">
+				type = <"IntegerType">
 			>
 			["birthCertificateNumber"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The birth certificate number associated with this birth.">
@@ -543,7 +543,7 @@ class_definitions = <
 			["namespace"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The namespace in which the id is unique.">
 				name = <"namespace">
-				type = <"Uri">
+				type = <"UriType">
 			>
 			["id"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The identifier value. Often structured, according to the definition of the issuing authority’s rules.">
@@ -812,7 +812,7 @@ An ENTRY is also the minimal unit of information any query should return, since 
 			["url"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"A network address on which the device may be contacted directly.">
 				name = <"url">
-				type = <"Uri">
+				type = <"UriType">
 			>
 		>
 	>

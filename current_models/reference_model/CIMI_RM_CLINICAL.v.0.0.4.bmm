@@ -12,7 +12,7 @@ rm_release = <"0.0.4">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Sat Dec 02 12:42:59 PST 2017">
+schema_revision = <"Sat Dec 02 19:23:28 PST 2017">
 schema_lifecycle_state = <"ForComment">
 schema_description = <"CIMI_RM_CLINICAL.v0.0.4.mdzip - Schema generated from UML">
 
@@ -607,7 +607,7 @@ period = 24 hours">
 			["repeatCount"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Number of times to repeat">
 				name = <"repeatCount">
-				type = <"Integer">
+				type = <"IntegerType">
 			>
 		>
 	>
@@ -934,7 +934,7 @@ period = 24 hours">
 'An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does NOT include the original order dispense. This means that if an order indicates dispense 30 tablets plus '3 repeats', then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.' - HL7 FHIR, MedicationOrder.dispenseRequest.numberOfRepeatsAllowed
 'Number of refills authorized by the prescriber.' - NCPDP Telecommunication (Field 415-DF, Data Dictionary 201104). Note that while the NCPDP Telecommunication structure treats this field as a code, it contains a number from 0-99, where zero means no refills authorized, and 1-98 are the number of refills authorized, and 99 means unlimited refills authorized.">
 				name = <"numberOfRepeatsAllowed">
-				type = <"Integer">
+				type = <"IntegerType">
 			>
 			["expectedSupplyDuration"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.">
@@ -951,7 +951,7 @@ period = 24 hours">
 			["sequence"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The order of the dosage instructions">
 				name = <"sequence">
-				type = <"Integer">
+				type = <"IntegerType">
 				is_mandatory = <True>
 			>
 			["additionalInstructions"] = (P_BMM_CONTAINER_PROPERTY) <
@@ -1133,14 +1133,14 @@ period = 24 hours">
 			["numberOfRefillsOrDosesDispensed"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"'Number of refills remaining.' - HL7 Version 2.8, RXE-17.">
 				name = <"numberOfRefillsOrDosesDispensed">
-				type = <"Integer">
+				type = <"IntegerType">
 			>
 			["numberOfRefillsRemaining"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Indicates the number of times the order may be filled without additional authorization. It is calculated by substracting the number of fills already completed from the number of fills authorized by the prescriber.
 'This field is conditional because it is required when a prescription is dispensed to an outpatient. It is not relevant to inpatient treatment orders.' - HL7 Version 2.8, RXD-8.
 'Number of refills remaining.' - HL7 Version 2.8, RXE-16.">
 				name = <"numberOfRefillsRemaining">
-				type = <"Integer">
+				type = <"IntegerType">
 			>
 			["requestedAdministrationTime"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"Specifies when the service is to be performed and how frequently. Note that this is a complex data type that may indicate specific times or intervals (e.g., 10:00 AM, MWF, etc).">
@@ -1447,7 +1447,7 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 			["rank"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Ranking of the diagnosis (for each role type).">
 				name = <"rank">
-				type = <"Integer">
+				type = <"IntegerType">
 			>
 			["diagnosisCode"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Contains a code that most closely identifies the condition or the diagnosis. This code will come from one of several commonly used coding systems, depending on the branch of medicine involved (e.g., clinical medicine, dentistry, mental health), and on the purpose (e.g., clinical, billing). The code will likely come from one of the following: Structured Nomenclature for Medicine (SNOMED), International Classifications of Diseases (ICD), Diagnostic and Statistical Manual of Mental Disorders (DSM).">
@@ -2119,15 +2119,6 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 					generic_parameters = <"TemporalValue",...>
 				>
 			>
-			["interpretation"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"A clinical judgment about the significance of an evaluation result.
-
-Interpretation is used to clarify data from measurements and other evaluations. For example, if a measured analyte is greater than a predetermined threshold the interpretation could be Positive, or if a measurement is lower than a normal physiological range the interpretation could be low or critical low. Some values include normal, abnormal, panic high, panic low, ...
-
-Interpretation may also be used to indicate whether or not the result is outside the range for the patient.">
-				name = <"interpretation">
-				type = <"Concept">
-			>
 		>
 	>
 	["LaboratoryProcedure"] = <
@@ -2203,7 +2194,7 @@ NOTE: This element is not used for environmental specimens.">
 			["repetitionNumber"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The number of times that a collection was attempted for the Order related to this collection.">
 				name = <"repetitionNumber">
-				type = <"Integer">
+				type = <"IntegerType">
 			>
 			["sourceLocation"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Description of the specific position or point in physical space from where the specimen was collected.  
@@ -3007,7 +2998,13 @@ A finding must have both a key and a result.">
 				cardinality = <|>=0|>
 			>
 			["interpretation"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"A clinical judgment concerning the significance of an observation. This attribute refers to the entity being evaluated or interpreted, when an evaluation, interpretation or “judgment” is intrinsic to the meaning of a concept. This attribute is usually grouped with the | HAS INTERPRETATION | attribute.">
+				documentation = <"A clinical judgment concerning the significance of an observation. This attribute refers to the entity being evaluated or interpreted, when an evaluation, interpretation or “judgment” is intrinsic to the meaning of a concept. This attribute is usually grouped with the | HAS INTERPRETATION | attribute.
+
+A clinical judgment about the significance of an evaluation result.
+
+Interpretation is used to clarify data from measurements and other evaluations. For example, if a measured analyte is greater than a predetermined threshold the interpretation could be Positive, or if a measurement is lower than a normal physiological range the interpretation could be low or critical low. Some values include normal, abnormal, panic high, panic low, ...
+
+Interpretation may also be used to indicate whether or not the result is outside the range for the patient.">
 				name = <"interpretation">
 				type_def = <
 					container_type = <"List">
@@ -3225,7 +3222,7 @@ NOTE: This attribute is only needed in certain domains, for example in bio-banki
 			["numberOfContainers"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Numeric value used to verify receipt of specimens.">
 				name = <"numberOfContainers">
-				type = <"Integer">
+				type = <"IntegerType">
 			>
 			["childRole"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Coded representation of the purpose or role of a derived specimen with respect to its parent.  
@@ -3246,7 +3243,7 @@ EXAMPLE(S): Based on a time interval calculated from the collection time">
 
 Example: Samples from 25 animals in a cattle herd are collected.">
 				name = <"groupCount">
-				type = <"Integer">
+				type = <"IntegerType">
 			>
 			["collectionProcedure"] = (P_BMM_GENERIC_PROPERTY) <
 				documentation = <"Information about the collection procedure performed to obtain the specimen.">
@@ -3634,7 +3631,7 @@ The activity attribute should be used when attribution appears in a collection t
 				name = <"policy">
 				type_def = <
 					container_type = <"List">
-					type = <"Uri">
+					type = <"UriType">
 				>
 				cardinality = <|>=0|>
 			>

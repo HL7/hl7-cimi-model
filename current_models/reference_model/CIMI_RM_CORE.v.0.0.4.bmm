@@ -12,7 +12,7 @@ rm_release = <"0.0.4">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Sat Dec 02 12:42:59 PST 2017">
+schema_revision = <"Sat Dec 02 19:23:27 PST 2017">
 schema_lifecycle_state = <"ForComment">
 schema_description = <"CIMI_RM_CORE.v0.0.4.mdzip - Schema generated from UML">
 
@@ -31,7 +31,7 @@ packages = <
 			>
 			["DataType"] = <
 				name = <"DataType">
-				classes = <"NumericalValue", "CodedText", "Integer", "DataType", "Date", "TemporalValue", "Duration", "EmbeddedContent", "IntervalValue", "Multimedia", "OrdinalConcept", "ParsableContent", "PlainText", "OrderedValue", "Quantity", "TermMapping", "Text", "Time", "Uri", "Instant", "PositiveInteger", "UnsignedInteger", "Ratio", "Concept", "CodeSystem", "GpsLocation", "DateTime", "Decimal">
+				classes = <"NumericalValue", "CodedText", "IntegerType", "DataType", "Date", "TemporalValue", "Duration", "EmbeddedContent", "IntervalValue", "Multimedia", "OrdinalConcept", "ParsableContent", "PlainText", "OrderedValue", "Quantity", "TermMapping", "Text", "Time", "UriType", "Instant", "PositiveInteger", "UnsignedInteger", "Ratio", "Concept", "CodeSystem", "GpsLocation", "DateTime", "Decimal">
 			>
 			["Primitive_Types"] = <
 				name = <"Primitive_Types">
@@ -120,11 +120,11 @@ Misuse: If the intention is to represent a term code attached in some way to a f
 			>
 		>
 	>
-	["Integer"] = <
+	["IntegerType"] = <
 		documentation = <"Countable quantities. Used for countable types such as pregnancies and steps (taken by a physiotherapy patient), number of cigarettes smoked in a day.
 
 Misuse: Not to be used for amounts of physical entities (which all have units).">
-		name = <"Integer">
+		name = <"IntegerType">
 		ancestors = <"NumericalValue",...>
 		properties = <
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
@@ -259,7 +259,7 @@ The basic semantics are derived from the class Interval&lt;T&gt;, described in t
 			["resourceIdentifier"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"URI reference to electronic information stored outside the record as a file, database entry etc, if supplied as a reference.">
 				name = <"resourceIdentifier">
-				type = <"Uri">
+				type = <"UriType">
 			>
 		>
 	>
@@ -402,9 +402,9 @@ Used for recording real world times, rather than scientifically measured fine am
 		name = <"Time">
 		ancestors = <"TemporalValue",...>
 	>
-	["Uri"] = <
+	["UriType"] = <
 		documentation = <"A reference to an object which conforms to the Universal Resource Identifier (URI) standard. See 'Universal Resource Identifiers in WWW' by Tim Berners-Lee at http:&#47;&#47;www.ietf.org&#47;rfc&#47;rfc3986.txt. This is a World-Wide Web RFC for global identification of resources. See http:&#47;&#47;www.w3.org&#47;Addressing for a starting point on URIs.">
-		name = <"Uri">
+		name = <"UriType">
 		ancestors = <"DataType",...>
 		properties = <
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
@@ -428,7 +428,7 @@ Used for recording real world times, rather than scientifically measured fine am
 	["UnsignedInteger"] = <
 		documentation = <"An integer whose value is greater or equal to zero.">
 		name = <"UnsignedInteger">
-		ancestors = <"Integer",...>
+		ancestors = <"IntegerType",...>
 	>
 	["Ratio"] = <
 		documentation = <"A parameterizable ratio.">
@@ -478,7 +478,7 @@ Used for recording real world times, rather than scientifically measured fine am
 			>
 			["conceptUri"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"conceptUri">
-				type = <"Uri">
+				type = <"UriType">
 			>
 			["displayTerm"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"The preferred textual rendition of the code attribute.">
@@ -507,7 +507,7 @@ Used for recording real world times, rather than scientifically measured fine am
 			>
 			["uri"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"uri">
-				type = <"Uri">
+				type = <"UriType">
 			>
 		>
 	>
