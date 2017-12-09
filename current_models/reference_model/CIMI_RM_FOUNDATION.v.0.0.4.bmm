@@ -12,7 +12,7 @@ rm_release = <"0.0.4">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Sat Dec 02 19:23:27 PST 2017">
+schema_revision = <"Sat Dec 09 13:18:37 PST 2017">
 schema_lifecycle_state = <"ForComment">
 schema_description = <"CIMI_RM_FOUNDATION.v0.0.4.mdzip - Schema generated from UML">
 
@@ -71,7 +71,7 @@ class_definitions = <
 				type = <"Concept">
 			>
 			["addressAsText"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Unstructured address when a structured address is not obtainable or for system that cannot process structured addresses.">
+				documentation = <"Unstructured address when a structured address is not obtainable or for systems that cannot process structured addresses.">
 				name = <"addressAsText">
 				type = <"PlainText">
 			>
@@ -304,7 +304,7 @@ class_definitions = <
 		>
 	>
 	["Occupation"] = <
-		documentation = <"An association between a person and a kind of job that the person has held.">
+		documentation = <"Describes the kind of job a person has held.">
 		name = <"Occupation">
 		ancestors = <"Locatable",...>
 		properties = <
@@ -315,13 +315,22 @@ class_definitions = <
 				is_mandatory = <True>
 			>
 			["category"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The job category, such as retail, banking, construction, or healthcare ontologist. ">
 				name = <"category">
 				type = <"Concept">
 			>
-			["years"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Years performing this occupation.">
-				name = <"years">
+			["durationInOccupation"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Duration of time performing this occupation such as 3 years, 16 months.">
+				name = <"durationInOccupation">
 				type = <"Duration">
+			>
+			["periodInOccupation"] = (P_BMM_GENERIC_PROPERTY) <
+				documentation = <"Period of time in occupation.">
+				name = <"periodInOccupation">
+				type_def = <
+					root_type = <"IntervalValue">
+					generic_parameters = <"Date",...>
+				>
 			>
 		>
 	>
@@ -341,15 +350,15 @@ class_definitions = <
 				name = <"level">
 				type = <"Concept">
 			>
-			["issuingInstitution"] = (P_BMM_SINGLE_PROPERTY) <
+			["issuingOrganization"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The organization responsible for issuing the qualification.">
-				name = <"issuingInstitution">
+				name = <"issuingOrganization">
 				type = <"Organization">
 			>
-			["issuingCountry"] = (P_BMM_SINGLE_PROPERTY) <
+			["issuingEntityUri"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The issuing country where the qualification is valid.">
-				name = <"issuingCountry">
-				type = <"Concept">
+				name = <"issuingEntityUri">
+				type = <"UriType">
 				is_mandatory = <True>
 			>
 			["dateIssued"] = (P_BMM_SINGLE_PROPERTY) <
@@ -373,9 +382,9 @@ class_definitions = <
 		name = <"Residency">
 		ancestors = <"Locatable",...>
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Residency code.">
-				name = <"value">
+			["region"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The country or state of residence.">
+				name = <"region">
 				type = <"Concept">
 				is_mandatory = <True>
 			>
@@ -465,9 +474,9 @@ class_definitions = <
 		name = <"Citizenship">
 		ancestors = <"Locatable",...>
 		properties = <
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
+			["country"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Code representing the country of citizenship.">
-				name = <"value">
+				name = <"country">
 				type = <"Concept">
 				is_mandatory = <True>
 			>
@@ -501,10 +510,10 @@ class_definitions = <
 				name = <"ageAtDeath">
 				type = <"Duration">
 			>
-			["recorded"] = (P_BMM_SINGLE_PROPERTY) <
+			["recordedBy"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Identifier for the entity that provided information about the deceased status of the person.">
-				name = <"recorded">
-				type = <"TemporalValue">
+				name = <"recordedBy">
+				type = <"Identifier">
 			>
 			["deathAddress"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Address where the patient expired.">
@@ -534,11 +543,15 @@ class_definitions = <
 				type = <"Concept">
 				is_mandatory = <True>
 			>
-			["issuer"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"URI of issuing entity that assigned the id to the item being identified.">
-				name = <"issuer">
+			["issuingOrganization"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Organization that assigned the id to the item being identified.">
+				name = <"issuingOrganization">
 				type = <"Organization">
-				is_mandatory = <True>
+			>
+			["issuingEntityUri"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"URI of the issuing entity when the issuing entity is not an organization.">
+				name = <"issuingEntityUri">
+				type = <"UriType">
 			>
 			["namespace"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The namespace in which the id is unique.">
@@ -554,6 +567,7 @@ class_definitions = <
 		>
 	>
 	["Identifier"] = <
+		documentation = <"Base class representing an identifier scheme.">
 		name = <"Identifier">
 	>
 	["Accreditation"] = <
@@ -592,9 +606,8 @@ class_definitions = <
 		ancestors = <"Locatable",...>
 	>
 	["Entry"] = <
-		documentation = <"An ENTRY is the minimal unit of logical  information or knowledge documented within a composition such as a clinical statement in a patient record, a knowledge entry in a knowledge artifact, a product in a product catalog, etc...
+		documentation = <"An ENTRY is the minimal unit of logical information or knowledge documented within a composition such as a clinical statement in a patient record, a knowledge entry in a knowledge artifact, a product in a product catalog, etc...
 
-An ENTRY is also the minimal unit of information any query should return, since a whole ENTRY (including subparts) records spatial structure, timing information, and contextual information, as well as the subject and generator of the information.
 ">
 		name = <"Entry">
 		ancestors = <"Content",...>
@@ -702,17 +715,19 @@ An ENTRY is also the minimal unit of information any query should return, since 
 				type = <"Concept">
 			>
 			["birth"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Information about the birth of the person.">
 				name = <"birth">
 				type = <"BirthData">
 			>
 			["death"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Information about the death of the person.">
 				name = <"death">
 				type = <"DeathData">
 			>
 		>
 	>
 	["Organization"] = <
-		documentation = <"An organization">
+		documentation = <"A description of a social or legal structure formed by human beings. ">
 		name = <"Organization">
 		ancestors = <"Entity",...>
 		properties = <
@@ -775,10 +790,6 @@ An ENTRY is also the minimal unit of information any query should return, since 
 				type = <"Concept">
 				is_mandatory = <True>
 			>
-			["udi"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"udi">
-				type = <"UniqueDeviceIdentifier">
-			>
 			["lotNumber"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Lot number assigned by the manufacturer.">
 				name = <"lotNumber">
@@ -822,7 +833,7 @@ An ENTRY is also the minimal unit of information any query should return, since 
 		ancestors = <"Person",...>
 		properties = <
 			["race"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The race code associated with this person.">
+				documentation = <"A subjective association of a person with a named category of humans sharing common history, traits, place of origin, or other inherited background. (US only) The race code associated with this person.">
 				name = <"race">
 				type_def = <
 					container_type = <"List">
@@ -831,7 +842,7 @@ An ENTRY is also the minimal unit of information any query should return, since 
 				cardinality = <|>=0|>
 			>
 			["ethnicity"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The ethnicity of the person.">
+				documentation = <"Identification with or belonging to a social group that has a common national or cultural tradition. (US only) An indicator of Hispanic or Latino origin.">
 				name = <"ethnicity">
 				type_def = <
 					container_type = <"List">
@@ -877,7 +888,7 @@ An ENTRY is also the minimal unit of information any query should return, since 
 				cardinality = <|>=0|>
 			>
 			["disability"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Disability status">
+				documentation = <"A physical or mental impairment that substantially limits one or more major life activity, for example, caring for oneself, performing manual tasks, seeing, hearing, eating, sleeping, walking, etc. ">
 				name = <"disability">
 				type_def = <
 					container_type = <"List">
@@ -894,14 +905,8 @@ An ENTRY is also the minimal unit of information any query should return, since 
 				>
 				cardinality = <|>=0|>
 			>
-			["familyMember"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"familyMember">
-				type_def = <
-					root_type = <"PartyAssociation">
-					generic_parameters = <"Person",...>
-				>
-			>
 			["language"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The language(s) spoken by the individual.">
 				name = <"language">
 				type_def = <
 					container_type = <"List">
@@ -912,8 +917,7 @@ An ENTRY is also the minimal unit of information any query should return, since 
 		>
 	>
 	["Location"] = <
-		documentation = <"Data structure representing a geographical location such as a location on a map or a location inside a facility.
-">
+		documentation = <"A description of a location in terms of who to contact at the location, and activities that may take place at the location. The subclasses of Location, GeographicalLocation and HealthCareFacilityLocation, define the actual location of the Location.">
 		name = <"Location">
 		ancestors = <"Entity",...>
 		properties = <
@@ -962,16 +966,21 @@ An ENTRY is also the minimal unit of information any query should return, since 
 		>
 	>
 	["GeographicalLocation"] = <
+		documentation = <"A position, site, point in space, or polygon, designated either by altitude, latitude, and longitude or a postal address, and may be navigated to via directions.">
 		name = <"GeographicalLocation">
 		ancestors = <"Location",...>
 		properties = <
-			["gpsLocation"] = (P_BMM_SINGLE_PROPERTY) <
+			["gpsLocation"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"The location's geospatial coordinates such as latitude and longitude.">
 				name = <"gpsLocation">
-				type = <"GpsLocation">
+				type_def = <
+					container_type = <"List">
+					type = <"GpsLocation">
+				>
+				cardinality = <|>=0|>
 			>
 			["address"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The postal addresses associated with this location.">
+				documentation = <"The postal address associated with this location.">
 				name = <"address">
 				type = <"Address">
 			>
