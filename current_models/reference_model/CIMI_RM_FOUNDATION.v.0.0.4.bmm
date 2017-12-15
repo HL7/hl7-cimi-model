@@ -12,8 +12,8 @@ rm_release = <"0.0.4">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Sat Dec 09 13:18:37 PST 2017">
-schema_lifecycle_state = <"ForComment">
+schema_revision = <"Thu Dec 14 17:20:59 PST 2017">
+schema_lifecycle_state = <"Informative">
 schema_description = <"CIMI_RM_FOUNDATION.v0.0.4.mdzip - Schema generated from UML">
 
 
@@ -559,7 +559,7 @@ class_definitions = <
 				type = <"UriType">
 			>
 			["id"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The identifier value. Often structured, according to the definition of the issuing authority’s rules.">
+				documentation = <"The identifier value. Often structured, according to the definition of the issuing authority's rules.">
 				name = <"id">
 				type = <"String">
 				is_mandatory = <True>
@@ -811,7 +811,7 @@ class_definitions = <
 				type = <"DateTime">
 			>
 			["model"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The 'model' is an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.">
+				documentation = <"The &quot;model&quot; is an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.">
 				name = <"model">
 				type = <"PlainText">
 			>

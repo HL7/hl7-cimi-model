@@ -12,8 +12,8 @@ rm_release = <"0.0.4">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Sat Dec 09 13:18:37 PST 2017">
-schema_lifecycle_state = <"ForComment">
+schema_revision = <"Thu Dec 14 17:20:59 PST 2017">
+schema_lifecycle_state = <"Informative">
 schema_description = <"CIMI_RM_CLINICAL.v0.0.4.mdzip - Schema generated from UML">
 
 
@@ -844,7 +844,7 @@ A clinical statement is composed of the StatementTopic class (grouping of attrib
 		>
 	>
 	["FamilyMembership"] = <
-		documentation = <"A role played in the subject’s family, such as parent or sibling. Family members do not have to be related by blood, and can include social connections subjectively recognized by the subject as “family”.  ">
+		documentation = <"A role played in the subject's family, such as parent or sibling. Family members do not have to be related by blood, and can include social connections subjectively recognized by the subject as &quot;family&quot;.">
 		name = <"FamilyMembership">
 		ancestors = <"Role",...>
 	>
@@ -944,7 +944,7 @@ A clinical statement is composed of the StatementTopic class (grouping of attrib
 				is_mandatory = <True>
 			>
 			["additionalInstructions"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Supplemental instructions to the patient on how to take the medication (e.g. 'with meals' or 'take half to one hour before food') or warnings for the patient about the medication (e.g. 'may cause drowsiness' or 'avoid exposure of skin to direct sunlight or sunlamps').">
+				documentation = <"Supplemental instructions to the patient on how to take the medication (e.g. &quot;with meals&quot; or &quot;take half to one hour before food&quot;) or warnings for the patient about the medication (e.g. &quot;may cause drowsiness&quot; or &quot;avoid exposure of skin to direct sunlight or sunlamps&quot;).">
 				name = <"additionalInstructions">
 				type_def = <
 					container_type = <"List">
@@ -967,7 +967,7 @@ A clinical statement is composed of the StatementTopic class (grouping of attrib
 				type = <"Timing">
 			>
 			["asNeeded"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Take 'as needed' (for x)">
+				documentation = <"Take &quot;as needed&quot; (for x)">
 				name = <"asNeeded">
 				type = <"Concept">
 			>
@@ -1070,7 +1070,7 @@ A clinical statement is composed of the StatementTopic class (grouping of attrib
 				type = <"Concept">
 			>
 			["pharmacyOrderSetting"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'Indicates where type of medication order and where the medication is expected to be consumed or administered.' - HL7 FHIR, MedicationOrder.category Possible values include: Inpatient, Outpatient, Community">
+				documentation = <"&quot;Indicates where type of medication order and where the medication is expected to be consumed or administered.&quot; - HL7 FHIR, MedicationOrder.category Possible values include: Inpatient, Outpatient, Community">
 				name = <"pharmacyOrderSetting">
 				type = <"Concept">
 			>
@@ -1092,7 +1092,7 @@ A clinical statement is composed of the StatementTopic class (grouping of attrib
 				type = <"TemporalValue">
 			>
 			["isHospitalSupplySelfAdministered"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"A flag indicating that the medication given to the patient is to be self-administered and is to be supplied by the hospital’s pharmacy while they are an inpatient.">
+				documentation = <"A flag indicating that the medication given to the patient is to be self-administered and is to be supplied by the hospital's pharmacy while they are an inpatient.">
 				name = <"isHospitalSupplySelfAdministered">
 				type = <"Concept">
 			>
@@ -1136,16 +1136,16 @@ A clinical statement is composed of the StatementTopic class (grouping of attrib
 				type = <"Duration">
 			>
 			["scheduleType"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'This describes the type of schedule for the dispensing of the medication(s) that make up the order. PRE-OP orders are usually considered to be ON-CALL orders, and orders dispensed as MULTI-DOSE CONTAINERS are usually considered to be FILL ON REQUEST orders. C=Continuous, O=One Time, P=PRN, R=Fill On Request, OC=On Call.' (VistA)">
+				documentation = <"&quot;This describes the type of schedule for the dispensing of the medication(s) that make up the order. PRE-OP orders are usually considered to be ON-CALL orders, and orders dispensed as MULTI-DOSE CONTAINERS are usually considered to be FILL ON REQUEST orders. C=Continuous, O=One Time, P=PRN, R=Fill On Request, OC=On Call.&quot; (VistA)">
 				name = <"scheduleType">
 				type = <"Concept">
 			>
 			["substitution"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"If the Pharmacist has changed the kind of medication to be dispensed to the patient from the one originally ordered by the prescriber, this property provides a categorization of the kind of substitution that was made.
-'Refer to HL7 Table 0167 - Substitution Status in Chapter 2C for suggested values.' - HL7 Version 2.8, RXD-11.
-'Refer to HL7 Table 0167 - Substitution Status in Chapter 2C for suggested values.' - HL7 Version 2.8, RXE-9.
-'Product&#47;Service Substitution, coded' - NCPDP Script (Field 4457, Data Dictionary 201104)
-'Code indicating whether or not the prescriber’s instructions regarding generic substitution were followed.' - NCPDP Telecommunication (Field 408-D8, Data Dictionary 201104).
+&quot;Refer to HL7 Table 0167 - Substitution Status in Chapter 2C for suggested values.&quot; - HL7 Version 2.8, RXD-11.
+&quot;Refer to HL7 Table 0167 - Substitution Status in Chapter 2C for suggested values.&quot; - HL7 Version 2.8, RXE-9.
+&quot;Product&#47;Service Substitution, coded&quot; - NCPDP Script (Field 4457, Data Dictionary 201104)
+&quot;Code indicating whether or not the prescriber's instructions regarding generic substitution were followed.&quot; - NCPDP Telecommunication (Field 408-D8, Data Dictionary 201104).
 
 -----
 Possible values include (from HL7 Table 167): 
@@ -1175,7 +1175,7 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 				type = <"SubstitutionInformation">
 			>
 			["totalDailyDose"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'The total daily dose for this particular pharmaceutical as expressed in terms of actual dispense units.' - HL7 Version 2.8, RXE-19.">
+				documentation = <"&quot;The total daily dose for this particular pharmaceutical as expressed in terms of actual dispense units.&quot; - HL7 Version 2.8, RXE-19.">
 				name = <"totalDailyDose">
 				type = <"Quantity">
 			>
@@ -1334,7 +1334,7 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 				type = <"Concept">
 			>
 			["patientStatus"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'Indicates the status of the episode of care.' - HL7 Version 2.8, PV2-24. Possible values include (from HL7 Table 216): Active Inpatient; Discharged Inpatient.">
+				documentation = <"&quot;Indicates the status of the episode of care.&quot; - HL7 Version 2.8, PV2-24. Possible values include (from HL7 Table 216): Active Inpatient; Discharged Inpatient.">
 				name = <"patientStatus">
 				type = <"Concept">
 			>
@@ -1449,7 +1449,7 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 				>
 			>
 			["role"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …).">
+				documentation = <"Role that this diagnosis has within the encounter (e.g. admission, billing, discharge ...).">
 				name = <"role">
 				type = <"Concept">
 			>
@@ -1461,7 +1461,7 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 		ancestors = <"ProcedureTopic",...>
 		properties = <
 			["disposition"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Contains the patient's anticipated location or status following the encounter (i.e., discharged to home, expired, etc.). In the US, use the Official Uniform Billing (UB) 04 2008 numeric codes found on form locator 17. Note that while the encounter is still 'active' (i.e., the encounter does not have an end date yet) this attribute should be interpreted as the expected discharge disposition. When the encounter is 'completed' this attribute contains the actual discharge disposition.">
+				documentation = <"Contains the patient's anticipated location or status following the encounter (i.e., discharged to home, expired, etc.). In the US, use the Official Uniform Billing (UB) 04 2008 numeric codes found on form locator 17. Note that while the encounter is still &quot;active&quot; (i.e., the encounter does not have an end date yet) this attribute should be interpreted as the expected discharge disposition. When the encounter is &quot;completed&quot; this attribute contains the actual discharge disposition.">
 				name = <"disposition">
 				type = <"Concept">
 			>
@@ -1488,7 +1488,7 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 				type = <"Text">
 			>
 			["dischargeFromLocation"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'The location to which the patient is assigned. It is a role played by a place at which services may be provided. Note that a single physical place can play multiple service delivery location roles each with its own attributes. For example, a Podiatry clinic and Research clinic may meet on alternate days in the same physical location; each clinic uses its own mailing address and telephone number.' (HL7)">
+				documentation = <"&quot;The location to which the patient is assigned. It is a role played by a place at which services may be provided. Note that a single physical place can play multiple service delivery location roles each with its own attributes. For example, a Podiatry clinic and Research clinic may meet on alternate days in the same physical location; each clinic uses its own mailing address and telephone number.&quot; (HL7)">
 				name = <"dischargeFromLocation">
 				type = <"Location">
 			>
@@ -1534,13 +1534,13 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 				type = <"Identifier">
 			>
 			["accountStatus"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'Contains the account status.' - HL7 Version 2.8, PV1-41. Note that HL7 does not suggest any values for this code (in User-defined Table 117).">
+				documentation = <"&quot;Contains the account status.&quot; - HL7 Version 2.8, PV1-41. Note that HL7 does not suggest any values for this code (in User-defined Table 117).">
 				name = <"accountStatus">
 				type = <"Concept">
 			>
 			["alternateVisitId"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"'Contains the alternative, temporary, or pending optional visit ID number to be used if needed. Multiple alternate identifiers may be sent.' - HL7 Version 2.8, PV1-50
-Uniquely identifies this patient visit using an identification scheme other than the one used for the 'id' property. This allows for different systems or organizations to assign different identifiers to the same visit.">
+				documentation = <"&quot;Contains the alternative, temporary, or pending optional visit ID number to be used if needed. Multiple alternate identifiers may be sent.&quot; - HL7 Version 2.8, PV1-50
+Uniquely identifies this patient visit using an identification scheme other than the one used for the &quot;id&quot; property. This allows for different systems or organizations to assign different identifiers to the same visit.">
 				name = <"alternateVisitId">
 				type_def = <
 					container_type = <"List">
@@ -1549,13 +1549,13 @@ Uniquely identifies this patient visit using an identification scheme other than
 				cardinality = <|>=0|>
 			>
 			["ambulatoryStatus"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'Indicates any permanent or transient handicapped conditions.' - HL7 Version 2.8, PV1-15.
+				documentation = <"&quot;Indicates any permanent or transient handicapped conditions.&quot; - HL7 Version 2.8, PV1-15.
 Possible values include (from HL7 V2 Table 9): No functional limitations; Ambulates with assistive device; Wheelchair&#47;stretcher bound; Comatose - non-responsive; Disoriented; Vision impaired; Hearing impaired; Speech impaired; Non-English speaking; Functional level unknown; Oxygen therapy; Special equipment (tubes, IVs, catheters); Amputee; Mastectomy; Paraplegic; Pregnant.">
 				name = <"ambulatoryStatus">
 				type = <"Concept">
 			>
 			["chargePriceIndicator"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'Contains the code used to determine which price schedule is to be used for room and bed charges.' - HL7 Version 2.8, PV1-21. Note that HL7 does not suggest any values for this code (in User-defined Table 32).">
+				documentation = <"&quot;Contains the code used to determine which price schedule is to be used for room and bed charges.&quot; - HL7 Version 2.8, PV1-21. Note that HL7 does not suggest any values for this code (in User-defined Table 32).">
 				name = <"chargePriceIndicator">
 				type = <"Concept">
 			>
@@ -1570,17 +1570,17 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 				type = <"Concept">
 			>
 			["financialClass"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'Contains the financial class(es) assigned to the patient for the purpose of identifying sources of reimbursement.' - HL7 Version 2.8, PV1-20 Note that HL7 does not suggest any values for this code (in User-defined Table 64).">
+				documentation = <"&quot;Contains the financial class(es) assigned to the patient for the purpose of identifying sources of reimbursement.&quot; - HL7 Version 2.8, PV1-20 Note that HL7 does not suggest any values for this code (in User-defined Table 64).">
 				name = <"financialClass">
 				type = <"Concept">
 			>
 			["hospitalService"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'Contains the treatment or type of surgery that the patient is scheduled to receive.' - HL7 Version 2.8, PV1-10. Possible Values (from HL7 Table 69) include: Cardiac Service, Medical Service, Pulmonary Service, Surgical Service, Urology Service.">
+				documentation = <"&quot;Contains the treatment or type of surgery that the patient is scheduled to receive.&quot; - HL7 Version 2.8, PV1-10. Possible Values (from HL7 Table 69) include: Cardiac Service, Medical Service, Pulmonary Service, Surgical Service, Urology Service.">
 				name = <"hospitalService">
 				type = <"Concept">
 			>
 			["isEmploymentRelated"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'Specifies whether a patient's illness was job-related.' - HL7 Version 2.8, PV2-15">
+				documentation = <"&quot;Specifies whether a patient's illness was job-related.&quot; - HL7 Version 2.8, PV2-15">
 				name = <"isEmploymentRelated">
 				type = <"Concept">
 			>
@@ -1590,22 +1590,22 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 				type = <"Concept">
 			>
 			["patientClass"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'This field is used by systems to categorize patients by site. It does not have a consistent industry-wide definition. It is subject to site specific variations.' - HL7 Version 2.8, PV1-2. HL7 Version 2 has the following suggested values (table 4): Emergency; Inpatient; Outpatient; Preadmit; Recurring patient; Obstetrics; Commercial Account; Not Applicable; Unknown.">
+				documentation = <"&quot;This field is used by systems to categorize patients by site. It does not have a consistent industry-wide definition. It is subject to site specific variations.&quot; - HL7 Version 2.8, PV1-2. HL7 Version 2 has the following suggested values (table 4): Emergency; Inpatient; Outpatient; Preadmit; Recurring patient; Obstetrics; Commercial Account; Not Applicable; Unknown.">
 				name = <"patientClass">
 				type = <"Concept">
 			>
 			["patientType"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'Contains site-specific values that identify the patient type.' - HL7 Version 2.8, PV1-18 Note that HL7 does not suggest any values for this code (in User-defined Table 18).">
+				documentation = <"&quot;Contains site-specific values that identify the patient type.&quot; - HL7 Version 2.8, PV1-18 Note that HL7 does not suggest any values for this code (in User-defined Table 18).">
 				name = <"patientType">
 				type = <"Concept">
 			>
 			["previousServiceDate"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'Contains the date of previous service for the same recurring condition. This may be a required field for billing certain illnesses (e.g., accident related) to a third party.' - HL7 Version 2.8, PV2-14.">
+				documentation = <"&quot;Contains the date of previous service for the same recurring condition. This may be a required field for billing certain illnesses (e.g., accident related) to a third party.&quot; - HL7 Version 2.8, PV2-14.">
 				name = <"previousServiceDate">
 				type = <"TemporalValue">
 			>
 			["publicityCode"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'Contains a user-defined code indicating what level of publicity is allowed for a specific visit.' - HL7 Version 2.8, PV2-21. Possible values include (from HL7 V2 Table 215): Family only; No Publicity; Other; Unknown.">
+				documentation = <"&quot;Contains a user-defined code indicating what level of publicity is allowed for a specific visit.&quot; - HL7 Version 2.8, PV2-21. Possible values include (from HL7 V2 Table 215): Family only; No Publicity; Other; Unknown.">
 				name = <"publicityCode">
 				type = <"Concept">
 			>
@@ -1624,7 +1624,7 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 				type = <"Concept">
 			>
 			["servicingFacility"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'This field is used in a multiple facility environment, e.g., multiple campuses or buildings, to indicate the healthcare facility with which this visit is associated.' - HL7 Version 2.8, PV1-39. Note that HL7 does not suggest any values for this code (in User-defined Table 115).">
+				documentation = <"&quot;This field is used in a multiple facility environment, e.g., multiple campuses or buildings, to indicate the healthcare facility with which this visit is associated.&quot; - HL7 Version 2.8, PV1-39. Note that HL7 does not suggest any values for this code (in User-defined Table 115).">
 				name = <"servicingFacility">
 				type = <"Concept">
 			>
@@ -1638,7 +1638,7 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 				cardinality = <|>=0|>
 			>
 			["specialCourtesy"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"'Indicates whether the patient will be extended certain special courtesies.' - HL7 Version 2.8, PV1-22. Note that HL7 does not suggest any values for this code (in User-defined Table 45).">
+				documentation = <"&quot;Indicates whether the patient will be extended certain special courtesies.&quot; - HL7 Version 2.8, PV1-22. Note that HL7 does not suggest any values for this code (in User-defined Table 45).">
 				name = <"specialCourtesy">
 				type_def = <
 					container_type = <"List">
@@ -1656,28 +1656,28 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 				cardinality = <|>=0|>
 			>
 			["assignedPatientLocation"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'This field contains the patient's initial assigned location or the location to which the patient is being moved. The first component may be the nursing station for inpatient locations, or clinic or department, for locations other than inpatient. For canceling a transaction or discharging a patient, the current location (after the cancellation event or before the discharge event) should be in this field.' - HL7 Version 2.8, PV1-3">
+				documentation = <"&quot;This field contains the patient's initial assigned location or the location to which the patient is being moved. The first component may be the nursing station for inpatient locations, or clinic or department, for locations other than inpatient. For canceling a transaction or discharging a patient, the current location (after the cancellation event or before the discharge event) should be in this field.&quot; - HL7 Version 2.8, PV1-3">
 				name = <"assignedPatientLocation">
 				type = <"Location">
 			>
 			["pendingLocation"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"	
-'Indicates the point of care, room, bed, healthcare facility ID, and bed status to which the patient may be moved. The first component may be the nursing station for inpatient locations, or the clinic, department, or home for locations other than inpatient.' - HL7 Version 2.8, PV1-42">
+&quot;Indicates the point of care, room, bed, healthcare facility ID, and bed status to which the patient may be moved. The first component may be the nursing station for inpatient locations, or the clinic, department, or home for locations other than inpatient.&quot; - HL7 Version 2.8, PV1-42">
 				name = <"pendingLocation">
 				type = <"Location">
 			>
 			["serviceDeliveryLocation"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'The location to which the patient is assigned. It is a role played by a place at which services may be provided. Note that a single physical place can play multiple service delivery location roles each with its own attributes. For example, a Podiatry clinic and Research clinic may meet on alternate days in the same physical location; each clinic uses its own mailing address and telephone number.' (HL7)">
+				documentation = <"&quot;The location to which the patient is assigned. It is a role played by a place at which services may be provided. Note that a single physical place can play multiple service delivery location roles each with its own attributes. For example, a Podiatry clinic and Research clinic may meet on alternate days in the same physical location; each clinic uses its own mailing address and telephone number.&quot; (HL7)">
 				name = <"serviceDeliveryLocation">
 				type = <"Location">
 			>
 			["temporaryLocation"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'Contains a location other than the assigned location required for a temporary period of time (e.g., OR, operating theatre, etc.).' - HL7 Version 2.8, PV1-11">
+				documentation = <"&quot;Contains a location other than the assigned location required for a temporary period of time (e.g., OR, operating theatre, etc.).&quot; - HL7 Version 2.8, PV1-11">
 				name = <"temporaryLocation">
 				type = <"Location">
 			>
 			["priorTemporaryLocation"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"'This field is used to reflect the patient's temporary location (such as the operating room&#47;theatre or x-ray) prior to a transfer from a temporary location to an actual location, or from a temporary location to another temporary location. The first component may be the nursing station for inpatient locations, or the clinic, department, or home for locations other than inpatient.' - HL7 Version 2.8, PV1-43">
+				documentation = <"&quot;This field is used to reflect the patient's temporary location (such as the operating room&#47;theatre or x-ray) prior to a transfer from a temporary location to an actual location, or from a temporary location to another temporary location. The first component may be the nursing station for inpatient locations, or the clinic, department, or home for locations other than inpatient.&quot; - HL7 Version 2.8, PV1-43">
 				name = <"priorTemporaryLocation">
 				type_def = <
 					container_type = <"List">
@@ -1698,7 +1698,7 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 		>
 	>
 	["HomeBasePrimaryCareEncounter"] = <
-		documentation = <"Patient is being treated 'In-Home' for this encounter.">
+		documentation = <"Patient is being treated &quot;In-Home&quot; for this encounter.">
 		name = <"HomeBasePrimaryCareEncounter">
 		ancestors = <"DurableEncounter",...>
 	>
@@ -1730,7 +1730,7 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 		ancestors = <"DetailedEncounter",...>
 		properties = <
 			["serviceCategory"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"A categorization of the outpatient visit, based on the services provided and&#47;or the circumstances under which the visit occurred. Possible values include: Ambulatory, In-Hospital (i.e., an patient made an 'outpatient' visit while concurrently being an inpatient), Day Surgery, Observation, Nursing Home, Day Hospitalization, etc.">
+				documentation = <"A categorization of the outpatient visit, based on the services provided and&#47;or the circumstances under which the visit occurred. Possible values include: Ambulatory, In-Hospital (i.e., an patient made an &quot;outpatient&quot; visit while concurrently being an inpatient), Day Surgery, Observation, Nursing Home, Day Hospitalization, etc.">
 				name = <"serviceCategory">
 				type = <"Concept">
 			>
@@ -1814,7 +1814,7 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 				is_mandatory = <True>
 			>
 			["transferFromLocation"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The prior patient location if the patient is being transferred. This is null if the patient is new.' - HL7 Version 2.8, PV1-6">
+				documentation = <"The prior patient location if the patient is being transferred. This is null if the patient is new.&quot; - HL7 Version 2.8, PV1-6">
 				name = <"transferFromLocation">
 				type = <"Location">
 			>
@@ -1875,7 +1875,7 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 		ancestors = <"Assertion",...>
 		properties = <
 			["associatedEntry"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Another clinical statement in the patient’s record that is related to the current condition. ">
+				documentation = <"Another clinical statement in the patient's record that is related to the current condition. ">
 				name = <"associatedEntry">
 				type_def = <
 					container_type = <"List">
@@ -2009,7 +2009,7 @@ and useful than two attributes that attempt to separate the meanings.">
 		>
 	>
 	["EvaluationResult"] = <
-		documentation = <"The outcome of an evaluation of a characteristic. This model holds a 'question' in the key and holds a value in the result. This value is further qualified through the model's properties.
+		documentation = <"The outcome of an evaluation of a characteristic. This model holds a &quot;question&quot; in the key and holds a value in the result. This value is further qualified through the model's properties.
 ">
 		name = <"EvaluationResult">
 		ancestors = <"FindingTopic",...>
@@ -2065,7 +2065,7 @@ and useful than two attributes that attempt to separate the meanings.">
 				>
 			>
 			["precondition"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Describes the previously existing conditions or states that could affect a measurement or assessment, for example, a patient’s weight taken while clothed, height with or without shoes, blood pressure taken while standing or lying down. Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Precondition (attribute)|">
+				documentation = <"Describes the previously existing conditions or states that could affect a measurement or assessment, for example, a patient's weight taken while clothed, height with or without shoes, blood pressure taken while standing or lying down. Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Precondition (attribute)|">
 				name = <"precondition">
 				type_def = <
 					container_type = <"List">
@@ -2750,7 +2750,7 @@ The range allowed for this attribute shall be consistent with the SNOMED CT conc
 				type = <"Concept">
 			>
 			["objectiveOfCare"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Human-readable and optionally coded description of a specific desired objective of care, such as 'control blood pressure' or 'negotiate an obstacle course' or 'dance with child at wedding'.">
+				documentation = <"Human-readable and optionally coded description of a specific desired objective of care, such as &quot;control blood pressure&quot; or &quot;negotiate an obstacle course&quot; or &quot;dance with child at wedding&quot;.">
 				name = <"objectiveOfCare">
 				type = <"CodedText">
 			>
@@ -2904,7 +2904,7 @@ The range allowed for this attribute shall be consistent with the SNOMED CT conc
 		ancestors = <"Locatable",...>
 		properties = <
 			["key"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The concept representing the finding or action that is the topic of the statement. For actions, the key represents the action being described. For findings, the key represents the “question” or property being investigated. For evaluation result findings, the key contains a concept for an observable entity, such as systolic blood pressure. For assertion findings (which by nature lack an explicit question), the key contains a default concept signifying that an assertion is being made. In all cases, the key describes the topic independent of the context** of the action or the finding.">
+				documentation = <"The concept representing the finding or action that is the topic of the statement. For actions, the key represents the action being described. For findings, the key represents the &quot;question&quot; or property being investigated. For evaluation result findings, the key contains a concept for an observable entity, such as systolic blood pressure. For assertion findings (which by nature lack an explicit question), the key contains a default concept signifying that an assertion is being made. In all cases, the key describes the topic independent of the context of the action or the finding.">
 				name = <"key">
 				type = <"Concept">
 				is_mandatory = <True>
@@ -3036,7 +3036,7 @@ The range allowed for this attribute shall be consistent with the SNOMED CT conc
 			["isDerived"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Flag to note that the current specimen is derived from another specimen. Derivation procedure will be indicated by the SpecimenProcessingActivity – processingProcedure code.  
 
-Conformance Statement - if the 'Is derived' flag is checked, the parentSpecimenIdentifer attribute for this specimen (see second entry in this table) must be filled out.">
+Conformance Statement - if the &quot;Is derived&quot; flag is checked, the parentSpecimenIdentifer attribute for this specimen (see second entry in this table) must be filled out.">
 				name = <"isDerived">
 				type = <"Concept">
 			>
@@ -3406,7 +3406,7 @@ Attribution provides a common reference model pattern that may be included direc
 		ancestors = <"Locatable",...>
 		properties = <
 			["activity"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The activity that is to be attributed to a party, for example, asserting, recording, verifying, consuming, processing, transforming, modifying, relocating, or using. When a model attribute whose type is Attribution specifies the activity, such as “recorder”, the activity attribute must match the intent of the attribute.">
+				documentation = <"The activity that is to be attributed to a party, for example, asserting, recording, verifying, consuming, processing, transforming, modifying, relocating, or using. When a model attribute whose type is Attribution specifies the activity, such as &quot;recorder&quot;, the activity attribute must match the intent of the attribute.">
 				name = <"activity">
 				type = <"Concept">
 			>
@@ -3542,7 +3542,7 @@ The attachment of provenance information to a clinical statement in this manner 
 		>
 	>
 	["PatientRelatedEducation"] = <
-		documentation = <"This class captures information about counselling or education provided to (or an attempt to provide to) the Patient or to the Patient's representative and provides a means to note how well the Patient understood the information provided. Patient Education may be in the form of written instructions – either pre-defined materials, or personalized instructions – as well as oral counseling. ">
+		documentation = <"This class captures information about counselling or education provided to (or an attempt to provide to) the Patient or to the Patient's representative and provides a means to note how well the Patient understood the information provided. Patient Education may be in the form of written instructions - either pre-defined materials, or personalized instructions - as well as oral counseling.">
 		name = <"PatientRelatedEducation">
 		ancestors = <"ProcedureTopic",...>
 		properties = <
@@ -3622,7 +3622,7 @@ Adverse events may capture either a workflow breach that may or may not result i
 				type = <"Attribution">
 			>
 			["seriousness"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Clinical significance of the adverse event, usually associated with events that pose a threat to a patient’s life or functioning. Seriousness serves as a primary guide for determining regulatory reporting obligations.">
+				documentation = <"Clinical significance of the adverse event, usually associated with events that pose a threat to a patient's life or functioning. Seriousness serves as a primary guide for determining regulatory reporting obligations.">
 				name = <"seriousness">
 				type = <"Concept">
 			>
@@ -3755,7 +3755,7 @@ Adverse events may capture either a workflow breach that may or may not result i
 				cardinality = <|>=0|>
 			>
 			["breachCategory"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"A classification of the breach in terms of its outcome, for example, ‘near miss’, ‘no adverse outcome’, or ‘adverse outcome’.">
+				documentation = <"A classification of the breach in terms of its outcome, for example, 'near miss', 'no adverse outcome', or 'adverse outcome'.">
 				name = <"breachCategory">
 				type = <"Concept">
 			>
@@ -3829,7 +3829,7 @@ Note that the manifestation of the adverse reaction is captured in FindingTopic.
 		>
 	>
 	["AdverseSensitivityToSubstance"] = <
-		documentation = <"A finding related to an individual’s risk of harm from exposure to a substance or class of substances.">
+		documentation = <"A finding related to an individual's risk of harm from exposure to a substance or class of substances.">
 		name = <"AdverseSensitivityToSubstance">
 		ancestors = <"Assertion",...>
 		properties = <

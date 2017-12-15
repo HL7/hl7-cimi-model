@@ -12,8 +12,8 @@ rm_release = <"0.0.4">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Sat Dec 09 13:18:37 PST 2017">
-schema_lifecycle_state = <"ForComment">
+schema_revision = <"Thu Dec 14 17:20:59 PST 2017">
+schema_lifecycle_state = <"Informative">
 schema_description = <"CIMI_RM_CORE.v0.0.4.mdzip - Schema generated from UML">
 
 
@@ -90,7 +90,7 @@ An instance of the class ARCHETYPED contains the relevant archetype identificati
 		ancestors = <"OrderedValue",...>
 		properties = <
 			["precision"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The accuracy of the value, in terms of number of significant figures. For example, a number like 12,345.67 might be declared as accurate to 3 significant digits, meaning digits in the 10’s place, 1’s place, or to the right of the decimal represent false precision. ">
+				documentation = <"The accuracy of the value, in terms of number of significant figures. For example, a number like 12,345.67 might be declared as accurate to 3 significant digits, meaning digits in the 10's place, 1's place, or to the right of the decimal represent false precision. ">
 				name = <"precision">
 				type = <"Integer">
 			>
@@ -249,14 +249,14 @@ An instance of the class ARCHETYPED contains the relevant archetype identificati
 		>
 	>
 	["OrdinalConcept"] = <
-		documentation = <"Represents rankings and scores, e.g. pain, Apgar values, etc, where there is a) an implied ordering, b) no implication that the distance between each value is constant, and c) the total number of values is finite. This class can be used for recording symbolic values, e.g., the results on a urinalysis strip {neg, trace, moderate, …} or numbers like Agar values {0, 1, 2, 3, …}.
-Note that although the term “ordinal” in mathematics means natural numbers only, here any integer is allowed, since negative and zero values are often used by medical professionals for values around a neutral point, for example {-3, -2, -1, 0, 1, 2, 3} for reflex response values.
+		documentation = <"Represents rankings and scores, e.g. pain, Apgar values, etc, where there is a) an implied ordering, b) no implication that the distance between each value is constant, and c) the total number of values is finite. This class can be used for recording symbolic values, e.g., the results on a urinalysis strip {neg, trace, moderate, ...} or numbers like Agar values {0, 1, 2, 3, ...}.
+Note that although the term &quot;ordinal&quot; in mathematics means natural numbers only, here any integer is allowed, since negative and zero values are often used by medical professionals for values around a neutral point, for example {-3, -2, -1, 0, 1, 2, 3} for reflex response values.
 ">
 		name = <"OrdinalConcept">
 		ancestors = <"Concept",...>
 		properties = <
 			["positionInSet"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The rank order in the enumeration of values, used for sorting. While any integer value can be used, the values need to reflect the order in the set. For example, ordering as {1, 2, 3, …} has the same effect as ordering as {0, 1, 2, …}">
+				documentation = <"The rank order in the enumeration of values, used for sorting. While any integer value can be used, the values need to reflect the order in the set. For example, ordering as {1, 2, 3, ...} has the same effect as ordering as {0, 1, 2, ...}">
 				name = <"positionInSet">
 				type = <"Integer">
 				is_mandatory = <True>
@@ -298,7 +298,7 @@ Note that although the term “ordinal” in mathematics means natural numbers o
 		ancestors = <"NumericalValue",...>
 		properties = <
 			["units"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Units, expressed expressed as codes (generally UCUM), e.g. 'kg&#47;m2', “mm[Hg]', 'ms-1', 'km&#47;h'. Implemented accordingly in subtypes.">
+				documentation = <"Units, expressed expressed as codes (generally UCUM), e.g. &quot;kg&#47;m2&quot;, &quot;mm[Hg]&quot;, &quot;ms-1&quot;, &quot;km&#47;h&quot;. Implemented accordingly in subtypes.">
 				name = <"units">
 				type = <"Concept">
 				is_mandatory = <True>
@@ -314,11 +314,11 @@ Note that although the term “ordinal” in mathematics means natural numbers o
 		>
 	>
 	["TermMapping"] = <
-		documentation = <"Represents an alternative (“mapped”) Concept associated with a source concept (i.e., CodedText.concept or the textual value of the CodedText when no equivalent concept has been defined), and the relative match of the mapped Concept with respect to the source Concept. Mappings may be used to add classification terms (e.g. adding ICD classifiers to SNOMED descriptive terms), for computational convenience, or to provide equivalents in other terminologies (e.g. across nursing vocabularies).">
+		documentation = <"Represents an alternative (&quot;mapped&quot;) Concept associated with a source concept (i.e., CodedText.concept or the textual value of the CodedText when no equivalent concept has been defined), and the relative match of the mapped Concept with respect to the source Concept. Mappings may be used to add classification terms (e.g. adding ICD classifiers to SNOMED descriptive terms), for computational convenience, or to provide equivalents in other terminologies (e.g. across nursing vocabularies).">
 		name = <"TermMapping">
 		properties = <
 			["match"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The relative match of the mapped concept to the original (target) concept. Examples include broader (i.e., the mapped term is more general than the original), equivalent, narrower (e.g. mapped concept is “atypical diabetes mellitus” and the original term is “diabetes mellitus”), or unknown. ">
+				documentation = <"The relative match of the mapped concept to the original (target) concept. Examples include broader (i.e., the mapped term is more general than the original), equivalent, narrower (e.g. mapped concept is &quot;atypical diabetes mellitus&quot; and the original term is &quot;diabetes mellitus&quot;), or unknown. ">
 				name = <"match">
 				type = <"Concept">
 				is_mandatory = <True>
@@ -360,7 +360,7 @@ Note that although the term “ordinal” in mathematics means natural numbers o
 		ancestors = <"TemporalValue",...>
 	>
 	["UriType"] = <
-		documentation = <"A reference to an object which conforms to the Universal Resource Identifier (URI) standard. See 'Universal Resource Identifiers in WWW' by Tim Berners-Lee at http:&#47;&#47;www.ietf.org&#47;rfc&#47;rfc3986.txt.">
+		documentation = <"A reference to an object which conforms to the Universal Resource Identifier (URI) standard. See &quot;Universal Resource Identifiers in WWW&quot; by Tim Berners-Lee at http:&#47;&#47;www.ietf.org&#47;rfc&#47;rfc3986.txt.">
 		name = <"UriType">
 		ancestors = <"DataType",...>
 		properties = <
@@ -497,7 +497,7 @@ Note that although the term “ordinal” in mathematics means natural numbers o
 		>
 	>
 	["DateTime"] = <
-		documentation = <"A date, date and time or partial date (e.g. just year or year + month) as used in human communication. If hours and minutes are specified, a time zone SHALL be populated. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored. Dates SHALL be valid dates. The time '24:00' is not allowed.">
+		documentation = <"A date, date and time or partial date (e.g. just year or year + month) as used in human communication. If hours and minutes are specified, a time zone SHALL be populated. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored. Dates SHALL be valid dates. The time &quot;24:00&quot; is not allowed.">
 		name = <"DateTime">
 		ancestors = <"TemporalValue",...>
 	>
@@ -515,7 +515,7 @@ Note that although the term “ordinal” in mathematics means natural numbers o
 		>
 	>
 	["Any"] = <
-		documentation = <"Abstract supertype. Usually maps to a type like “Any” or “Object” in an object system. Defined here to provide the value and reference equality semantics.">
+		documentation = <"Abstract supertype. Usually maps to a type like &quot;Any&quot; or &quot;Object&quot; in an object system. Defined here to provide the value and reference equality semantics.">
 		name = <"Any">
 	>
 	["Array"] = <
@@ -547,7 +547,7 @@ Note that although the term “ordinal” in mathematics means natural numbers o
 		name = <"Byte">
 	>
 	["Character"] = <
-		documentation = <"a type whose value is a member of an 8-bit character-set (ISO: 'repertoire').">
+		documentation = <"a type whose value is a member of an 8-bit character-set (ISO: &quot;repertoire&quot;).">
 		name = <"Character">
 	>
 	["Integer"] = <
