@@ -2,7 +2,7 @@ archetype (adl_version=2.0.6; rm_release=2.0.2)
   CIMI-CORE-Assertion.assertion.v1.0.0
 
 specialize
-  CIMI-CORE-BaseAssertion.base_assertion.v1
+  CIMI-CORE-FindingTopic.finding_topic.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -17,7 +17,7 @@ description
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"CIMI base assertion archetype">
+      purpose = <"CIMI assertion archetype">
       use = <"Use as a specialisation precursor for other high-level reference archetypes.">
       keywords = <"assertion","condition">
     >
@@ -35,137 +35,38 @@ description
   >
 
 definition
-  Assertion[id1.1.1.1] matches {
-    dueTo matches {
-      use_archetype ClinicalStatement [id0.0.0.6, CIMI-CORE-ClinicalStatement.clinical_statement.v1] occurrences matches {0..*}
+  Assertion[id1.1.1] matches { 
+    key matches {
+        Concept[id2] matches {code matches {[ac0.1.1]}}
+      }
+    result matches {
+        Concept[id0.1.1] 
     }
-    dueToCode matches {
-      CODED_TEXT[id0.0.0.5]
-    }
-    severity matches {
-      CODED_TEXT[id0.0.0.7]
-    }
-    clinicalCourse matches {
-      CODED_TEXT[id0.0.0.8]
-    }
-    episodicity matches {
-      CODED_TEXT[id0.0.0.24]
-    }
-    diseasePhase matches {
-      CODED_TEXT[id0.0.0.17]
-    }
-    associatedPrecondition matches {
-      CODED_TEXT[id0.0.0.18]
-    }
-    associatedSignAndSymptom matches {
-     CODED_TEXT[id0.0.0.19]
-    }
-    periodicity matches {
-     CODED_TEXT[id0.0.0.22]
-    }
-    alleviatingFactor matches {
-     CODED_TEXT[id0.0.0.20]
-    }
-    exacerbatingFactor matches {
-     CODED_TEXT[id0.0.0.21]
-    }    
-    causativeAgent matches {
-      ENTITY[id0.0.0.4]
-    }
-
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1"] = <
+      ["id1.1.1"] = <
         text = <"Assertion">
         description = <"Clinical Assertions assert the existence of clinical conditions, diseases, symptoms, etc. in the patient.">
       >
-      ["id0.0.0.4"] = <
-        text = <"Causative agent">
-        description = <"An exogenous physical substance or force that causes the disease. It does not include vectors, e.g. a mosquito that transmits malaria.">
+      ["ac0.1.1"] = <
+        text = <"Assertion statement topic key range value set">
+        description = <"Range for the key attribute which specifies that this topic is assertion topic">
       >
-      ["id0.0.0.5"] = <
-        text = <"Due to code">
-        description = <"The cause of the Clinical finding. This includes such causes as disease vectors and endogenous states (e.g., macular degeneration due to diabetes). Exogenous substances and forces should be captured as causative agent. ">
+      ["ac0.2.1"] = <
+        text = <"Assertion statement topic code range value set">
+        description = <"Range for the associated finding SWEC attribute">
       >
-      ["id0.0.0.6"] = <
-        text = <"Due to">
-        description = <"The cause of the Clinical finding. This includes such causes as disease vectors and endogenous states (e.g., macular degeneration due to diabetes). Exogenous substances and forces should be captured as causative agent. ">
-      >
-      ["id0.0.0.7"] = <
-        text = <"Severity">
-        description = <"Intensity of a symptom or condition. The criteria for this value differ by condition.">
-      >
-      ["id0.0.0.8"] = <
-        text = <"Clinical course">
-        description = <"Both the course and onset of a disease. Many conditions with an acute (sudden) onset also have an acute (short duration) course. Few diseases with a chronic (long - term) course would need to have their onset sub-divided into rapid or gradual subtypes, and thus there is no clear need for separating the rapidity of onset from the duration of a disease; based on testing by implementers and modelers, a single attribute with values that combine these meanings has clearly been more reproducible and useful than two attributes that attempt to separate the meanings.">
-      >
-      ["id0.0.0.11"] = <
-        text = <"Finding method">
-        description = <"The means by which a clinical finding is determined.">
-      >
-      ["id0.0.0.12"] = <
-        text = <"ageAtOnset">
-        description = <"The age of the patient or subject at onset of the Condition. Note that this property could potentially be derived.">
-      >
-      ["id0.0.0.13"] = <
-        text = <"Date abated">
-        description = <"Date, if known, when clinical finding abated.">
-      >
-      ["id0.0.0.14"] = <
-        text = <"Clinical status">
-        description = <"The physiological state of the condition with respect to whether it is actually of concern. Values may typicall include: Active, Relapse, Remission, Resolved, Confirmed, Ruled out, Unknown.">
-      >
-      ["id0.0.0.15"] = <
-        text = <"Verification status">
-        description = <"The state of knowledge concerning the presence of a putative condition; e.g., confirmed, refuted, provisional, suspected.">
-      >
-      ["id0.0.0.16"] = <
-        text = <"Diagnosis date">
-        description = <"Date and time the health problem was diagnosed. Added for Public Health Reporting Initiative, 10/5/2012.">
-      >
-      ["id0.0.0.17"] = <
-        text = <"Disease phase">
-        description = <"The physiological state of a condition that develops over time. For instance, Incubation period (exposed, asymptomatic), Prodromal (symptoms but not full disease breakout), Acute (full manifestation of disease), Convalescent.">
-      >
-      ["id0.0.0.18"] = <
-        text = <"Associated precondition">
-        description = <"Previously existing conditions or states that could affect a measurement or assesment. For example; a patients weight taken while clothed, a patients height with or without shoes, a patients blood pressure taken while standing or lying down.">
-      >
-      ["id0.0.0.19"] = <
-        text = <"Associated sign and symptom">
-        description = <"Physical observations captured by a clinician or subjective conditions experienced by a patient that are related to a medical condition.">
-      >
-      ["id0.0.0.20"] = <
-        text = <"Alleviating factor">
-        description = <"An action or intervention which makes a symptom less severe. Examples of data from the value set may include: rest, heat, ice, etc. ">
-      >
-      ["id0.0.0.21"] = <
-        text = <"Exacerbating factor">
-        description = <"An action or intervention which makes a symptom more severe.">
-      >
-      ["id0.0.0.22"] = <
-        text = <"Periodicity">
-        description = <"The length of time from one occurrence to the next (e.g., intermittent, weekly, continuous).">
+    >
+  >
+  term_bindings = <
+    ["cimi"] = <
+      items = <
+        ["ac0.1.1"] = <http://example.com/valuesets/assertion_statement_topic_key_range_vs.v0.0.1>
+        ["ac0.2.1"] = <http://example.com/valuesets/assertion_statement_topic_code_range_vs.v0.0.1>
       >
     >
   >
 
-  term_bindings = <
-    ["snomed-ct"] = <
-      items = <
-        --["id0.0.0.2"] = <http://snomed.info/id/363698007> -- |Finding site (attribute)|
-        --["id0.0.0.3"] = <http://snomed.info/id/363698007> -- |Finding site (attribute)|
-        ["id0.0.0.4"] = <http://snomed.info/id/246075003> -- |Causative agent (attribute)|
-        ["id0.0.0.5"] = <http://snomed.info/id/42752001> -- |Due to (attribute)|
-        ["id0.0.0.6"] = <http://snomed.info/id/42752001> -- |Due to (attribute)|
-        ["id0.0.0.7"] = <http://snomed.info/id/246112005> -- |Severity (attribute)|
-        ["id0.0.0.8"] = <http://snomed.info/id/263502005> -- |Clinical course (attribute)|
-        ["id0.0.0.11"] = <http://snomed.info/id/418775008> -- |Finding method (attribute)|
-        ["id0.0.0.18"] = <http://snomed.info/id/47429007> -- |Associated with (attribute)|
-        ["id0.0.0.20"] = <http://snomed.info/id/47429007> -- |Associated with (attribute)|
-      >
-    >
-  >

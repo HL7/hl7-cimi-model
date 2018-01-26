@@ -36,14 +36,13 @@ description
 
 definition
 	Attribution[id1.1] matches { -- Sign action
-    activityTimeRange matches {  -- Signing datetime range
-      INTERVAL_VALUE<DATE_TIME>[id6.1]
-    }
+    /activity/code matches {[ac0.1]}
+    
     location matches {
-      PARTICIPATION[id8.1]  -- Location of signing parties
+      Location[id8.1]  -- Location of signing parties
     }
-    agent matches { -- Signer
-      PARTICIPATION[id10.1]
+    participant matches { -- Signer
+      PartyAssociation[id10.1]
     }
     signature existence matches {1..1} matches {
       Signature[id12.1] occurrences matches {1..*}
@@ -54,9 +53,23 @@ terminology
   term_definitions = <
     ["en"] = <
       ["id1.1"] = < text = <"Sign action"> >
-      ["id6.1"] = < text = <"Signing datetime range"> >
       ["id8.1"] = < text = <"Location of signing parties"> >
       ["id10.1"] = < text = <"Signer"> >
       ["id12.1"] = < text = <"Signature"> >
+      ["ac0.1"] = <
+        text = <"Anonymous valueset for activity">
+        description = <" - ">
+      >
+      ["at0.1"] = <
+        text = <"Signed activity">
+        description = <" - ">
+      >
     >
+  >
+
+  value_sets = < -- activity
+    ["ac0.1"] = <
+      id = <"ac0.1">
+      members = <"at0.1">
+    >  
   >

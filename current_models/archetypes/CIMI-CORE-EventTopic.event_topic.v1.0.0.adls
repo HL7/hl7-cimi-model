@@ -36,7 +36,9 @@ description
 
 definition
 	EventTopic[id1.1] matches {
-		/key[id2.1] matches {[ac0.1]}
+    key matches {
+      Concept[id2] matches {code matches {[ac0.1]}}
+    }
 	}
 
 terminology
@@ -46,9 +48,6 @@ terminology
 				text = <"EventTopic">
 				description = <"A non-clinical event such as an earthquake or tornado.">
 			>
-      ["id2.1"] = <
-        text = <"Key">
-      >
       ["ac0.1"] = <
         text = <"Event statement topic key range value set">
         description = <"Value set containing concept representing an Event Statement Topic">
@@ -59,7 +58,6 @@ terminology
 	term_bindings = <
   	["snomed-ct"] = <
 			items = <
-				["id2.1"] = <http://example.com/valuesets/event_statement_topic_key_vs.v0.0.1>
         ["ac0.1"] = <http://example.com/valuesets/event_statement_topic_key_range_vs.v0.0.1>
 			>
     >

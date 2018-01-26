@@ -39,12 +39,9 @@ definition
     bodyLocation matches {
       AnatomicalLocation[id0.0.0.1]
     }
-    bodyLocationPrecoord matches {
-      CODED_TEXT[id0.0.0.2]
-    }
-    bodyPosition matches {
-      CODED_TEXT[id0.0.0.3]
-    }
+  
+ 
+   
   }
 
 terminology
@@ -54,18 +51,16 @@ terminology
         text = <"Physical Evaluation Result">
         description = <"Measurement resulting from a physical assessment procedure.">
       >
+      ["ac0.0.0.1"] = <
+        text = <"Foo">
+        description = <"FooBar">
+      >
       ["id0.0.0.1"] = <
         text = <"Body location">
         description = <"Captures the post-coordinated location on the body where the characteristic was observed.">
       >
-      ["id0.0.0.2"] = <
-        text = <"Body location precoordinated">
-        description = <"Captures the pre-coordinated body location information, for example pre-coordinating body side left with body location hand to make left hand.">
-      >
-      ["id0.0.0.3"] = <
-        text = <"Body position">
-        description = <"Captures the position of the body when an observation is done. E.g., supine, prone, etc...">
-      >
+  
+  
     >
   >
 
@@ -73,7 +68,6 @@ terminology
     ["snomed-ct"] = <
       items = <
         ["id0.0.0.1"] = <http://snomed.info/id/704327008> -- |Direct site (attribute)|
-        ["id0.0.0.2"] = <http://snomed.info/id/704327008> -- |Direct site (attribute)|
       >
     >
   >

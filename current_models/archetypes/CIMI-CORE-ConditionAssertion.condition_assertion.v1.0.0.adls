@@ -1,0 +1,159 @@
+archetype (adl_version=2.0.6; rm_release=2.0.2)
+  CIMI-CORE-ConditionAssertion.condition_assertion.v1.0.0
+
+specialize
+  CIMI-CORE-Assertion.assertion.v1
+
+language
+  original_language = <[ISO_639-1::en]>
+
+description
+  original_author = <
+    ["name"] = <"Claude Nanjo">
+    ["organisation"] = <"Cognitive Medical Systems">
+    ["email"] = <"cnanjo@gmail.com">
+    ["date"] = <"06/15/2016">
+  >
+  details = <
+    ["en"] = <
+      language = <[ISO_639-1::en]>
+      purpose = <"CIMI condition assertion archetype">
+      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+      keywords = <"assertion","condition">
+    >
+  >
+  other_details = <["model_level"] = <"reference">>
+  lifecycle_state = <"unmanaged">
+  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
+  custodian_namespace = <"org.opencimi">
+  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
+  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
+  ip_acknowledgements = <
+    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+  >
+
+definition
+  ConditionAssertion[id1.1.1.1] matches {
+    
+    dueTo matches {
+      Concept[id0.0.0.5]
+    }
+    severity matches {
+      Concept[id0.0.0.7]
+    }
+    clinicalCourse matches {
+      Concept[id0.0.0.8]
+    }
+    episodicity matches {
+      Concept[id0.0.0.24]
+    }
+    diseasePhase matches {
+      Concept[id0.0.0.17]
+    }
+    
+    associatedSignAndSymptom matches {
+     Concept[id0.0.0.19]
+    }
+    periodicity matches {
+     Concept[id0.0.0.22]
+    }
+    alleviatingFactor matches {
+     Concept[id0.0.0.20]
+    }
+    exacerbatingFactor matches {
+     Concept[id0.0.0.21]
+    }    
+    suspectedEntity matches {
+      ENTITY[id0.0.0.4]
+    }
+
+  }
+
+terminology
+  term_definitions = <
+    ["en"] = <
+      ["id1.1.1.1"] = <
+        text = <"Condition assertion">
+        description = <"Clinical Assertions assert the existence of clinical conditions, diseases, symptoms, etc. in the patient.">
+      >
+      ["id0.0.0.4"] = <
+        text = <"Suspected entity">
+        description = <"An exogenous physical substance or force that causes the disease. It does not include vectors, e.g. a mosquito that transmits malaria.">
+      >
+      ["id0.0.0.5"] = <
+        text = <"Due to">
+        description = <"The cause of the Clinical finding. This includes such causes as disease vectors and endogenous states (e.g., macular degeneration due to diabetes). Exogenous substances and forces should be captured as causative agent. ">
+      >
+     
+      ["id0.0.0.7"] = <
+        text = <"Severity">
+        description = <"Intensity of a symptom or condition. The criteria for this value differ by condition.">
+      >
+      ["id0.0.0.8"] = <
+        text = <"Clinical course">
+        description = <"Both the course and onset of a disease. Many conditions with an acute (sudden) onset also have an acute (short duration) course. Few diseases with a chronic (long - term) course would need to have their onset sub-divided into rapid or gradual subtypes, and thus there is no clear need for separating the rapidity of onset from the duration of a disease; based on testing by implementers and modelers, a single attribute with values that combine these meanings has clearly been more reproducible and useful than two attributes that attempt to separate the meanings.">
+      >
+      ["id0.0.0.11"] = <
+        text = <"Finding method">
+        description = <"The means by which a clinical finding is determined.">
+      >
+      ["id0.0.0.12"] = <
+        text = <"ageAtOnset">
+        description = <"The age of the patient or subject at onset of the Condition. Note that this property could potentially be derived.">
+      >
+      ["id0.0.0.13"] = <
+        text = <"Date abated">
+        description = <"Date, if known, when clinical finding abated.">
+      >
+      ["id0.0.0.14"] = <
+        text = <"Clinical status">
+        description = <"The physiological state of the condition with respect to whether it is actually of concern. Values may typicall include: Active, Relapse, Remission, Resolved, Confirmed, Ruled out, Unknown.">
+      >
+      ["id0.0.0.15"] = <
+        text = <"Verification status">
+        description = <"The state of knowledge concerning the presence of a putative condition; e.g., confirmed, refuted, provisional, suspected.">
+      >
+      ["id0.0.0.16"] = <
+        text = <"Diagnosis date">
+        description = <"Date and time the health problem was diagnosed. Added for Public Health Reporting Initiative, 10/5/2012.">
+      >
+      ["id0.0.0.17"] = <
+        text = <"Disease phase">
+        description = <"The physiological state of a condition that develops over time. For instance, Incubation period (exposed, asymptomatic), Prodromal (symptoms but not full disease breakout), Acute (full manifestation of disease), Convalescent.">
+      >
+      
+      ["id0.0.0.19"] = <
+        text = <"Associated sign and symptom">
+        description = <"Physical observations captured by a clinician or subjective conditions experienced by a patient that are related to a medical condition.">
+      >
+      ["id0.0.0.20"] = <
+        text = <"Alleviating factor">
+        description = <"An action or intervention which makes a symptom less severe. Examples of data from the value set may include: rest, heat, ice, etc. ">
+      >
+      ["id0.0.0.21"] = <
+        text = <"Exacerbating factor">
+        description = <"An action or intervention which makes a symptom more severe.">
+      >
+      ["id0.0.0.22"] = <
+        text = <"Periodicity">
+        description = <"The length of time from one occurrence to the next (e.g., intermittent, weekly, continuous).">
+      >
+    >
+  >
+
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+        --["id0.0.0.2"] = <http://snomed.info/id/363698007> -- |Finding site (attribute)|
+        --["id0.0.0.3"] = <http://snomed.info/id/363698007> -- |Finding site (attribute)|
+        ["id0.0.0.4"] = <http://snomed.info/id/246075003> -- |Causative agent (attribute)|
+        ["id0.0.0.5"] = <http://snomed.info/id/42752001> -- |Due to (attribute)|
+        ["id0.0.0.7"] = <http://snomed.info/id/246112005> -- |Severity (attribute)|
+        ["id0.0.0.8"] = <http://snomed.info/id/263502005> -- |Clinical course (attribute)|
+        ["id0.0.0.11"] = <http://snomed.info/id/418775008> -- |Finding method (attribute)|
+        ["id0.0.0.20"] = <http://snomed.info/id/47429007> -- |Associated with (attribute)|
+      >
+    >
+  >

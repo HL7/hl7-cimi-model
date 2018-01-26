@@ -35,25 +35,27 @@ description
   >
 
 definition
-	NonCompletion[id1.1.1.1.1] matches {
-    /context matches {[ac0.1.1.1.1]}
+	NonCompletion[id1.1.1.1] matches {
+    type matches {
+      Concept[id2] matches {code matches {[ac1.1.1.1]}}
+    }
 		nonCompletionTimeframe matches {
-			INTERVAL_VALUE<DATE_TIME>[id0.0.0.0.1]
+			IntervalValue<DateTime>[id0.0.0.1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1"] = <
+			["id1.1.1.1"] = <
 				text = <"Non completion">
 				description = <"A record that a clinical act was initiated by not completed. ">
 			>
-			["id0.0.0.0.1"] = <
+			["id0.0.0.1"] = <
 				text = <"Non completion timeframe">
 				description = <"The time interval considered when the action had been intended for execution.">
 			>
-      ["ac0.1.1.1.1"] = <
+      ["ac1.1.1.1"] = <
         text = <"Non completion context range">
         description = <"Value set containing a single code indicating that the action was not completed (410545000 |Stopped before completion (qualifier value)|.">
       >
@@ -64,7 +66,7 @@ terminology
   term_bindings = <
     ["cimi"] = <
       items = <
-        ["ac0.1.1.1.1"] = <http://example.com/valueset/non_completion_context_range_vs.v0.0.1> -- TODO: Fix parent value set to include non-completion
+        ["ac1.1.1.1"] = <http://example.com/valueset/non_completion_context_range_vs.v0.0.1> -- TODO: Fix parent value set to include non-completion
       >
     >
   >

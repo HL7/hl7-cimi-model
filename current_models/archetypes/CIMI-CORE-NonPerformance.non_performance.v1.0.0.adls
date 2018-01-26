@@ -35,25 +35,27 @@ description
   >
 
 definition
-	NonPerformance[id1.1.1.1] matches {
-    /context matches {[ac0.1.1.1]}
-		nonPerformanceTime matches {
-			INTERVAL_VALUE<DATE_TIME>[id0.0.0.1]
+	NonPerformance[id1.1.1] matches {
+    type matches {
+      Concept[id2] matches {code matches {[ac1.1.1]}}
+    }
+		scheduledPerformanceTime matches {
+			IntervalValue<DateTime>[id0.0.1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1"] = <
+			["id1.1.1"] = <
 				text = <"Non performance">
 				description = <"A record that a clinical act was not performed and/or never initiated. Do not use this context if the act was initiated or started but aborted or cancelled. Use the NotPerformed context instead.">
 			>
-			["id0.0.0.1"] = <
-				text = <"Non-performance time">
+			["id0.0.1"] = <
+				text = <"Scheduled performance time">
 				description = <"The time period during which the act had been intended for execution.">
 			>
-      ["ac0.1.1.1"] = <
+      ["ac1.1.1"] = <
         text = <"Not done">
         description = <"Value set containing a single code indicating that the procedure is not done (SCTID: 385660001).">
       >
@@ -63,7 +65,7 @@ terminology
   term_bindings = <
     ["cimi"] = <
       items = <
-        ["ac0.1.1.1"] = <http://example.com/valueset/non_performance_context_range_vs.v0.0.1>
+        ["ac1.1.1"] = <http://example.com/valueset/non_performance_context_range_vs.v0.0.1>
       >
     >
   >

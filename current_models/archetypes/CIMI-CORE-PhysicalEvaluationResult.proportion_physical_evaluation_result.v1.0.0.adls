@@ -37,7 +37,7 @@ description
 definition
 	PhysicalEvaluationResult[id1.1.1.1.1] matches {
 		result matches {
-			PROPORTION[id0.1.0.0.1]
+			Ratio[id0.1.0.0.1]
 		}
 	}
 

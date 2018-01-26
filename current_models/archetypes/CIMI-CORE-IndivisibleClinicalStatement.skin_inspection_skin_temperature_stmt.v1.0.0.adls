@@ -17,14 +17,14 @@ description
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'clinical statement' pattern">
-      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"">
+      purpose = <"Skin Temperature Statement">
+      use = <" - ">
+      keywords = <" - ">
     >
   >
   other_details = <["model_level"] = <"reference">>
   lifecycle_state = <"unmanaged">
-  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
+  other_contributors = <"Joey Coyle <joey@xcoyle.com>","Linda Bird <lbi@ihtsdo.org>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
   custodian_namespace = <"org.opencimi">
   custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
   licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
@@ -45,8 +45,27 @@ terminology
 	term_definitions = <
 		["en"] = <
 			["id1.1.1.1.1.1.1.1"] = <
-				text = <"Wound area">
+				text = <"Skin temperature">
 				description = <"The two-dimensional extent of the wound.">
 			>
-		>
-	>
+		  ["id0.4.0.1.0.0.1.1"] = <
+        text = <"Skin temperature topic">
+        description = <"Skin temperature topic">
+      >
+    >
+  >
+
+  term_bindings = <
+    ["loinc"] = <
+          items = <
+            ["id1.1.1.1.1.1.1.1"] = <http://loinc.org/id/44968-6> --  Skin temperature
+            ["id0.4.0.1.0.0.1.1"] = <http://loinc.org/id/44968-6> --  Skin temperature
+          >
+      >
+    ["snomed-ct"] = <
+          items = <
+            ["id1.1.1.1.1.1.1.1"] = <http://snomed.info/id/364537001> --  Skin temperature
+            ["id0.4.0.1.0.0.1.1"] = <http://snomed.info/id/364537001> --  Skin temperature
+          >
+      >
+    >

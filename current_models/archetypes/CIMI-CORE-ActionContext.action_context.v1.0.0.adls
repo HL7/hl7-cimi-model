@@ -2,7 +2,7 @@ archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
   CIMI-CORE-ActionContext.action_context.v1.0.0
 
 specialize
-  CIMI-CORE-StatementContext.statement_context_bindings.v1
+  CIMI-CORE-StatementContext.statement_context.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -35,32 +35,34 @@ description
   >
 
 definition
-  ActionContext[id1.1.1] matches {
-    /context[id1.0.1] matches {[ac0.1.1]}
+  ActionContext[id1.1] matches {
+    type matches {
+      Concept[id2] matches {code matches {[ac1.1]}}
+    }
     justification matches {
-      Justification[id0.0.1]
+      Concept[id0.1]
     }
     currentStatus matches {
-      CODED_TEXT[id0.0.2]
+      Attribution[id0.2]
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1"] = <
+      ["id1.1"] = <
         text = <"Action context">
         description = <"The ActionContext class aligns with the SNOMED Situations with Explicit Context and provides the context for the Act topic of a clinical statement. For instance, a statement about a procedure may specify that the procedure has been proposed, ordered, planned, performed or possibly not performed. ">
       >
-      ["id0.0.1"] = <
+      ["id0.1"] = <
         text = <"Justification">
         description = <"Reason the action was done or justification for the action. Reasons may also be specified for not performing an action. ">
       >
-      ["id0.0.2"] = <
+      ["id0.2"] = <
         text = <"Current status">
         description = <"The latest status of an action within the specified context. An action may be interpretable within a specific context such as whether it is planned, ordered, or performed. Moreover, within each of these context, an action may have a set of allowable states in which it can exist. For instance, a proposal may be rejected or an order may be signed, canceled or superceded by another order. It is expected that set of such states will vary based on the type of action context. The status code must coincide with the activity code of one of the attribution elements of statusHistory if a context status history is provided.">
       >
-      ["ac0.1.1"] = <
+      ["ac1.1"] = <
         text = <"Action context range">
         description = <"Allowed values for the SNOMED CT Situation with Explicit Context 'Procedure context' attribute">
       >
@@ -70,8 +72,8 @@ terminology
   term_bindings = <
     ["cimi"] = <
       items = <
-        ["/context"] = <http://example.com/valueset/action_context_vs.v0.0.1>
-        ["ac0.1.1"] = <http://example.com/valueset/action_context_range_vs.v0.0.1>
+        
+        ["ac1.1"] = <http://example.com/valueset/action_context_range_vs.v0.0.1>
       >
     >
   >

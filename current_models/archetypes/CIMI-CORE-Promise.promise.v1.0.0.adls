@@ -36,39 +36,41 @@ description
   >
 
 definition
-	Promise[id1.1.1.1] matches {
-		/context matches {[ac0.1.1.1]}
+	Promise[id1.1.1] matches {
+		type matches {
+      		Concept[id2] matches {code matches {[ac1.1.1]}}
+    	}
 		fulfillsOrder matches {
-			ClinicalStatement[id0.0.0.1]
+			ClinicalStatement[id0.0.1]
 		}
 		orderModality matches {
-			CODED_TEXT[id0.0.0.2]
+			Concept[id0.0.2]
 		}
 		orderDiscontinueDate matches {
-			DATE_TIME[id0.0.0.3]
+			DateTime[id0.0.3]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1"] = <
+			["id1.1.1"] = <
 				text = <"Promise">
 				description = <"A promise to fulfill an order.">
 			>
-			["id0.0.0.1"] = <
+			["id0.0.1"] = <
 				text = <"Fulfills order">
 				description = <"The order that is partly or wholly enacted by the performance of this act.">
 			>
-			["id0.0.0.2"] = <
+			["id0.0.2"] = <
 				text = <"orderModality">
 				description = <"-">
 			>
-			["id0.0.0.3"] = <
+			["id0.0.3"] = <
 				text = <"Order Discontinue Date">
 				description = <"-">
 			>
-			["ac0.1.1.1"] = <
+			["ac1.1.1"] = <
 		        text = <"Promise context range">
 		        description = <"Value set containing a single code indicating that the procedure is planned (397943006 |Planned (qualifier value)|).">
       		>
@@ -78,7 +80,7 @@ terminology
   term_bindings = <
     ["cimi"] = <
       items = <
-        ["ac0.1.1.1"] = <http://example.com/valueset/promise_context_range_vs.v0.0.1>
+        ["ac1.1.1"] = <http://example.com/valueset/promise_context_range_vs.v0.0.1>
       >
     >
   >

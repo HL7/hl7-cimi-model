@@ -17,14 +17,14 @@ description
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'clinical statement' pattern">
-      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"">
+      purpose = <"Mucous Memberan Integrity">
+      use = <" - ">
+      keywords = <" - ">
     >
   >
   other_details = <["model_level"] = <"reference">>
   lifecycle_state = <"unmanaged">
-  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
+  other_contributors = <"Joey Coyle <joey@xcoyle.com>","Linda Bird <lbi@ihtsdo.org>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
   custodian_namespace = <"org.opencimi">
   custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
   licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
@@ -36,8 +36,8 @@ description
 
 definition
 	PhysicalEvaluationResult[id1.1.1.1.1.1] matches {
-		/key[id3.1.1.0.0.1] matches {[ac0.1.1.0.0.1]}
-		/result[id0.1.0.0.1.1] matches {[ac0.0.0.0.0.2]}
+		/key/code matches {[ac0.0.0.0.0.1]}
+		/result/code matches {[ac0.0.0.0.0.2]}
 	}
 
 terminology
@@ -47,13 +47,17 @@ terminology
 				text = <"Mucous Membrane Integrity">
 				description = <"Mucous Membrane Integrity">
 			>
-			["ac0.1.1.0.0.1"] = <
-				text = <"Mucous Membrane Integrity Semantic Binding">
+			["at0.0.0.0.0.1"] = <
+				text = <"Mucous Membrane Integrity">
+				description = <"Mucous Membrane Integrity">
+			>
+			["ac0.0.0.0.0.1"] = <
+				text = <"Anonymous valueset for Mucous Membrane Integrity">
 				description = <"Value set containing single code for mucous membrane integrity concept">
 			>
 			["ac0.0.0.0.0.2"] = <
 				text = <"Mucous Membrane Integrity Range">
-				description = <"Value set containing codes for ucous membrane integrity values">
+				description = <"Value set containing codes for mucous membrane integrity values">
 			>
 		>
 	>
@@ -61,8 +65,22 @@ terminology
 	term_bindings = <
 	    ["loinc"] = <
 	      items = <
-	      	["ac0.1.1.0.0.1"] = <http://example.com/valueset/mucous_membrane_integrity_code_range_vs.v0.0.1>
-	      	["ac0.0.0.0.0.2"] = <http://example.com/valueset/mucous_membrane_integrity_result_range_vs.v0.0.1>
+	        ["id1.1.1.1.1.1"] = <http://loinc.org/id/80347-8> -- Mucous Membrane Integrity
+	        ["at0.0.0.0.0.1"] = <http://loinc.org/id/80347-8> -- Mucous Membrane Integrity      	
 	    	>
 	    >
+	    ["snomed-ct"] = <
+	      items = <
+	      	["ac0.0.0.0.0.2"] = <http://snomed.info/id/TBD> -- mucous membrane integrity reference set
+	      	["id1.1.1.1.1.1"] = <http://snomed.info/id/TBD> -- Mucous Membrane Integrity 
+	      	["at0.0.0.0.0.1"] = <http://snomed.info/id/TBD> -- Mucous Membrane Integrity
+	    	>
+	    >
+	>
+
+	value_sets = < -- key
+		["ac0.0.0.0.0.1"] = <
+			id = <"ac0.0.0.0.0.1">
+			members = <"at0.0.0.0.0.1">  -- Mucous Membrane Integrity Loinc code
+		>		
 	>

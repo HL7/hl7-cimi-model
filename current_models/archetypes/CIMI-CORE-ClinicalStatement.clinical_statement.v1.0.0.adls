@@ -42,11 +42,8 @@ definition
     context matches {
       use_archetype StatementContext[id0.5, CIMI-CORE-StatementContext.statement_context.v1]
     }
-    originatingFrom matches {
-      ClinicalStatement[id0.6]
-    }
     encounter matches {
-      Encounter[id0.7]
+      DetailedEncounter[id0.7]
     }
   }
 
@@ -65,10 +62,7 @@ terminology
         text = <"Statement context">
         description = <"The ontological status of the statement, e.g., whether it exists, does not exist, is planned, etc. Attribute aligns with the SNOMED CT Situation with Explicit Context Concept Model context attributes 'Finding context (attribute)' (SCTID: 408729009) and 'Procedure context (attribute)' (SCTID: 408730004). The range of this attribute is a structure (StatementContext) rather than a value set. The context of the clinical statement must align with the range specified by the SWEC Concept Model. For instance, if the 'context' attribute's meaning is bound to 'Finding context', then the context may not be a specialization of the ActionContext statement context. Instead, it should be a specialization of the FindingContext statement context.">
       >
-      ["id0.6"] = <
-        text = <"Originating From">
-        description = <"The encounter or episode of care from which this statement originates.">
-      >
+      
       ["id0.7"] = <
         text = <"Encounter">
         description = <"Encounter associated with this clinical statement.">

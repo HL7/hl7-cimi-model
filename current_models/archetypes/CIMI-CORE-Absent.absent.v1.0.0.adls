@@ -35,19 +35,20 @@ description
   >
 
 definition
-	Absent[id1.1.1.1.1] matches {
-    /context matches {[ac0.1.1.1.1]}
-		}
+	Absent[id1.1.1.1] matches {
+    type matches {
+      Concept[id2] matches {code matches {[ac1.1.1.1]}}
+    }
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1"] = <
+			["id1.1.1.1"] = <
 				text = <"Absent">
 				description = <"Context indicating the known absence of a finding in the subject of information. If the finding is suspected to be absent, use the known or suspected present context instead.">
 			> 
-      ["ac0.1.1.1.1"] = <
+      ["ac1.1.1.1"] = <
         text = <"Absence context range">
         description = <"Value set containing a single code indicating that the finding context is for an absent finding (410594000 |Definitely NOT present (qualifier value)|).">
       >
@@ -57,7 +58,7 @@ terminology
   term_bindings = <
     ["cimi"] = <
       items = <
-        ["ac0.1.1.1"] = <http://example.com/valueset/absence_context_range_vs.v0.0.1>
+        ["ac1.1.1"] = <http://example.com/valueset/absence_context_range_vs.v0.0.1>
       >
     >
   >

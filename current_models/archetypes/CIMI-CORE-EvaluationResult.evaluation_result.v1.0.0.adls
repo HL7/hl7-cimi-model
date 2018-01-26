@@ -37,43 +37,29 @@ description
 definition
   EvaluationResult[id1.1.1] matches {
     exceptionValue matches {
-      CODED_TEXT[id0.0.1]
+      Concept[id0.0.1]
     }
     method matches {
-      CODED_TEXT[id0.0.2]
-    }
-    deviceCode matches {
-      CODED_TEXT[id0.0.3]
+      Concept[id0.0.2]
     }
     device matches {
-      Device[id0.0.4] 
-    }
-    priority matches {
-      CODED_TEXT[id0.0.5]
+      ClinicalDevice[id0.0.4] 
     }
     sequence matches {
-      CODED_TEXT[id0.0.51]
+      Concept[id0.0.51]
     }
     deltaFlag matches {
-      CODED_TEXT[id0.0.6]
+      Concept[id0.0.6]
     }
     referenceRange matches {
       ReferenceRange[id0.0.7]
     }
-    evaluationProcedureCode matches {
-      CODED_TEXT[id0.0.81]
-    }
     evaluationProcedure matches {
       ClinicalStatement[id0.0.8]
     }
-    interpretation matches {
-      Interpretation[id0.0.9]
-    }
-    interpretationCode matches {
-      CODED_TEXT[id0.0.91]
-    }
+
     precondition matches {
-      CODED_TEXT[id0.0.10]
+      Concept[id0.0.10]
     }
   }
 
@@ -88,18 +74,11 @@ terminology
         text = <"Method">
         description = <"The means by which a measurement, evaluation, or assessment was made.">
       >
-      ["id0.0.3"] = <
-        text = <"Device Code">
-        description = <"The coded device used to evaluate the characteristic such as the type of blood pressure cuff used on a patient.">
-      >
       ["id0.0.4"] = <
         text = <"Device">
         description = <"The device used to evaluate the characteristic such as the type of blood pressure cuff used on a patient.">
       >
-      ["id0.0.5"] = <
-        text = <"Priority">
-        description = <"The urgency of the evaluation result.">
-      >
+
       ["id0.0.51"] = <
         text = <"Sequence">
         description = <"Sequence is a number placed onto the data which refers to the order it occurred in or needs to be retrieved by.">
@@ -116,13 +95,10 @@ terminology
         text = <"evaluationProcedure">  -- restrict to procedure
         description = <"The means by which a measurement, evaluation, or assessment was made align with method code">
       >
-      ["id0.0.9"] = <
-        text = <"Interpretation">
-        description = <"A clinical judgment about the significance of an evaluation result. Interpretation is used to clarify data from measurements and other evaluations. For example, if a measured analyte is greater than a predetermined threshold the interpretation could be Positive, or if a measurement is lower than a normal physiological range the interpretation could be low or critical low. Some values include normal, abnormal, panic high, panic low, ...">
-      >
+
       ["id0.0.10"] = <
-        text = <"Multimedia">
-        description = <"Associated media produced during the evaluation such as an X-ray.">
+        text = <"Precondition">
+        description = <"Previously existing conditions or states that could affect a measurement or assesment. For example; a patients weight taken while clothed, a patients height with or without shoes, a patients blood pressure taken while standing or lying down.">
       >
     >
   >

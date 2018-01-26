@@ -17,14 +17,14 @@ description
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'clinical statement' pattern">
-      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"statement","undermining direction">
+      purpose = <"Mucous membrane integrity statement">
+      use = <" - ">
+      keywords = <"statement","mucous membrane integrity">
     >
   >
   other_details = <["model_level"] = <"reference">>
   lifecycle_state = <"unmanaged">
-  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
+  other_contributors = <"Joey Coyle <joey@xcoyle.com>","Linda Bird <lbi@ihtsdo.org>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
   custodian_namespace = <"org.opencimi">
   custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
   licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
@@ -45,8 +45,27 @@ terminology
 	term_definitions = <
 		["en"] = <
 			["id1.1.1.1.1.1.1.1"] = <
-				text = <"Undermining direction">
-				description = <"Direction from center of wound to undermining, expressed as the clock number if the 12 position were at the cranial, superior, or proximal position of the wound">
+				text = <"Mucous membrane integrity statement">
+				description = <"Statement describing the mucous membrane integrity of the skin inspected">
 			>
-		>
-	>
+		  ["id0.4.0.1.0.0.1.1"] = <
+        text = <"Mucous membrane integrity Topic">
+        description = <"Mucous membrane integrity Topic">
+      >
+    >
+  >
+
+  term_bindings = <
+    ["loinc"] = <
+          items = <
+            ["id1.1.1.1.1.1.1.1"] = <http://loinc.org/id/80347-8> --  Mucous membrane integrity 
+            ["id0.4.0.1.0.0.1.1"] = <http://loinc.org/id/80347-8> --  Mucous membrane integrity
+          >
+      >
+    ["snomed-ct"] = <
+          items = <
+            ["id1.1.1.1.1.1.1.1"] = <http://snomed.info/id/TBD> --  Mucous membrane integrity
+            ["id0.4.0.1.0.0.1.1"] = <http://snomed.info/id/TBD> --  Mucous membrane integrity
+          >
+      >
+    >

@@ -35,63 +35,53 @@ description
   >
 
 definition
-	Request[id1.1.1.1] matches {
-		/context matches {[ac0.1.1.1]}
-		expectedPerformanceTime matches {
-			INTERVAL_VALUE<DATE_TIME>[id0.0.0.2]
+	Request[id1.1.1] matches {
+		type matches {
+          Concept[id2] matches {code matches {[ac1.1.1]}}
+    	}
+		timing matches {
+			Timing[id0.0.2]
 		}
 		expectedPerformer matches {
-			PARTICIPATION[id0.0.0.3]
+			Party[id0.0.3]
 		}
 		priority matches {
-	      CODED_TEXT[id0.0.0.4]
+	      Concept[id0.0.4]
 	    }
-	    duration matches {
-	      INTERVAL_VALUE<DATE_TIME>[id0.0.0.7]
-	    }
-	    durationCode matches {
-	      CODED_TEXT[id0.0.0.8]
-	    }
+	    
+	    
 	    
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1"] = <
+			["id1.1.1"] = <
 				text = <"Request">
 				description = <"An instruction by a healthcare provider to another healthcare provider to perform some act.">
 			>
-			["id0.0.0.2"] = <
-				text = <"Expected Performance Time">
+			["id0.0.2"] = <
+				text = <"Timing">
 				description = <"Time when the requested act is expected to be performed.">
 			>
-			["id0.0.0.3"] = <
+			["id0.0.3"] = <
 				text = <"Expected Performer">
 				description = <"Persons who are expected to or intended to perform this action, e.g., the person who will perform the surgery.">
 			>
-			["id0.0.0.4"] = <
+			["id0.0.4"] = <
 				text = <"Priority">
 				description = <"How quickly the action must be initiated. Includes concepts such as stat, urgent, routine.">
 			>
-			["id0.0.0.5"] = <
+			["id0.0.5"] = <
 				text = <"Frequency">
 				description = <"The frequency at which the activity should be performed - e.g, once daily, thrice daily, etc...">
 			>
-			["id0.0.0.6"] = <
+			["id0.0.6"] = <
 				text = <"Coded Frequency">
 				description = <"The frequency at which the activity should be performed - e.g, QD, BID, etc...">
 			>
-			["id0.0.0.7"] = <
-				text = <"Duration">
-				description = <"The anticipated duration for the action.">
-			>
-			["id0.0.0.8"] = <
-				text = <"Duration Code">
-				description = <"The anticipated duration for the action.">
-			>
-			
-			["ac0.1.1.1"] = <
+						
+			["ac1.1.1"] = <
 		        text = <"Requested context range">
 		        description = <"Value set containing a single code indicating that the action was requested (385644000 |Requested (qualifier value)|).">
 		    >
@@ -101,7 +91,7 @@ terminology
   	term_bindings = <
     	["cimi"] = <
       		items = <
-        		["ac0.1.1.1"] = <http://example.com/valueset/request_context_range_vs.v0.0.1>
+        		["ac1.1.1"] = <http://example.com/valueset/request_context_range_vs.v0.0.1>
         	>
       	>
     >

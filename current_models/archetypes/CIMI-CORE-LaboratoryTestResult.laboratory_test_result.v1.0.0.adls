@@ -37,16 +37,13 @@ description
 definition
   LaboratoryTestResult[id1.1.1.1] matches {
     diagnosticService matches {
-      TEXT[id0.0.0.1]
+      Concept[id0.0.0.1]
     }
     specimen matches {
       Specimen[id0.0.0.2]
     }
     poctIndicator matches {
-      CODED_TEXT[id0.0.0.3]
-    }
-    diagnosis matches {
-      CODED_TEXT[id0.0.0.4]
+      Concept[id0.0.0.3]
     }
   }
 
@@ -68,10 +65,6 @@ terminology
       ["id0.0.0.3"] = <
         text = <"Poct Indicator">
         description = <"">
-      >
-      ["id0.0.0.4"] = <
-        text = <"Diagnosis">
-        description = <"A condition for which the lab result  is pathoneumonic. The lab result is sufficient to assert the diagnosis.">
       >
     >
   >

@@ -35,53 +35,36 @@ description
   >
 
 definition
-	Order[id1.1.1.1.1] matches {
-		/context matches {[ac0.1.1.1]}
+	Order[id1.1.1.1] matches {
+		type matches {
+          Concept[id2] matches {code matches {[ac1.1.1.1]}}
+    	}
 		basedOn matches {
-			ClinicalStatement[id0.0.0.0.1]
-		}
-		neededNoLaterThan matches {
-			DATE_TIME[id0.0.0.0.2]
+		  ClinicalStatement[id0.0.0.1]
 		}
 		patientInstructions matches {
-	      TEXT[id0.0.0.0.3]
-	    }
-	    startDateTime matches {
-	      DATE_TIME[id0.0.0.0.4]
-	    }
-	    stopDateTime matches {
-	      DATE_TIME[id0.0.0.0.5]
-	    }
+	      CodedText[id0.0.0.3]
+	    }	    
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1"] = <
+			["id1.1.1.1"] = <
 				text = <"Order">
 				description = <"An instruction by a healthcare provider to another healthcare provider to perform some act.">
 			>
-			["id0.0.0.0.1"] = <
+			["id0.0.0.1"] = <
 				text = <"Based On">
 				description = <"The proposal that is partly or wholly fulfilled  by the performance of this act.">
 			>
-			["id0.0.0.0.2"] = <
-				text = <"Needed No Later Than">
-				description = <"-">
-			>
-			["id0.0.0.0.3"] = <
+			
+			["id0.0.0.3"] = <
 				text = <"Patient Instructions">
 				description = <"-">
 			>
-			["id0.0.0.0.4"] = <
-				text = <"Start Datetime">
-				description = <"How quickly the action must be initiated. Includes concepts such as stat, urgent, routine.">
-			>
-			["id0.0.0.0.5"] = <
-				text = <"Stop Datetime">
-				description = <"Condition under which the ordered act should be performed. E.g.., shortness of breath, SpO2 less than x%, insomnia, nausea.">
-			>
-			["ac0.1.1.1.1"] = <
+			
+			["ac1.1.1.1"] = <
 		        text = <"Order context range">
 		        description = <"Value set containing a single code indicating that the action was ordered (SNOMED-CT concept TBD)">
 		      >
@@ -91,7 +74,7 @@ terminology
     term_bindings = <
 	    ["cimi"] = <
 	      items = <
-	        ["ac0.1.1.1.1"] = <http://example.com/valueset/order_context_range_vs.v0.0.1>
+	        ["ac1.1.1.1"] = <http://example.com/valueset/order_context_range_vs.v0.0.1>
 	      >
 	    >
 	  >

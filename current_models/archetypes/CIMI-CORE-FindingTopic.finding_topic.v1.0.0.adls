@@ -36,15 +36,17 @@ description
 
 definition
 	FindingTopic[id1.1] matches {
-		/key matches {[ac0.1]}
+		key matches {
+      		Concept[id2] matches {code matches {[ac0.1]}}
+    	}
 		result matches {
-			DATA_VALUE[id0.1]
+			DataType[id0.1]
 		}
 		description matches {
-			PLAIN_TEXT[id0.2]
+			PlainText[id0.2]
 		}
 		multimedia matches {
-			MULTIMEDIA[id0.3]
+			Multimedia[id0.3]
 		}
 	}
 

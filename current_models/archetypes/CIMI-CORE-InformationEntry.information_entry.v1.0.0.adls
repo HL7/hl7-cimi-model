@@ -33,35 +33,26 @@ description
 
 definition
   InformationEntry[id1] matches {
-    key matches {
-      CODED_TEXT[id2]
-    } 
+    
     identifier matches {
       IDENTIFIER[id3]
     } 
     subjectOfInformation matches {
-      SubjectOfInformation[id21]
+      PartyAssociation[id21]
     } 
-    authored matches {
+    attribution matches {
       use_archetype Attribution [id8, CIMI-CORE-Attribution.author_action.v1]
-    }
-    recorded matches {
       use_archetype Attribution [id9, CIMI-CORE-Attribution.record_action.v1]
-    }
-    verified matches {
       use_archetype Attribution [id10, CIMI-CORE-Attribution.verify_action.v1]
-    }
-    signed matches {
       use_archetype Attribution [id11, CIMI-CORE-Attribution.sign_action.v1]
-    }
-    cosigned matches {
-      use_archetype Attribution [id12, CIMI-CORE-Attribution.sign_action.v1]
-    }
+
+    } -- add cosign to list ???
+   
     additionalText matches {
       Annotation[id13]
     }
     recordStatus matches {
-      CODED_TEXT[id14]
+      Concept[id14]
     }
   }
 
@@ -72,10 +63,7 @@ terminology
         text = <"InformationEntry">
         description = <"The meta data for an Entry ">
       >
-      ["id2"] = <
-        text = <"Key">
-        description = <"The 'key' attribute is an optional attribute allowing the coding of some of the information represented by the clinical statement. The range of this attribute (i.e., allowable codes assigned as a value for this attribute) must derive from and conform with the SNOMED CT Situation with Explicit Context (SWEC) concept hierarchies defined in SNOMED CT. Note that this attribute may consist of precoordinated codes (not recommended) or SNOMED CT expressions.">
-      >
+     
       ["id3"] = <
         text = <"Identifier">
         description = <"The unique identifier(s) of this clinical statement. It must be entered if user wants it returned as part of any output (e.g.,  a wound number), otherwise it will be auto-generated, if needed, by the system serving the record. An identifier does not need to be the actual identifier of the source system.">
@@ -108,6 +96,11 @@ terminology
         text = <"Record status">
         description = <"Concept indicating the state of this record. E.g., 'entered in error'.">
       >
+      ["id21"] = <
+        text = <"Subject of information">
+        description = <"The subject of the entry, which is unusually the patient, but may also be a relative of the patient, a a cohort, a device, etc. When the subject of information is the same as the subject of record, the relationship 'self' is used. In cases such as family history or descriptions of device (mal)function, the relationship type is something other than 'self'. This attribute aligns with the SNOMED CT Situation with Explicit Context (SWEC) and is bound to the SNOMED attribute: 'Subject relationship context (attribute)' (SCTID: 408732007).">
+      >
+
     >
   >
 

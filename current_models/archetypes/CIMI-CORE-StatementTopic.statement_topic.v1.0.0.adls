@@ -34,7 +34,7 @@ description
 definition
 	StatementTopic[id1] matches {
     key matches {
-      CODED_TEXT[id2]
+      Concept[id2]
     }
   }
 

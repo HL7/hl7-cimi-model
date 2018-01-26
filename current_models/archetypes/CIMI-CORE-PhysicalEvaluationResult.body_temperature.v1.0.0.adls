@@ -1,0 +1,131 @@
+archetype (adl_version=2.0.6; rm_release=0.0.1)
+	CIMI-CORE-PhysicalEvaluationResult.body_temperature.v1.0.0
+
+specialize
+	CIMI-CORE-PhysicalEvaluationResult.quantitative_physical_evaluation_result.v1
+
+language
+  original_language = <[ISO_639-1::en]>
+
+description
+  original_author = <
+    ["name"] = <"Joey Coyle">
+    ["organisation"] = <"XCoyle">
+    ["email"] = <"joey@xcoyle.com">
+    ["date"] = <"08/19/2017">
+  >
+  details = <
+    ["en"] = <
+      language = <[ISO_639-1::en]>
+      purpose = <"BodyTemperatureMeas model is a measurement model. A measurement model holds a 'question' or a 'test' in the key and holds a numeric value or ordinal value answer in data. For example, in the HeartRateMeas model, the 'question' or the 'test' is 'What is the heart rate measurement?', and the 'answer' in data can be '100 bpm'. In the BodyTemperatureMeas model, the question is 'what is the subject's Body Temperature?' and the numeric answer will have a unit of measure. BodyTemperatureMeas captures a subject's measured body temperature.">
+      use = <"Use to represent subject's body temperature.">
+      keywords = <"">
+    >
+  >
+  other_details = <["model_level"] = <"reference">>
+  lifecycle_state = <"unmanaged">
+  other_contributors = <"Claude Nanjo <cnanjo@gmail.com>","Stan Huff <Stan.Huff@imail.org>", "Susan Matney <Susan.Matney@imail.org>", "Patrick Langford <patrick@neuronsong.com>", "Thomas Beale <thomas.beale@arssemantica.com>">
+  custodian_namespace = <"org.opencimi">
+  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
+  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
+  ip_acknowledgements = <
+    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+  >	>
+	>
+
+definition
+	PhysicalEvaluationResult[id1.1.1.1.1.1] matches {
+		/key/code matches {[ac0.0.0.0.0.1]}
+		/result/units/code matches {[ac0.0.0.0.0.2]}
+		/method/code matches  {[ac0.0.0.0.1.1]}	
+		/device matches {
+			ClinicalDevice[id0.0.4] matches {
+				key matches {Concept[id0.0.0.0.0.11] matches {code matches {[ac0.0.0.0.0.6]}}}
+			}
+		}
+		/precondition/code matches {[ac0.0.0.0.0.4]}
+		/bodyLocation matches {
+			AnatomicalLocation[id0.0.0.1] matches {
+				code matches {Concept[id0.0.0.0.0.12] matches {code matches {[ac0.0.0.0.0.5]}}}	
+			}	
+		}
+	}
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1.1.1.1.1.1"] = <
+				text = <"Body Temperature">
+				description = <"Quantitative evaluation result model representing body temperature.">
+			>
+			["ac0.0.0.0.0.1"] = <
+				text = <"Anonymous valueset with only Body Temperature">
+				description = <"Valueset containing code for Body Temperature">
+			>
+			["ac0.0.0.0.0.2"] = <
+				text = <"Valueset Temperature Units">
+				description = <"Value set containing codes for temperature">
+			>
+			["ac0.0.0.0.1.1"] = <
+				text = <"Valueset - Body Temperature Method">
+				description = <"Valueset for body temperature method concepts">
+			>
+			["at0.0.0.0.0.6"] = <
+				text = <"Body Temperature">
+				description = <"Concept representing Body Temperature">
+			>
+
+			["at0.0.0.0.0.7"] = <
+				text = <"Degrees Celsius">
+				description = <"Degrees Celsius">
+			>
+			
+			["ac0.0.0.0.0.4"] = <
+				text = <"Valueset - Vital Signs Precondition">
+				description = <"Valueset for vital signs precondition concepts">
+			>
+			["ac0.0.0.0.0.5"] = <
+				text = <"Valueset - BodyTemperature BodyLocation">
+				description = <"Valueset for body temperature body location concepts">
+			>
+			["ac0.0.0.0.0.6"] = <
+				text = <"Valueset - BodyTemperature Device">
+				description = <"Valueset for body temperature device concepts">
+			>
+		>
+	>
+
+	term_bindings = <
+	    ["loinc"] = <
+	      items = <
+	      		["id1.1.1.1.1.1"] = <http://loinc.org/id/8310-5> -- Body Temperature
+				["at0.0.0.0.0.6"] = <http://loinc.org/id/8310-5> -- Body Temperature			
+	    	>
+	    >
+	    ["snomed"] = <
+	      items = <
+				["at0.0.0.0.0.7"] = <http://snomed.info/id/258710007> -- Degrees Celsius
+				["ac0.0.0.0.1.1"] = <http://opencimi.org/valueset/BodyTemperatureMethod_VALUESET_CODE>
+				["ac0.0.0.0.0.4"] = <http://opencimi.org/valuset/VitalSignAssociatedPrecondition_VALUESET_CODE>
+				["ac0.0.0.0.0.5"] = <http://opencimi.org/valuset/BodyTemperatureBodyLocation_VALUESET_CODE>
+				["ac0.0.0.0.0.6"] = <http://opencimi.org/valuset/BodyTemperatureDevice_VALUESET_CODE>			
+	    	>
+	    >
+	>
+
+	
+	value_sets = < -- key
+		["ac0.0.0.0.0.1"] = <
+			id = <"ac0.0.0.0.0.1">
+			members = <"at0.0.0.0.0.6">  -- Body Temperature Loinc code
+		>
+
+		["ac0.0.0.0.0.2"] = <
+			id = <"ac0.0.0.0.0.2">
+			members = <"at0.0.0.0.0.7">  -- Degrees Celsius Snomed code
+		>
+		
+	>
+

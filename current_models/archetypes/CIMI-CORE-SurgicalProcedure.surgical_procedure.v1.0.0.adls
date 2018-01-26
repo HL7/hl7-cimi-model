@@ -37,10 +37,10 @@ description
 definition
   SurgicalProcedure[id1.1.1] matches {
     surgicalApproach matches {
-      CODED_TEXT[id0.0.1]
+      Concept[id0.0.1]
     }
     access matches {
-      CODED_TEXT[id0.0.2]
+      Concept[id0.0.2]
     }
 
   }

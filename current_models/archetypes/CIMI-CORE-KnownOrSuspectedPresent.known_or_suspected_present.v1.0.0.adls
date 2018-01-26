@@ -35,18 +35,20 @@ description
   >
 
 definition
-	KnownOrSuspectedPresent[id1.1.1.1.1] matches {
-    /context matches {[ac0.1.1.1.1]}
+	KnownOrSuspectedPresent[id1.1.1.1] matches {
+    type matches {
+      Concept[id2] matches {code matches {[ac1.1.1.1]}}
+    }
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1"] = <
+			["id1.1.1.1"] = <
 				text = <"Known or suspected present">
 				description = <"Context indicating that finding is known present or suspected present.">
 			>
-      ["ac0.1.1.1.1"] = <
+      ["ac1.1.1.1"] = <
         text = <"Known or suspected present context range">
         description = <"Value set indicating the possibility that the finding may exist (609412005 |Suspected or known present (qualifier value)|).">
       >
@@ -56,7 +58,7 @@ terminology
   term_bindings = <
     ["cimi"] = <
       items = <
-        ["ac0.1.1.1.1"] = <http://example.com/valueset/known_or_suspected_context_range_vs.v0.0.1>
+        ["ac1.1.1.1"] = <http://example.com/valueset/known_or_suspected_context_range_vs.v0.0.1>
       >
     >
   >

@@ -1,0 +1,124 @@
+archetype (adl_version=2.0.6; rm_release=0.0.1)
+	CIMI-CORE-PhysicalEvaluationResult.body_weight.v1.0.0
+
+specialize
+	CIMI-CORE-PhysicalEvaluationResult.quantitative_physical_evaluation_result.v1
+
+language
+  original_language = <[ISO_639-1::en]>
+
+description
+  original_author = <
+    ["name"] = <"Joey Coyle">
+    ["organisation"] = <"XCoyle">
+    ["email"] = <"joey@xcoyle.com">
+    ["date"] = <"08/19/2017">
+  >
+  details = <
+    ["en"] = <
+      language = <[ISO_639-1::en]>
+      purpose = <"BodyWeightMeas model is a measurement model. A measurement model holds a 'question' or a 'test' in the key and holds a numeric value answer in data. In the BodyWeightMeas model, the question is 'what is the subject's body weight?' and the numeric answer will be expressed in kilograms. Calculated body weights (e.g. ideal, goal) will be captured in another model.">
+      use = <"Use to represent subject's body weight.">
+      keywords = <"">
+    >
+  >
+  other_details = <["model_level"] = <"reference">>
+  lifecycle_state = <"unmanaged">
+  other_contributors = <"Claude Nanjo <cnanjo@gmail.com>","Stan Huff <Stan.Huff@imail.org>", "Susan Matney <Susan.Matney@imail.org>", "Patrick Langford <patrick@neuronsong.com>", "Thomas Beale <thomas.beale@arssemantica.com>">
+  custodian_namespace = <"org.opencimi">
+  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
+  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
+  ip_acknowledgements = <
+    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+  >	>
+	>
+
+definition
+	PhysicalEvaluationResult[id1.1.1.1.1.1] matches {
+		/key/code matches {[ac0.0.0.0.0.1]}
+		/result/units/code matches {[ac0.0.0.0.0.2]}
+		/method/code matches  {[ac0.0.0.0.1.1]}	
+		/device matches {
+			ClinicalDevice[id0.0.4] matches {
+				key matches {Concept[id0.0.0.0.0.11] matches {code matches {[ac0.0.0.0.0.6]}}}
+			}
+		}
+		/precondition/code matches {[ac0.0.0.0.0.4]}
+				
+	}
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1.1.1.1.1.1"] = <
+				text = <"Body Weight">
+				description = <"Quantitative evaluation result model representing body weight.">
+			>
+			["ac0.0.0.0.0.1"] = <
+				text = <"Anonymous valueset with only Body Weight">
+				description = <"Valueset containing code for Body Weight">
+			>
+			["ac0.0.0.0.0.2"] = <
+				text = <"Valueset kilograms Unit">
+				description = <"Value set containing kilograms">
+			>
+			["ac0.0.0.0.1.1"] = <
+				text = <"Valueset - Body Weight Method">
+				description = <"Valueset for body weight method concepts">
+			>
+			["at0.0.0.0.0.6"] = <
+				text = <"Body Weight">
+				description = <"Concept representing Body Weight">
+			>
+
+			["at0.0.0.0.0.7"] = <
+				text = <"kg">
+				description = <"kilograms">
+			>
+			
+			["ac0.0.0.0.0.4"] = <
+				text = <"Valueset - Vital Signs Precondition">
+				description = <"Valueset for vital signs precondition concepts">
+			>
+			
+			["ac0.0.0.0.0.6"] = <
+				text = <"Valueset - Body Weight Measurement Device">
+				description = <"Valueset for body weight measurement device concepts">
+			>
+		>
+	>
+
+	term_bindings = <
+	    ["loinc"] = <
+	      items = <
+	      		["id1.1.1.1.1.1"] = <http://loinc.org/id/29463-7> -- Body Weight
+				["at0.0.0.0.0.6"] = <http://loinc.org/id/29463-7> -- Body Weight			
+	    	>
+	    >
+	    ["snomed"] = <
+	      items = <
+				["at0.0.0.0.0.7"] = <http://snomed.info/id/258683005> -- Kilograms
+				["ac0.0.0.0.1.1"] = <http://opencimi.org/valueset/BodyWeightMethod_VALUESET_CODE>
+				["ac0.0.0.0.0.4"] = <http://opencimi.org/valuset/VitalSignAssociatedPrecondition_VALUESET_CODE>
+				
+				["ac0.0.0.0.0.6"] = <http://opencimi.org/valuset/BodyWeightDevice_VALUESET_CODE>			
+	    	>
+	    >
+	>
+
+	
+	value_sets = < -- key
+		["ac0.0.0.0.0.1"] = <
+			id = <"ac0.0.0.0.0.1">
+			members = <"at0.0.0.0.0.6">  -- Body Height Loinc code
+		>
+
+		["ac0.0.0.0.0.2"] = <
+			id = <"ac0.0.0.0.0.2">
+			members = <"at0.0.0.0.0.7">  -- Centimeters Snomed code
+		>
+		
+	>
+

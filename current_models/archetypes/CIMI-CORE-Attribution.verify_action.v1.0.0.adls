@@ -36,14 +36,13 @@ description
 
 definition
   Attribution[id1.1] matches { -- Verify action
-    activityTimeRange matches {  -- Verification datetime range
-      INTERVAL_VALUE<DATE_TIME>[id6.1]
-    }
+    /activity/code matches {[ac0.1]}
+    
     location matches {
-      PARTICIPATION[id8.1]  -- Location of verifier
+      Location[id8.1]  -- Location of verifier
     }
-    agent matches { -- Verifier
-      PARTICIPATION[id10.1]
+    participant matches { -- Verifier
+      PartyAssociation[id10.1]
     }
   }
 
@@ -51,9 +50,16 @@ terminology
   term_definitions = <
     ["en"] = <
       ["id1.1"] = < text = <"Verify action"> >
-      ["id6.1"] = < text = <"Verification datetime range"> >
       ["id8.1"] = < text = <"Location of verifier"> >
       ["id10.1"] = < text = <"Verifier"> >
+      ["ac0.1"] = <
+        text = <"Anonymous valueset for activity">
+        description = <" - ">
+      >
+      ["at0.1"] = <
+        text = <"Verified activity">
+        description = <" - ">
+      >
     >
   >
   term_bindings = <
@@ -61,4 +67,11 @@ terminology
       items = <
       >
     >
+  >
+
+  value_sets = < -- activity
+    ["ac0.1"] = <
+      id = <"ac0.1">
+      members = <"at0.1">
+    >  
   >

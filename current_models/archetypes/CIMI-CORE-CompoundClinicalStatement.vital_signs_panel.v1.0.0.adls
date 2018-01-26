@@ -1,0 +1,90 @@
+archetype (adl_version=2.0.6; rm_release=0.0.1)
+	CIMI-CORE-CompoundClinicalStatement.vital_signs_panel.v1.0.0
+
+specialize
+	CIMI-CORE-CompoundClinicalStatement.panel.v1
+
+language
+  original_language = <[ISO_639-1::en]>
+
+description
+  original_author = <
+    ["name"] = <"Joey Coyle">
+    ["organisation"] = <"XCoyle">
+    ["email"] = <"joey@xcoyle.com">
+    ["date"] = <"08/19/2017">
+  >
+  details = <
+    ["en"] = <
+      language = <[ISO_639-1::en]>
+      purpose = <"Vital Signs Panel">
+      use = <"Vital Signs Panel.">
+      keywords = <"statement","vital signs panel">
+    >
+  >
+  other_details = <["model_level"] = <"reference">>
+  lifecycle_state = <"unmanaged">
+  other_contributors = <"Claude Nanjo <cnanjo@gmail.com>","Stan Huff <Stan.Huff@imail.org>", "Susan Matney <Susan.Matney@imail.org>", "Patrick Langford <patrick@neuronsong.com>", "Thomas Beale <thomas.beale@arssemantica.com>">
+  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
+  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
+  ip_acknowledgements = <
+    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+  >
+
+definition
+	CompoundClinicalStatement[id1.1.1.1.1] matches {
+		content matches {
+			use_archetype CompoundClinicalStatement [id0.0.1.0.1, CIMI-CORE-CompoundClinicalStatement.blood_pressure_panel.v1] occurrences matches {1..1}
+			use_archetype IndivisibleClinicalStatement [id0.0.1.0.2, CIMI-CORE-IndivisibleClinicalStatement.body_temperature_stmt.v1] occurrences matches {1..1}	
+			use_archetype IndivisibleClinicalStatement [id0.0.1.0.3, CIMI-CORE-IndivisibleClinicalStatement.heart_rate_stmt.v1] occurrences matches {1..1}
+			use_archetype IndivisibleClinicalStatement [id0.0.1.0.4, CIMI-CORE-IndivisibleClinicalStatement.respiratory_rate_stmt.v1] occurrences matches {1..1}
+			use_archetype IndivisibleClinicalStatement [id0.0.1.0.5, CIMI-CORE-IndivisibleClinicalStatement.oxygen_saturation_arterial_blood_stmt.v1] occurrences matches {1..1}		
+		}
+	}
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1.1.1.1.1"] = <
+				text = <"Vital Signs Panel">
+				description = <"-">
+			>
+			["id0.0.1.0.1"] = <
+				text = <"Blood Pressure Panel">
+				description = <"-">
+			>
+			["id0.0.1.0.2"] = <
+				text = <"Body Temperature">
+				description = <"-">
+			>
+			["id0.0.1.0.3"] = <
+				text = <"Heart Rate">
+				description = <"-">
+			>
+			["id0.0.1.0.4"] = <
+				text = <"Respiratory Rate">
+				description = <"-">
+			>
+			["id0.0.1.0.5"] = <
+				text = <"Oxygen Saturation Arterial Blood">
+				description = <"-">
+			>
+
+			
+		>
+	>
+
+	term_bindings = <
+		["loinc"] = <
+      		items = <
+		        ["id1.1.1.1.1"] = <http://loinc.org/code/8716-3> --  Vital Signs Panel
+		        ["id0.0.1.0.1"] = <http://loinc.org/code/55284-4> -- Blood Pressure Panel
+		        ["id0.0.1.0.2"] = <http://loinc.org/code/8310-5> -- Body Temperature
+		        ["id0.0.1.0.3"] = <http://loinc.org/code/8867-4> -- Heart Rate
+		        ["id0.0.1.0.4"] = <http://loinc.org/code/9279-1> -- Respiratory Rate
+		        ["id0.0.1.0.5"] = <http://loinc.org/code/59408-5> -- Oxygen Saturation Arterial Blood
+      		>
+    	>
+  	>

@@ -36,14 +36,13 @@ description
 
 definition
   Attribution[id1.1] matches { -- Record action
-    activityTimeRange matches {  -- Entry datetime range
-      INTERVAL_VALUE<DATE_TIME>[id6.1]
-    }
+    /activity/code matches {[ac0.1]}
+    
     location matches {
-      PARTICIPATION[id8.1]  -- Location of data enterer
+      Location[id8.1]  -- Location of data enterer
     }
-    agent matches { -- Data enterer
-      PARTICIPATION[id10.1]
+    participant matches { -- Data enterer
+      PartyAssociation[id10.1]
     }
   }
 
@@ -51,9 +50,16 @@ terminology
   term_definitions = <
     ["en"] = <
       ["id1.1"] = < text = <"Record action"> >
-      ["id6.1"] = < text = <"Entry datetime range"> >
       ["id8.1"] = < text = <"Location of data enterer"> >
       ["id10.1"] = < text = <"Data enterer"> >
+      ["ac0.1"] = <
+        text = <"Anonymous valueset for activity">
+        description = <" - ">
+      >
+      ["at0.1"] = <
+        text = <"Record activity">
+        description = <" - ">
+      >
     >
   >
   term_bindings = <
@@ -62,3 +68,11 @@ terminology
       >
     >
   >
+
+  value_sets = < -- activity
+    ["ac0.1"] = <
+      id = <"ac0.1">
+      members = <"at0.1">
+    >  
+  >
+

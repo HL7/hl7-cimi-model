@@ -36,18 +36,44 @@ description
 
 definition
 	PhysicalEvaluationResult[id1.1.1.1.1] matches {
-		result matches {
-			QUANTITY[id0.1.0.0.1]
+		/result matches {
+			QUANTITY[id0.1.0.0.1] matches { units matches {Concept[id0.0.0.0.2]}}
 		}
+    /method matches {
+      	Concept[id0.0.2] matches { code matches {[ac0.0.0.0.1]}}
+    }
+    /deltaFlag/code matches {[ac0.0.0.0.2]}
 	}
 		
-
 terminology
 	term_definitions = <
 		["en"] = <
 			["id1.1.1.1.1"] = <
 				text = <"Quantitative physical evaluation result">
-				description = <"An physical evaluation result constrained to a Quantity">
+				description = <"A physical evaluation result constrained to a Quantity">
 			>
+      ["ac0.0.0.0.1"] = <
+        text = <"Valuset - Method Quantitative Lab">
+        description = <" - ">
+      >
+      ["ac0.0.0.0.2"] = <
+        text = <"Valueset - Delta Flag Quantitative">
+        description = <" - ">
+      >
+     
 		>
 	>
+
+term_bindings = <
+      ["loinc"] = <
+        items = <
+        ["ac0.0.0.0.1"] = <http://opencimi.org/valueset/QuantitativePhysicalEvaluationMethod_VALUESET_CODE>
+        >
+      >
+      ["snomed"] = <
+        items = <
+        ["ac0.0.0.0.2"] = <http://opencimi.org/valueset/DeltaFlagNumericNom_VALUESET_CODE>
+        
+        >
+      >
+  >

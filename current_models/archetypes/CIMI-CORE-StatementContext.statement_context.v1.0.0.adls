@@ -33,11 +33,11 @@ description
 
 definition
   StatementContext[id1] matches {
-    context matches {
-      CODED_TEXT[id2] 
+    type matches {
+      Concept[id2] matches {code matches {[ac1]}}
     }
     temporalContext matches {
-      CODED_TEXT[id5]
+      Concept[id5] matches {code matches {[ac2]}}
     }
   }
 
@@ -49,12 +49,20 @@ terminology
         description = <"Compositional and reusable grouping of clinical statement attributes that provides the context for the topic of a clinical statement. The StatementContext class aligns with the SNOMED CT Situations with Explicit Context. The StatementContext provides the expressivity required to specify that an act was performed or not performed or that a finding was asserted to be present or absent for the given subject of information. It also often holds provenance information relevant to the context of the clinical statement. It is important to note that by default the context applies to the conjunction of the attribute specified in the statement. For instance, if a clinical statement has a topic describing a rash on left arm and a context of 'absent', then the statement states that the subject of interest did not have a rash on the left arm but might have had one on the right arm.">
       >
       ["id2"] = <
-        text = <"Context">
+        text = <"Type">
         description = <"The ontological status of the statement, e.g., whether it exists, does not exist, is planned, etc. Attribute aligns with the SNOMED CT Situation with Explicit Context (SWEC) Concept Model context attributes: 'Finding context (attribute)' (SCTID: 408729009) and 'Procedure context (attribute)' (SCTID: 408730004). The range allowed for this attribute shall be consistent with the SNOMED CT concept model specification for SWEC.">
       >
       ["id5"] = <
         text = <"Temporal context">
         description = <"Whether the topic is prospective or retrospective. E.g., action occurred in the past. This attribute is aligned with the SNOMED Situation With Explicit Context temporal context attribute.">
+      >
+      ["ac1"] = <
+        text = <"Statement context range">
+        description = <"Allowed values for the SNOMED CT Situation with Explicit Context context attribute (either 'finding context' or 'procedure context' values">
+      >
+      ["ac2"] = <
+        text = <"Temporal context range">
+        description = <"Allowed values for the SNOMED CT Situation with Explicit Context - 'temporal context' attribute">
       >
     >
   >
@@ -64,6 +72,9 @@ term_bindings = <
       items = <
         ["id2"] = <http://example.com/valueset/statement_context_vs.v0.0.1>
         ["id5"] = <http://example.com/valueset/temporal_context_vs.v0.0.1>
+        ["ac1"] = <http://example.com/valueset/statement_context_range_vs.v0.0.1>
+        ["ac2"] = <http://example.com/valueset/temporal_context_range_vs.v0.0.1>
+
       >
     >
   >

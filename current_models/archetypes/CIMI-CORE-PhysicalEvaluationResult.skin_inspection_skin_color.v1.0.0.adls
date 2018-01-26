@@ -17,14 +17,14 @@ description
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'clinical statement' pattern">
-      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"">
+      purpose = <"Skin Color">
+      use = <" - ">
+      keywords = <" - ">
     >
   >
   other_details = <["model_level"] = <"reference">>
   lifecycle_state = <"unmanaged">
-  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
+  other_contributors = <"Joey Coyle <joey@xcoyle.com>","Linda Bird <lbi@ihtsdo.org>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
   custodian_namespace = <"org.opencimi">
   custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
   licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
@@ -37,8 +37,8 @@ description
 
 definition
 	PhysicalEvaluationResult[id1.1.1.1.1.1] matches {
-		/key[id3.1.1.0.0.1] matches {[ac0.1.1.0.0.1]}
-		/result[id0.1.0.0.1.1] matches {[ac0.0.0.0.0.2]}
+		/key/code matches {[ac0.0.0.0.0.1]}
+		/result/code matches {[ac0.0.0.0.0.2]}
 	}
 
 terminology
@@ -48,13 +48,17 @@ terminology
 				text = <"Skin Color">
 				description = <"The color of the skin inspected.">
 			>
-			["ac0.1.1.0.0.1"] = <
-				text = <"Skin Color Semantic Binding">
+			["at0.0.0.0.0.1"] = <
+				text = <"Skin Color">
+				description = <"The color of the skin inspected.">
+			>
+			["ac0.0.0.0.0.1"] = <
+				text = <"Anonymous valueset for Skin Color">
 				description = <"Value set containing single code for skin color concept">
 			>
 			["ac0.0.0.0.0.2"] = <
-				text = <"Skin Color Range">
-				description = <"Value set containing codes for skin color values">
+				text = <" Wound assessment skin color reference set (foundation metadata concept) ">
+				description = <"Provide a global set of values (drawn from findings and qualifier value hierarchies) that can be used for recording and retrieving skin color in the course of examining a patient.">
 			>
 		>
 	>
@@ -62,8 +66,22 @@ terminology
 	term_bindings = <
 	    ["loinc"] = <
 	      items = <
-				["ac0.1.1.0.0.1"] = <http://example.com/valueset/skin_color_code_range_vs.v0.0.1>
-				["ac0.0.0.0.0.2"] = <http://example.com/valueset/skin_color_result_range_vs.v0.0.1>
+	        ["id1.1.1.1.1.1"] = <http://loinc.org/id/39107-8> -- Skin Color
+	        ["at0.0.0.0.0.1"] = <http://loinc.org/id/39107-8> -- Skin Color      	
 	    	>
 	    >
+	    ["snomed-ct"] = <
+	      items = <
+	      	["ac0.0.0.0.0.2"] = <http://snomed.info/id/11000205103> -- skin color reference set
+	      	["id1.1.1.1.1.1"] = <http://snomed.info/id/364533002> -- Skin Color 
+	      	["at0.0.0.0.0.1"] = <http://snomed.info/id/364533002> -- Skin Color
+	    	>
+	    >
+	>
+
+	value_sets = < -- key
+		["ac0.0.0.0.0.1"] = <
+			id = <"ac0.0.0.0.0.1">
+			members = <"at0.0.0.0.0.1">  -- Skin Color Loinc code
+		>		
 	>

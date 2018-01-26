@@ -31,39 +31,36 @@ description
   >
 
 definition
-  Attribution[id1] matches { -- Attribution
-    identifier matches { 
-      IDENTIFIER[id2] -- Identifier
-    }
+  Attribution[id1] matches { 
     activity matches {
-      CODED_TEXT[id3] -- Activity
+      Concept[id3] 
     }
     recordedOn matches {
-      DATE_TIME[id4]  -- Recorded on
+      DateTime[id4]  
     }
     recordedBy matches { 
-      PARTICIPATION[id5] -- Recorded by
+      Party[id5] 
     }
     activityTimeRange matches { 
-      INTERVAL_VALUE<DATE_TIME>[id6] -- Datetime range
+      IntervalValue<Date>[id6] 
     }
     reason matches {
-      TEXT[id7]  -- Reason
+      Concept[id7]  
     }
     location matches { 
-      PARTICIPATION[id8] occurrences matches {0..*} -- Location
+      Location[id8]  
     }
     policy matches {
-      URI[id9] -- URI
+      UriType[id9] 
     } 
-    agent matches {
-      PARTICIPATION[id10] -- Participation
-    }
-    entity matches { 
-      PARTICIPATION[id11] -- Status
-    }
+    participant matches {
+      PartyAssociation[id10] 
+    }  
     signature matches { 
-      Signature[id12]  -- Signature
+      Signature[id12] 
+    }
+    method matches { 
+      Concept[id13] 
     }
   }
 
@@ -72,9 +69,6 @@ terminology
     ["en"] = <
       ["id1"] = <
         text = <"Attribution">
-      >
-      ["id2"] = <
-        text = <"Identifier">
       >
       ["id3"] = <
         text = <"Activity">
@@ -86,7 +80,7 @@ terminology
         text = <"Recorded by">
       >
       ["id6"] = <
-        text = <"Datetime Range">
+        text = <"Activity time range">
       >
       ["id7"] = <
         text = <"Reason">
@@ -95,16 +89,16 @@ terminology
         text = <"Location">
       >
       ["id9"] = <
-        text = <"URI">
+        text = <"Policy">
       >
       ["id10"] = <
-        text = <"Participation">
-      >
-      ["id11"] = <
-        text = <"Status">
+        text = <"Participant">
       >
       ["id12"] = <
         text = <"Signature">
+      >
+      ["id13"] = <
+        text = <"Method">
       >
     >
   >
@@ -112,7 +106,7 @@ terminology
     ["snomed-ct"] = <
       items = <
         ["id1"] = <http://snomed.info/id/129264002>
-        ["id2"] = <http://snomed.info/id/129264002>
+
         ["id3"] = <http://snomed.info/id/129264002>
         ["id4"] = <http://snomed.info/id/364713004>
         ["id5"] = <http://snomed.info/id/364713004>
@@ -121,8 +115,9 @@ terminology
         ["id8"] = <http://snomed.info/id/364713004>
         ["id9"] = <http://snomed.info/id/364713004>
         ["id10"] = <http://snomed.info/id/138875005>
-        ["id11"] = <http://snomed.info/id/272394005>
+        
         ["id12"] = <http://snomed.info/id/288532009>
+        ["id13"] = <http://snomed.info/id/288532009>
       >
     >
   >

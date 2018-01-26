@@ -1,0 +1,114 @@
+archetype (adl_version=2.0.6; rm_release=0.0.1)
+	CIMI-CORE-CompoundClinicalStatement.skin_assessment_panel.v1.0.0
+
+specialize
+	CIMI-CORE-CompoundClinicalStatement.panel.v1
+
+language
+  original_language = <[ISO_639-1::en]>
+
+description
+  original_author = <
+    ["name"] = <"Claude Nanjo">
+    ["organisation"] = <"Cognitive Medical Systems">
+    ["email"] = <"cnanjo@cognitivemedicine.com">
+    ["date"] = <"11/24/2016">
+  >
+  details = <
+    ["en"] = <
+      language = <[ISO_639-1::en]>
+      purpose = <"Skin Assessment Panel">
+      use = <" - ">
+      keywords = <"statement","skin lesion panel">
+    >
+  >
+  other_details = <["model_level"] = <"reference">>
+  lifecycle_state = <"unmanaged">
+  other_contributors = <"Joey Coyle <joey@xcoyle.com>","Linda Bird <lbi@ihtsdo.org>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
+  custodian_namespace = <"org.opencimi">
+  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
+  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
+  ip_acknowledgements = <
+    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+  >
+
+definition
+	CompoundClinicalStatement[id1.1.1.1.1] matches {
+		content matches {
+			use_archetype IndivisibleClinicalStatement [id0.0.1.0.1, CIMI-CORE-IndivisibleClinicalStatement.skin_inspection_skin_color_stmt.v1] occurrences matches {1..1}
+			use_archetype IndivisibleClinicalStatement [id0.0.1.0.2, CIMI-CORE-IndivisibleClinicalStatement.skin_inspection_skin_turgor_stmt.v1] occurrences matches {1..1}
+			use_archetype IndivisibleClinicalStatement [id0.0.1.0.3, CIMI-CORE-IndivisibleClinicalStatement.skin_inspection_skin_moisture_stmt.v1] occurrences matches {1..1}
+			use_archetype IndivisibleClinicalStatement [id0.0.1.0.4, CIMI-CORE-IndivisibleClinicalStatement.skin_inspection_skin_temperature_stmt.v1] occurrences matches {1..1}
+			use_archetype IndivisibleClinicalStatement [id0.0.1.0.5, CIMI-CORE-IndivisibleClinicalStatement.skin_inspection_skin_integrity_stmt.v1] occurrences matches {1..1}
+			use_archetype IndivisibleClinicalStatement  [id0.0.1.0.6, CIMI-CORE-IndivisibleClinicalStatement.skin_inspection_mucous_membrane_integrity_stmt.v1] occurrences matches {1..1}
+			use_archetype IndivisibleClinicalStatement  [id0.0.1.0.7, CIMI-CORE-IndivisibleClinicalStatement.interpretation_of_skin_inspection_findings_stmt.v1] occurrences matches {1..1}
+		}
+	}
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1.1.1.1.1"] = <
+				text = <"Skin Inspection Panel">
+				description = <"-">
+			>
+			["id0.0.1.0.1"] = <
+				text = <"Color of Skin">
+				description = <"-">
+			>
+			["id0.0.1.0.2"] = <
+				text = <"Skin Turgor">
+				description = <"-">
+			>
+			["id0.0.1.0.3"] = <
+				text = <"Skin Moisture">
+				description = <"-">
+			>
+			["id0.0.1.0.4"] = <
+				text = <"Skin Temperature">
+				description = <"-">
+			>
+			["id0.0.1.0.5"] = <
+				text = <"Skin Integrity">
+				description = <"-">
+			>
+			["id0.0.1.0.6"] = <
+				text = <"Mucous Membrane Integrity">
+				description = <"-">
+			>
+			["id0.0.1.0.7"] = <
+				text = <"Interpretation of Skin Findings">
+				description = <"-">
+			>
+
+		>
+	>
+
+	term_bindings = <
+		["loinc"] = <
+      		items = <
+		        ["id1.1.1.1.1"] = <http://loinc.org/id/72284-3> --  Skin Inspection Panel
+		        ["id0.0.1.0.1"] = <http://loinc.org/id/39107-8> --  Color of Skin
+		        ["id0.0.1.0.2"] = <http://loinc.org/id/39109-4> --  Skin Turgor
+		        ["id0.0.1.0.3"] = <http://loinc.org/id/39129-2> --  Skin Moisture
+		        ["id0.0.1.0.4"] = <http://loinc.org/id/44968-6> --  Skin Temperature
+		        ["id0.0.1.0.5"] = <http://loinc.org/id/80344-5> -- Skin Integrity
+		        ["id0.0.1.0.6"] = <http://loinc.org/id/80347-8> -- Mucous Membrane Integrity
+		        ["id0.0.1.0.7"] = <http://loinc.org/id/TBD> -- Interpretation
+      		>
+    	>
+    	["snomed-ct"] = <
+      		items = <
+		        ["id1.1.1.1.1"] = <http://snomed.info/id/TBD> --  Skin Inspection Panel
+		        ["id0.0.1.0.1"] = <http://snomed.info/id/364533002> --  Color of Skin
+		        ["id0.0.1.0.2"] = <http://snomed.info/id/26669000> --  Skin Turgor
+		        ["id0.0.1.0.3"] = <http://snomed.info/id/364532007> --  Skin Moisture
+		        ["id0.0.1.0.4"] = <http://snomed.info/id/364537001> --  Skin Temperature
+		        ["id0.0.1.0.5"] = <http://snomed.info/id/TBD> -- Skin Integrity
+		        ["id0.0.1.0.6"] = <http://snomed.info/id/TBD> -- Mucous Membrane Integrity
+		        ["id0.0.1.0.7"] = <http://snomed.info/id/TBD> -- Interpretation
+      		>
+    	>
+  	>

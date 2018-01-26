@@ -37,7 +37,7 @@ description
 definition
 	IndivisibleClinicalStatement[id1.1.1.1.1.1.1.1] matches {
 		topic matches {
-			use_archetype WoundAssertion [id0.4.0.1.0.0.1.1, CIMI-CORE-WoundAssertion.wound_assertion_bindings.v1]
+			use_archetype WoundAssertion [id0.4.0.1.0.0.1.1, CIMI-CORE-WoundAssertion.wound_assertion.v1]
 		}
 	}
 

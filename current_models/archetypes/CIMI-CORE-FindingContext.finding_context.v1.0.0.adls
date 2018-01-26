@@ -2,7 +2,7 @@ archetype (adl_version=2.0.6; rm_release=0.0.1)
 	CIMI-CORE-FindingContext.finding_context.v1.0.0
 
 specialize
-	CIMI-CORE-StatementContext.statement_context_bindings.v1
+	CIMI-CORE-StatementContext.statement_context.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -35,25 +35,27 @@ description
   >
 
 definition
-	FindingContext[id1.1.1] matches {
-    /context matches {[ac0.1.1]}
-		currentStatus matches {
-			CODED_TEXT[id0.0.1]
+	FindingContext[id1.1] matches {
+    type matches {
+      Concept[id2] matches {code matches {[ac1.1]}}
+    }
+		status matches {
+			Attribution[id0.1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1"] = <
+			["id1.1"] = <
 				text = <"Finding context">
 				description = <"The FindingContext class aligns with the SNOMED Situations with Explicit Context for findings and provides the context for the EvaluationResult and Assertion topics of a clinical statement. For instance, a statement about findings may state that the finding was observed present or absent.">
 			>
-			["id0.0.1"] = <
-				text = <"current status">
+			["id0.1"] = <
+				text = <"status">
 				description = <"Current state of the evaluation (e.g., pending, complete, partial).">
 			>
-      ["ac0.1.1"] = <
+      ["ac1.1"] = <
         text = <"Finding context range">
         description = <"Allowed values for the SNOMED CT Situation with Explicit Context 'Finding context' attribute">
       >
@@ -64,8 +66,7 @@ terminology
   term_bindings = <
     ["cimi"] = <
       items = <
-        ["/context"] = <http://example.com/valueset/finding_context_vs.v0.0.1>
-        ["ac0.1.1"] = <http://example.com/valueset/finding_context_range_vs.v0.0.1>
+        ["ac1.1"] = <http://example.com/valueset/finding_context_range_vs.v0.0.1>
       >
     >
   >

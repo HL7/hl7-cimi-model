@@ -36,15 +36,14 @@ description
 
 definition
   Attribution[id1.1] matches { -- Author action
-    activityTimeRange matches {  -- Author datetime range
-      INTERVAL_VALUE<DATE_TIME>[id6.1]
-    }
+    /activity/code matches {[ac0.1]}
+
     location matches {
-      PARTICIPATION[id8.1]  -- Location of author
-      PARTICIPATION[id8.2]  -- Location of subject
+      Location[id8.1]  -- Location of author
+      Location[id8.2]  -- Location of subject
     }
-    agent matches { -- Author
-      PARTICIPATION[id10.1]
+    participant matches { -- Author
+      PartyAssociation[id10.1]
     }
   }
 
@@ -52,18 +51,31 @@ terminology
   term_definitions = <
     ["en"] = <
       ["id1.1"] = < text = <"Author action"> >
-      ["id6.1"] = < text = <"Author datetime range"> >
       ["id8.1"] = < text = <"Location of author"> >
       ["id8.2"] = < text = <"Location of subject"> >
       ["id10.1"] = < text = <"Author"> >
+      ["ac0.1"] = <
+        text = <"Anonymous valueset for activity">
+        description = <" - ">
+      >
+      ["at0.1"] = <
+        text = <"Authored activity">
+        description = <" - ">
+      >
     >
   >
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id6.1"] = <http://snomed.info/id/125676002>
         ["id8.1"] = <http://snomed.info/id/308916002>
         ["id8.2"] = <http://snomed.info/id/308916002>
       >
     >
+  >
+
+  value_sets = < -- activity
+    ["ac0.1"] = <
+      id = <"ac0.1">
+      members = <"at0.1">
+    >  
   >
