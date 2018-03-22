@@ -12,7 +12,7 @@ rm_release = <"0.0.5">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Tue Mar 13 17:34:39 PDT 2018">
+schema_revision = <"Thu Mar 22 12:01:03 PDT 2018">
 schema_lifecycle_state = <"Informative">
 schema_description = <"CIMI_RM_CLINICAL.v0.0.5.mdzip - Schema generated from UML">
 
@@ -55,7 +55,7 @@ packages = <
 			>
 			["Assertion"] = <
 				name = <"Assertion">
-				classes = <"AssertionTopic", "FindingSiteAssertionTopic", "ConditionAssertionTopic">
+				classes = <"AssertionTopic", "FindingSiteAssertionTopic", "ConditionTopic">
 			>
 			["EvaluationResult"] = <
 				name = <"EvaluationResult">
@@ -67,7 +67,7 @@ packages = <
 			>
 			["ContextCore"] = <
 				name = <"ContextCore">
-				classes = <"AbsentContext", "ActionContext", "FindingContext", "KnownOrSuspectedPresentContext", "NonCompletionContext", "NonPerformanceContext", "OrderContext", "PerformanceContext", "PlanContext", "PromiseContext", "ProposalContext", "ProposalAgainstContext", "StatementContext", "RequestContext", "EventContext", "PresenceAbsenceContext", "GoalContext", "NoKnownContext", "EvaluationResultContext", "RecordedContext", "AssertionContext", "KnownPresentContext", "SuspectedPresentContext">
+				classes = <"AbsenceContext", "ActionContext", "FindingContext", "PresenceContext", "NonCompletionContext", "NonPerformanceContext", "OrderContext", "PerformanceContext", "PlanContext", "PromiseContext", "ProposalContext", "ProposalAgainstContext", "StatementContext", "RequestContext", "EventContext", "PresenceAbsenceContext", "GoalContext", "EvaluationResultContext", "RecordedContext", "AssertionContext">
 			>
 			["TopicCore"] = <
 				name = <"TopicCore">
@@ -863,6 +863,7 @@ A clinical statement is composed of the StatementTopic class (grouping of attrib
 				is_mandatory = <True>
 			>
 			["dosageInstructions"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Instructions on how dosage was to be given or is to be given.">
 				name = <"dosageInstructions">
 				type_def = <
 					container_type = <"List">
@@ -900,7 +901,7 @@ A clinical statement is composed of the StatementTopic class (grouping of attrib
 			["destination"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Identification of the facility&#47;location where the medication was shipped to, as part of the dispense event.">
 				name = <"destination">
-				type = <"Party">
+				type = <"Location">
 			>
 			["receiver"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"Identifies the party who picked up the medication. This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional.">
@@ -1057,6 +1058,7 @@ A clinical statement is composed of the StatementTopic class (grouping of attrib
 		ancestors = <"OrderContext",...>
 		properties = <
 			["dosageInstruction"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Instructions on how the medication is to be given.">
 				name = <"dosageInstruction">
 				type_def = <
 					container_type = <"List">
@@ -1306,6 +1308,7 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 		>
 	>
 	["MedicationAdministrationPerformanceContext"] = <
+		documentation = <"Context pertaining to the recording of a medication administration that has been performed.">
 		name = <"MedicationAdministrationPerformanceContext">
 		ancestors = <"PerformanceContext",...>
 		properties = <
@@ -1881,7 +1884,7 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 	["FindingSiteAssertionTopic"] = <
 		documentation = <"An assertion about a clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept located on a specific body location that has risen to a level of concern.">
 		name = <"FindingSiteAssertionTopic">
-		ancestors = <"ConditionAssertionTopic",...>
+		ancestors = <"ConditionTopic",...>
 		properties = <
 			["findingSite"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"The body site affected by a condition.">
@@ -1894,9 +1897,9 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 			>
 		>
 	>
-	["ConditionAssertionTopic"] = <
+	["ConditionTopic"] = <
 		documentation = <"An assertion that represents a health condition of a patient that runs a clinical course over a period of time, and may be tracked during that time period. ">
-		name = <"ConditionAssertionTopic">
+		name = <"ConditionTopic">
 		ancestors = <"AssertionTopic",...>
 		properties = <
 			["associatedEntry"] = (P_BMM_CONTAINER_PROPERTY) <
@@ -2344,9 +2347,9 @@ EXAMPLE(S): completed, in progress, scheduled">
 			>
 		>
 	>
-	["AbsentContext"] = <
+	["AbsenceContext"] = <
 		documentation = <"Context indicating the known absence of a finding in the subject of information. If the finding is suspected to be absent, use the known or suspected present context instead.">
-		name = <"AbsentContext">
+		name = <"AbsenceContext">
 		ancestors = <"PresenceAbsenceContext",...>
 	>
 	["ActionContext"] = <
@@ -2399,9 +2402,9 @@ EXAMPLE(S): completed, in progress, scheduled">
 			>
 		>
 	>
-	["KnownOrSuspectedPresentContext"] = <
+	["PresenceContext"] = <
 		documentation = <"A context indicating that a finding is known or suspected to be present in the subject of information.">
-		name = <"KnownOrSuspectedPresentContext">
+		name = <"PresenceContext">
 		ancestors = <"PresenceAbsenceContext",...>
 		properties = <
 			["certainty"] = (P_BMM_SINGLE_PROPERTY) <
@@ -2745,7 +2748,7 @@ The range allowed for this attribute shall be consistent with the SNOMED CT conc
 	["GoalContext"] = <
 		documentation = <"Clinical statement context for a goal.">
 		name = <"GoalContext">
-		ancestors = <"EvaluationResultContext",...>
+		ancestors = <"FindingContext",...>
 		properties = <
 			["priority"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Identifies the mutually agreed level of importance associated with reaching&#47;sustaining the goal.">
@@ -2806,30 +2809,20 @@ The range allowed for this attribute shall be consistent with the SNOMED CT conc
 			>
 		>
 	>
-	["NoKnownContext"] = <
-		documentation = <"The context to express an assertion of absence, within the current limits of knowledge. Typically, this context is used for allergy and intolerance statements where no known drug allergy implies that there might be a medication the patient is allergic to, but it has thus far not been encountered.">
-		name = <"NoKnownContext">
-		ancestors = <"AssertionContext",...>
-	>
 	["EvaluationResultContext"] = <
+		documentation = <"Statement context pertaining to evaluation results.">
 		name = <"EvaluationResultContext">
 		ancestors = <"FindingContext",...>
 	>
 	["RecordedContext"] = <
+		documentation = <"Context indicating that the evaluation result has been recorded. ">
 		name = <"RecordedContext">
 		ancestors = <"EvaluationResultContext",...>
 	>
 	["AssertionContext"] = <
+		documentation = <"Statement context pertaining to clinical assertions.">
 		name = <"AssertionContext">
 		ancestors = <"FindingContext",...>
-	>
-	["KnownPresentContext"] = <
-		name = <"KnownPresentContext">
-		ancestors = <"KnownOrSuspectedPresentContext",...>
-	>
-	["SuspectedPresentContext"] = <
-		name = <"SuspectedPresentContext">
-		ancestors = <"KnownOrSuspectedPresentContext",...>
 	>
 	["ProcedureTopic"] = <
 		documentation = <"Description of a healthcare action, independent of action context.
