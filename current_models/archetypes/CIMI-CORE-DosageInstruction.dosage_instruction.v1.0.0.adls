@@ -1,0 +1,133 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-DosageInstruction.dosage_instruction.v1.0.0
+
+specialize
+    CIMI-CORE-Dosage.dosage.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    DosageInstruction[id1.1] matches {    -- DosageInstruction
+        sequence matches {
+            IntegerType[id0.2]     -- sequence
+        }
+        additionalInstructions matches {
+            Concept[id0.3] matches {    -- additionalInstructions
+                code matches {[ac0.3]}
+            }
+        }
+        patientInstruction matches {
+            Text[id0.4]     -- patientInstruction
+        }
+        timing matches {
+            Timing[id0.5]     -- timing
+        }
+        asNeeded matches {
+            Concept[id0.6] matches {    -- asNeeded
+                code matches {[ac0.6]}
+            }
+        }
+        doseRange matches {
+            QuantitativeReferenceRange[id0.7]     -- doseRange
+        }
+        rateRange matches {
+            IntervalValue[id0.8]     -- rateRange
+        }
+        maxDosePerPeriod matches {
+            Ratio[id0.9]     -- maxDosePerPeriod
+        }
+        maxDosePerAdministration matches {
+            Quantity[id0.10]     -- maxDosePerAdministration
+        }
+        maxDosePerLifetime matches {
+            Quantity[id0.11]     -- maxDosePerLifetime
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1"] = <
+                text = <"DosageInstruction">
+                description = <"Pattern for the dosing of a medication. Describes how medication is to be administered or how it should be taken.">
+            >
+            ["id0.2"] = <
+                text = <"sequence">
+                description = <"The order of the dosage instructions">
+            >
+            ["id0.3"] = <
+                text = <"additionalInstructions">
+                description = <"Supplemental instructions to the patient on how to take the medication (e.g. &quot;with meals&quot; or &quot;take half to one hour before food&quot;) or warnings for the patient about the medication (e.g. &quot;may cause drowsiness&quot; or &quot;avoid exposure of skin to direct sunlight or sunlamps&quot;).">
+            >
+            ["ac0.3"] = <
+                text = <"Value set constraint for additionalInstructions">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.4"] = <
+                text = <"patientInstruction">
+                description = <"Instructions in terms that are understood by the patient or consumer.">
+            >
+            ["id0.5"] = <
+                text = <"timing">
+                description = <"When medication should be administered">
+            >
+            ["id0.6"] = <
+                text = <"asNeeded">
+                description = <"Take &quot;as needed&quot; (for x)">
+            >
+            ["ac0.6"] = <
+                text = <"Value set constraint for asNeeded">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.7"] = <
+                text = <"doseRange">
+                description = <"Amount of medication per dose">
+            >
+            ["id0.8"] = <
+                text = <"rateRange">
+                description = <"Amount of medication per unit of time (applicable to medication taken continuously over a period of time, such as an infusion). ">
+            >
+            ["id0.9"] = <
+                text = <"maxDosePerPeriod">
+                description = <"Upper limit on medication per unit of time">
+            >
+            ["id0.10"] = <
+                text = <"maxDosePerAdministration">
+                description = <"Upper limit on medication per administration">
+            >
+            ["id0.11"] = <
+                text = <"maxDosePerLifetime">
+                description = <"Upper limit on medication per lifetime of the patient">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DosageInstruction/additionalInstructions/id0.3>
+            ["ac0.6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DosageInstruction/asNeeded/id0.6>
+        >
+    >

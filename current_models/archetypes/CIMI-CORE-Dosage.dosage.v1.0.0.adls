@@ -1,0 +1,123 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-Dosage.dosage.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    Dosage[id1] matches {    -- Dosage
+        dosageAsText matches {
+            PlainText[id2]     -- dosageAsText
+        }
+        bodySite matches {
+            AnatomicalLocation[id3]     -- bodySite
+        }
+        bodySite_Concept matches {
+            Concept[id4] matches {    -- bodySite_Concept
+                code matches {[ac4]}
+            }
+        }
+        route matches {
+            Concept[id5] matches {    -- route
+                code matches {[ac5]}
+            }
+        }
+        method matches {
+            Concept[id6] matches {    -- method
+                code matches {[ac6]}
+            }
+        }
+        dose matches {
+            Quantity[id7]     -- dose
+        }
+        rate matches {
+            Quantity[id8]     -- rate
+        }
+        rateRatio matches {
+            Ratio[id9]     -- rateRatio
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"Dosage">
+                description = <"Base class for medication dosage instruction and dosage event.">
+            >
+            ["id2"] = <
+                text = <"dosageAsText">
+                description = <"How the medication should be taken, in terms of amount and timing, as a text. For instance, take 2 tablets PO TID for three days or as needed for pain.">
+            >
+            ["id3"] = <
+                text = <"bodySite">
+                description = <"If applicable, the body site where the medication is to be administered.">
+            >
+            ["id4"] = <
+                text = <"bodySite_Concept">
+                description = <"If applicable, the body site where the medication is to be administered, as a precoordinated code.">
+            >
+            ["ac4"] = <
+                text = <"Value set constraint for bodySite_Concept">
+                description = <"Top-level value set constraint">
+            >
+            ["id5"] = <
+                text = <"route">
+                description = <"How drug should enter body">
+            >
+            ["ac5"] = <
+                text = <"Value set constraint for route">
+                description = <"Top-level value set constraint">
+            >
+            ["id6"] = <
+                text = <"method">
+                description = <"The technique for administering the medication, for example, by ingestion or injection.">
+            >
+            ["ac6"] = <
+                text = <"Value set constraint for method">
+                description = <"Top-level value set constraint">
+            >
+            ["id7"] = <
+                text = <"dose">
+                description = <"Amount of medication per dose">
+            >
+            ["id8"] = <
+                text = <"rate">
+                description = <"Rate at which this medication is administered.">
+            >
+            ["id9"] = <
+                text = <"rateRatio">
+                description = <"Rate at which this medication is administered as volume (numerator) per unit time (denominator).">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Dosage/bodySite_Concept/id4>
+            ["ac5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Dosage/route/id5>
+            ["ac6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Dosage/method/id6>
+        >
+    >

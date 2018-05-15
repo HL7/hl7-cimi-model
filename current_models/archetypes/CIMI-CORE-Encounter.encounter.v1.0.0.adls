@@ -1,0 +1,112 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-Encounter.encounter.v1.0.0
+
+specialize
+    CIMI-CORE-InformationEntry.information_entry.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    Encounter[id1.1] matches {    -- Encounter
+        encounterClass matches {
+            Concept[id0.2] matches {    -- encounterClass
+                code matches {[ac0.2]}
+            }
+        }
+        encounterType matches {
+            Concept[id0.3] matches {    -- encounterType
+                code matches {[ac0.3]}
+            }
+        }
+        period matches {
+            IntervalValue[id0.4]     -- period
+        }
+        status matches {
+            Concept[id0.5] matches {    -- status
+                code matches {[ac0.5]}
+            }
+        }
+        partOf matches {
+            Encounter[id0.6]     -- partOf
+        }
+        diagnosis matches {
+            EncounterReason[id0.7]     -- diagnosis
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1"] = <
+                text = <"Encounter">
+                description = <"An abstract class that represents an encounter class.">
+            >
+            ["id0.2"] = <
+                text = <"encounterClass">
+                description = <"Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations.">
+            >
+            ["ac0.2"] = <
+                text = <"Value set constraint for encounterClass">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.3"] = <
+                text = <"encounterType">
+                description = <"Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).">
+            >
+            ["ac0.3"] = <
+                text = <"Value set constraint for encounterType">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.4"] = <
+                text = <"period">
+                description = <"The time interval starting with the administrative onset of the encounter (e.g. admission, registration, patient arrival) and ending with the patient's departure (e.g. discharge).">
+            >
+            ["id0.5"] = <
+                text = <"status">
+                description = <"planned | arrived | triaged | in-progress | onleave | finished | cancelled  (from FHIR)">
+            >
+            ["ac0.5"] = <
+                text = <"Value set constraint for status">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.6"] = <
+                text = <"partOf">
+                description = <"An encounter under which this encounter occurred. For instance, an encounter with a clinician while this patient was hospitalized.">
+            >
+            ["id0.7"] = <
+                text = <"diagnosis">
+                description = <"The list of diagnosis relevant to this encounter.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Encounter/encounterClass/id0.2>
+            ["ac0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Encounter/encounterType/id0.3>
+            ["ac0.5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Encounter/status/id0.5>
+        >
+    >

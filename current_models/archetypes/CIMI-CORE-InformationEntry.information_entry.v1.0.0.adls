@@ -1,110 +1,112 @@
-archetype (adl_version=2.0.6; rm_release=2.0.2; generated)
-  CIMI-CORE-InformationEntry.information_entry.v1.0.0
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-InformationEntry.information_entry.v1.0.0
 
 language
-  original_language = <[ISO_639-1::en]>
+    original_language = <[ISO_639-1::en]>
 
 description
-  original_author = <
-    ["name"] = <"Claude Nanjo">
-    ["organisation"] = <"Cognitive Medical Systems">
-    ["email"] = <"cnanjo@cognitivemedicine.com">
-    ["date"] = <"11/24/2016">
-  >
-  details = <
-    ["en"] = <
-      language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'clinical statement' pattern">
-      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"clinical","statement">
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
     >
-  >
-  other_details = <["model_level"] = <"reference">>
-  lifecycle_state = <"unmanaged">
-  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
-  custodian_namespace = <"org.opencimi">
-  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
-  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
-  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
-  ip_acknowledgements = <
-    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
-    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
-  >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
 
 definition
-  InformationEntry[id1] matches {
-    
-    identifier matches {
-      IDENTIFIER[id3]
-    } 
-    subjectOfInformation matches {
-      PartyAssociation[id21]
-    } 
-    attribution matches {
-      use_archetype Attribution [id8, CIMI-CORE-Attribution.author_action.v1]
-      use_archetype Attribution [id9, CIMI-CORE-Attribution.record_action.v1]
-      use_archetype Attribution [id10, CIMI-CORE-Attribution.verify_action.v1]
-      use_archetype Attribution [id11, CIMI-CORE-Attribution.sign_action.v1]
-
-    } -- add cosign to list ???
-   
-    additionalText matches {
-      Annotation[id13]
+    InformationEntry[id1] matches {    -- InformationEntry
+        identifier matches {
+            Identifier[id2]     -- identifier
+        }
+        subjectOfInformation matches {
+            SubjectOfInformation[id3]     -- subjectOfInformation
+        }
+        additionalText matches {
+            Annotation[id4]     -- additionalText
+        }
+        recordStatus matches {
+            Concept[id5] matches {    -- recordStatus
+                code matches {[ac5]}
+            }
+        }
+        recorded matches {
+            Attribution[id6]     -- recorded
+        }
+        signed matches {
+            Attribution[id7]     -- signed
+        }
+        cosigned matches {
+            Attribution[id8]     -- cosigned
+        }
+        verified matches {
+            Attribution[id9]     -- verified
+        }
     }
-    recordStatus matches {
-      Concept[id14]
-    }
-  }
 
 terminology
-  term_definitions = <
-    ["en"] = <
-      ["id1"] = <
-        text = <"InformationEntry">
-        description = <"The meta data for an Entry ">
-      >
-     
-      ["id3"] = <
-        text = <"Identifier">
-        description = <"The unique identifier(s) of this clinical statement. It must be entered if user wants it returned as part of any output (e.g.,  a wound number), otherwise it will be auto-generated, if needed, by the system serving the record. An identifier does not need to be the actual identifier of the source system.">
-      >     
-      ["id8"] = <
-        text = <"Authored">
-        description = <"Provenance information specific to the assertion being made (e.g., the author(s), when authored, the location where the assertion was made, etc...).">
-      >
-      ["id9"] = <
-        text = <"Recorded">
-        description = <"Provenance information specific to the recording of the clinical statement (e.g., when recorded, where recorded, etc...).">
-      >
-      ["id10"] = <
-        text = <"Verified">
-        description = <"Provenance information specific to the verification process associated with this statement (e.g., verifier, verification method, when verified, etc...).">
-      >
-      ["id11"] = <
-        text = <"Signed">
-        description = <"Provenance information specific to the signing of the clinical statement.">
-      >
-      ["id12"] = <
-        text = <"Cosigned">
-        description = <"Provenance information specific to the cosigning of the clinical statement.">
-      >
-      ["id13"] = <
-        text = <"Additional text">
-        description = <"Unstructured notes appended to a clinical statement.">
-      >
-      ["id14"] = <
-        text = <"Record status">
-        description = <"Concept indicating the state of this record. E.g., 'entered in error'.">
-      >
-      ["id21"] = <
-        text = <"Subject of information">
-        description = <"The subject of the entry, which is unusually the patient, but may also be a relative of the patient, a a cohort, a device, etc. When the subject of information is the same as the subject of record, the relationship 'self' is used. In cases such as family history or descriptions of device (mal)function, the relationship type is something other than 'self'. This attribute aligns with the SNOMED CT Situation with Explicit Context (SWEC) and is bound to the SNOMED attribute: 'Subject relationship context (attribute)' (SCTID: 408732007).">
-      >
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"InformationEntry">
+                description = <"An entry in a patient record or in a report, generally used for the documentation of clinical information about a subject of information such as a patient or a relative of the patient, asserted by a particular source, recorded, and potentially verified.">
+            >
+            ["id2"] = <
+                text = <"identifier">
+                description = <"A unique identifier(s) for this clinical statement. Some identifiers may include version information.
+">
+            >
+            ["id3"] = <
+                text = <"subjectOfInformation">
+                description = <"The subject of the entry, which is unusually the patient, but may also be a relative of the patient, a a cohort, a device, etc. When the subject of information is the same as the subject of record, the relationship 'self' is used. In cases such as family history or descriptions of device (mal)function, the relationship type is something other than 'self'. This attribute aligns with the SNOMED CT Situation with Explicit Context (SWEC) and is bound to the SNOMED attribute: 'Subject relationship context (attribute)' (SCTID: 408732007).
 
+">
+            >
+            ["id4"] = <
+                text = <"additionalText">
+                description = <"An unstructured note appended to the information entry.">
+            >
+            ["id5"] = <
+                text = <"recordStatus">
+                description = <"Concept indicating the state of this record, e.g., 'entered in error'.">
+            >
+            ["ac5"] = <
+                text = <"Value set constraint for recordStatus">
+                description = <"Top-level value set constraint">
+            >
+            ["id6"] = <
+                text = <"recorded">
+                description = <"The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.">
+            >
+            ["id7"] = <
+                text = <"signed">
+                description = <"Provenance information specific to the signing of the clinical statement.">
+            >
+            ["id8"] = <
+                text = <"cosigned">
+                description = <"Provenance information specific to the cosigning of the clinical statement.">
+            >
+            ["id9"] = <
+                text = <"verified">
+                description = <"Provenance information specific to the verification process associated with this statement (e.g., verifier, when verified, etc.)">
+            >
+        >
     >
-  >
-
-  
->
-
-
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/InformationEntry/recordStatus/id5>
+        >
+    >

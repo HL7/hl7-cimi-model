@@ -1,0 +1,109 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-Organization.organization.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    Organization[id1] matches {    -- Organization
+        organizationName matches {
+            Name[id2]     -- organizationName
+        }
+        address matches {
+            Address[id3]     -- address
+        }
+        electronicContact matches {
+            ElectronicContact[id4]     -- electronicContact
+        }
+        departmentOrUnit matches {
+            Text[id5]     -- departmentOrUnit
+        }
+        industry matches {
+            Concept[id6] matches {    -- industry
+                code matches {[ac6]}
+            }
+        }
+        status matches {
+            Concept[id7] matches {    -- status
+                code matches {[ac7]}
+            }
+        }
+        validityPeriod matches {
+            IntervalValue[id8]     -- validityPeriod
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"Organization">
+                description = <"A description of a social or legal structure formed by human beings. ">
+            >
+            ["id2"] = <
+                text = <"organizationName">
+                description = <"The name of the organization.">
+            >
+            ["id3"] = <
+                text = <"address">
+                description = <"The address of the organization">
+            >
+            ["id4"] = <
+                text = <"electronicContact">
+                description = <"The electronic contact information for this organization.">
+            >
+            ["id5"] = <
+                text = <"departmentOrUnit">
+                description = <"The department or unit in question.">
+            >
+            ["id6"] = <
+                text = <"industry">
+                description = <"The industry code associated with this organization.">
+            >
+            ["ac6"] = <
+                text = <"Value set constraint for industry">
+                description = <"Top-level value set constraint">
+            >
+            ["id7"] = <
+                text = <"status">
+                description = <"The status of the organization.">
+            >
+            ["ac7"] = <
+                text = <"Value set constraint for status">
+                description = <"Top-level value set constraint">
+            >
+            ["id8"] = <
+                text = <"validityPeriod">
+                description = <"The date range associated with the existence or relevance of the organization in the given context.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Organization/industry/id6>
+            ["ac7"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Organization/status/id7>
+        >
+    >

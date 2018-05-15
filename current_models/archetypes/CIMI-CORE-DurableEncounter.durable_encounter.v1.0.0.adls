@@ -1,0 +1,98 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-DurableEncounter.durable_encounter.v1.0.0
+
+specialize
+    CIMI-CORE-DetailedEncounter.detailed_encounter.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    DurableEncounter[id1.1.1.1] matches {    -- DurableEncounter
+        patientAdmission matches {
+            ClinicalStatement[id0.0.0.2]     -- patientAdmission
+        }
+        patientTransfer matches {
+            ClinicalStatement[id0.0.0.3]     -- patientTransfer
+        }
+        patientDischarge matches {
+            ClinicalStatement[id0.0.0.4]     -- patientDischarge
+        }
+        patientCondition matches {
+            Concept[id0.0.0.5] matches {    -- patientCondition
+                code matches {[ac0.0.0.5]}
+            }
+        }
+        patientStatus matches {
+            Concept[id0.0.0.6] matches {    -- patientStatus
+                code matches {[ac0.0.0.6]}
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1.1"] = <
+                text = <"DurableEncounter">
+                description = <"Contains properties common to multiple kinds of Encounters which last more than a few hours. Such encounters typically include an admission and discharge process.">
+            >
+            ["id0.0.0.2"] = <
+                text = <"patientAdmission">
+                description = <"Information about the admission process.">
+            >
+            ["id0.0.0.3"] = <
+                text = <"patientTransfer">
+                description = <"Information about the transfer process">
+            >
+            ["id0.0.0.4"] = <
+                text = <"patientDischarge">
+                description = <"Information about the discharge process.">
+            >
+            ["id0.0.0.5"] = <
+                text = <"patientCondition">
+                description = <"Indicates the patient's current medical condition for the purpose of communicating to non-medical outside parties, e.g., family, employer, religious minister, media, etc. Possible values include (from HL7  Table 434): satisfactory, critical, poor, stable, other, unknown.">
+            >
+            ["ac0.0.0.5"] = <
+                text = <"Value set constraint for patientCondition">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.6"] = <
+                text = <"patientStatus">
+                description = <"&quot;Indicates the status of the episode of care.&quot; - HL7 Version 2.8, PV2-24. Possible values include (from HL7 Table 216): Active Inpatient; Discharged Inpatient.">
+            >
+            ["ac0.0.0.6"] = <
+                text = <"Value set constraint for patientStatus">
+                description = <"Top-level value set constraint">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.0.5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DurableEncounter/patientCondition/id0.0.0.5>
+            ["ac0.0.0.6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DurableEncounter/patientStatus/id0.0.0.6>
+        >
+    >

@@ -1,0 +1,87 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-DimensionalFeature.dimensional_feature.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    DimensionalFeature[id1] matches {    -- DimensionalFeature
+        area matches {
+            Quantity[id2]     -- area
+        }
+        circumference matches {
+            Quantity[id3]     -- circumference
+        }
+        volume matches {
+            Quantity[id4]     -- volume
+        }
+        width matches {
+            Quantity[id5]     -- width
+        }
+        depth matches {
+            Quantity[id6]     -- depth
+        }
+        length matches {
+            Quantity[id7]     -- length
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"DimensionalFeature">
+                description = <"Characterizations of the physical size of an anatomical feature.">
+            >
+            ["id2"] = <
+                text = <"area">
+                description = <"The extent of a 2-dimensional feature enclosed within a boundary, for example, the area of a wound.">
+            >
+            ["id3"] = <
+                text = <"circumference">
+                description = <"The circumference or perimeter of a 2-dimensional view or slice of the feature.">
+            >
+            ["id4"] = <
+                text = <"volume">
+                description = <"The volume of a 3-dimensional feature. For instance, if an irregular cavity, the amount of liquid required to fill the cavity.">
+            >
+            ["id5"] = <
+                text = <"width">
+                description = <"The measurement of extent of a feature from side to side, perpendicular to the greatest dimension. ">
+            >
+            ["id6"] = <
+                text = <"depth">
+                description = <"The extent downward or inward; the perpendicular measurement from the surface to determine the deepness of a feature.">
+            >
+            ["id7"] = <
+                text = <"length">
+                description = <"The length of a 2-dimensional view or slice of a feature.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <>
+    >

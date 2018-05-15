@@ -1,0 +1,76 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-OrderContext.order_context.v1.0.0
+
+specialize
+    CIMI-CORE-RequestContext.request_context.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    OrderContext[id1.1.1.1] matches {    -- OrderContext
+        groupIdentifier matches {
+            Identifier[id0.0.0.2]     -- groupIdentifier
+        }
+        basedOn matches {
+            ClinicalStatement[id0.0.0.3]     -- basedOn
+        }
+        patientInstructions matches {
+            CodedText[id0.0.0.4]     -- patientInstructions
+        }
+        priorRequest matches {
+            ClinicalStatement[id0.0.0.5]     -- priorRequest
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1.1"] = <
+                text = <"OrderContext">
+                description = <"An instruction by a healthcare provider to another healthcare provider to perform some act.">
+            >
+            ["id0.0.0.2"] = <
+                text = <"groupIdentifier">
+                description = <"A shared identifier common to all requests that were authorized more or less simultaneously by a single author. It could be the identifier of a requisition or prescription that contains orders for a set of medications, each individual medication order having the identifier of the parent order.">
+            >
+            ["id0.0.0.3"] = <
+                text = <"basedOn">
+                description = <"The proposal that is partly or wholly fulfilled  by the performance of this act.">
+            >
+            ["id0.0.0.4"] = <
+                text = <"patientInstructions">
+                description = <"Identifies the ordering provider's instructions to the patient or to the provider on how to deliver or comply with the ordered procedure.">
+            >
+            ["id0.0.0.5"] = <
+                text = <"priorRequest">
+                description = <"A link to a resource representing an earlier order related order or prescription.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <>
+    >

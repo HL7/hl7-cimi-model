@@ -1,0 +1,98 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-RequestContext.request_context.v1.0.0
+
+specialize
+    CIMI-CORE-ActionContext.action_context.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    RequestContext[id1.1.1] matches {    -- RequestContext
+        requested matches {
+            Attribution[id0.0.2]     -- requested
+        }
+        type matches {
+            Concept[id0.0.3] matches {    -- type
+                code matches {[ac0.0.3]}
+            }
+        }
+        expectedPerformer matches {
+            EntityOrRole[id0.0.4]     -- expectedPerformer
+        }
+        priority matches {
+            Concept[id0.0.5] matches {    -- priority
+                code matches {[ac0.0.5]}
+            }
+        }
+        timing matches {
+            Timing[id0.0.6]     -- timing
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1"] = <
+                text = <"RequestContext">
+                description = <"A request by a healthcare provider or system to another healthcare provider or system to perform some action.">
+            >
+            ["id0.0.2"] = <
+                text = <"requested">
+                description = <"Information about the ordering of the action such as who made the request, when the request was made, how it was made, etc...">
+            >
+            ["id0.0.3"] = <
+                text = <"type">
+                description = <"Indicates the type of the request that is made, for example, to initiate an action, to suspend an ongoing activity, to discontinue an ongoing activity, or to cancel an existing request. ">
+            >
+            ["ac0.0.3"] = <
+                text = <"Value set constraint for type">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.4"] = <
+                text = <"expectedPerformer">
+                description = <"Persons who are expected to or intended to perform this action, e.g., the person who will perform the surgery. ">
+            >
+            ["id0.0.5"] = <
+                text = <"priority">
+                description = <"How quickly the action must be initiated. Includes concepts such as stat, urgent, routine.">
+            >
+            ["ac0.0.5"] = <
+                text = <"Value set constraint for priority">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.6"] = <
+                text = <"timing">
+                description = <"The proposed timing for the request.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/RequestContext/type/id0.0.3>
+            ["ac0.0.5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/RequestContext/priority/id0.0.5>
+        >
+    >

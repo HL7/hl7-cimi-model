@@ -1,0 +1,209 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-ResearchStudy.research_study.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    ResearchStudy[id1] matches {    -- ResearchStudy
+        identifier matches {
+            Identifier[id2]     -- identifier
+        }
+        title matches {
+            PlainText[id3]     -- title
+        }
+        partOf matches {
+            ResearchStudy[id4]     -- partOf
+        }
+        status matches {
+            Concept[id5] matches {    -- status
+                code matches {[ac5]}
+            }
+        }
+        category matches {
+            Concept[id6] matches {    -- category
+                code matches {[ac6]}
+            }
+        }
+        focus matches {
+            Concept[id7] matches {    -- focus
+                code matches {[ac7]}
+            }
+        }
+        contact matches {
+            ElectronicContact[id8]     -- contact
+        }
+        keyword matches {
+            Concept[id9] matches {    -- keyword
+                code matches {[ac9]}
+            }
+        }
+        jurisdiction matches {
+            Concept[id10] matches {    -- jurisdiction
+                code matches {[ac10]}
+            }
+        }
+        description matches {
+            PlainText[id11]     -- description
+        }
+        studyPeriod matches {
+            IntervalValue[id12]     -- studyPeriod
+        }
+        sponsor matches {
+            Organization[id13]     -- sponsor
+        }
+        principalInvestigator matches {
+            EntityOrRole[id14]     -- principalInvestigator
+        }
+        site matches {
+            Location[id15]     -- site
+        }
+        reasonStopped matches {
+            Concept[id16] matches {    -- reasonStopped
+                code matches {[ac16]}
+            }
+        }
+        note matches {
+            Annotation[id17]     -- note
+        }
+        arm matches {
+            ResearchStudyArm[id18]     -- arm
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"ResearchStudy">
+                description = <"A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects.">
+            >
+            ["id2"] = <
+                text = <"identifier">
+                description = <"Identifiers assigned to this research study by the sponsor or other systems.">
+            >
+            ["id3"] = <
+                text = <"title">
+                description = <"A short, descriptive user-friendly label for the study.">
+            >
+            ["id4"] = <
+                text = <"partOf">
+                description = <"A larger research study of which this particular study is a component or step.">
+            >
+            ["id5"] = <
+                text = <"status">
+                description = <"The current state of the study.">
+            >
+            ["ac5"] = <
+                text = <"Value set constraint for status">
+                description = <"Top-level value set constraint">
+            >
+            ["id6"] = <
+                text = <"category">
+                description = <"Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc.">
+            >
+            ["ac6"] = <
+                text = <"Value set constraint for category">
+                description = <"Top-level value set constraint">
+            >
+            ["id7"] = <
+                text = <"focus">
+                description = <"The condition(s), medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about.">
+            >
+            ["ac7"] = <
+                text = <"Value set constraint for focus">
+                description = <"Top-level value set constraint">
+            >
+            ["id8"] = <
+                text = <"contact">
+                description = <"Contact details to assist a user in learning more about or engaging with the study.">
+            >
+            ["id9"] = <
+                text = <"keyword">
+                description = <"Key terms to aid in searching for or filtering the study.">
+            >
+            ["ac9"] = <
+                text = <"Value set constraint for keyword">
+                description = <"Top-level value set constraint">
+            >
+            ["id10"] = <
+                text = <"jurisdiction">
+                description = <"Indicates the country, state or other region taking legal responsibility for the conduct of the study.">
+            >
+            ["ac10"] = <
+                text = <"Value set constraint for jurisdiction">
+                description = <"Top-level value set constraint">
+            >
+            ["id11"] = <
+                text = <"description">
+                description = <"A full description of how the study is being conducted.">
+            >
+            ["id12"] = <
+                text = <"studyPeriod">
+                description = <"Identifies the start date and the expected (or actual, depending on status) end date for the study.
+
+">
+            >
+            ["id13"] = <
+                text = <"sponsor">
+                description = <"The organization responsible for the execution of the study.">
+            >
+            ["id14"] = <
+                text = <"principalInvestigator">
+                description = <"Indicates the individual who has primary oversite of the execution of the study.">
+            >
+            ["id15"] = <
+                text = <"site">
+                description = <"Clinic, hospital or other healthcare location that is participating in the study.">
+            >
+            ["id16"] = <
+                text = <"reasonStopped">
+                description = <"A description and&#47;or code explaining the premature termination of the study.">
+            >
+            ["ac16"] = <
+                text = <"Value set constraint for reasonStopped">
+                description = <"Top-level value set constraint">
+            >
+            ["id17"] = <
+                text = <"note">
+                description = <"Comments made about the event by the performer, subject or other participants.">
+            >
+            ["id18"] = <
+                text = <"arm">
+                description = <"Arm refers to a pre-specified group or subgroup of participants in a clinical trial assigned to receive specific interventions (or no intervention) according to a protocol.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ResearchStudy/status/id5>
+            ["ac6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ResearchStudy/category/id6>
+            ["ac7"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ResearchStudy/focus/id7>
+            ["ac9"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ResearchStudy/keyword/id9>
+            ["ac10"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ResearchStudy/jurisdiction/id10>
+            ["ac16"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ResearchStudy/reasonStopped/id16>
+        >
+    >

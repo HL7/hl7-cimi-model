@@ -1,57 +1,141 @@
-archetype (adl_version=2.0.6; rm_release=2.0.2)
-  CIMI-CORE-ProcedureTopic.procedure_topic.v1.0.0
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-ProcedureTopic.procedure_topic.v1.0.0
 
 specialize
-  CIMI-CORE-StatementTopic.statement_topic.v1
+    CIMI-CORE-StatementTopic.statement_topic.v1.0.0
 
 language
-  original_language = <[ISO_639-1::en]>
+    original_language = <[ISO_639-1::en]>
 
 description
-  original_author = <
-    ["name"] = <"Claude Nanjo">
-    ["organisation"] = <"Cognitive Medical Systems">
-    ["email"] = <"cnanjo@gmail.com">
-    ["date"] = <"11/24/2016">
-  >
-  details = <
-    ["en"] = <
-      language = <[ISO_639-1::en]>
-      purpose = <"CIMI base assertion archetype">
-      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"evaluation result","observation">
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
     >
-  >
-  other_details = <["model_level"] = <"reference">>
-  lifecycle_state = <"unmanaged">
-  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
-  custodian_namespace = <"org.opencimi">
-  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
-  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
-  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
-  ip_acknowledgements = <
-    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
-    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
-  >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
 
 definition
-  ProcedureTopic[id1.1] 
+    ProcedureTopic[id1.1] matches {    -- ProcedureTopic
+        description matches {
+            PlainText[id0.2]     -- description
+        }
+        reason matches {
+            Concept[id0.3] matches {    -- reason
+                code matches {[ac0.3]}
+            }
+        }
+        method matches {
+            Concept[id0.4] matches {    -- method
+                code matches {[ac0.4]}
+            }
+        }
+        precondition matches {
+            Concept[id0.5] matches {    -- precondition
+                code matches {[ac0.5]}
+            }
+        }
+        inputFinding matches {
+            ClinicalStatement[id0.6]     -- inputFinding
+        }
+        outputFinding matches {
+            ClinicalStatement[id0.7]     -- outputFinding
+        }
+        indication matches {
+            Concept[id0.8] matches {    -- indication
+                code matches {[ac0.8]}
+            }
+        }
+        usingDevice matches {
+            ClinicalDevice[id0.9]     -- usingDevice
+        }
+        location matches {
+            Location[id0.10]     -- location
+        }
+    }
 
 terminology
-  term_definitions = <
-    ["en"] = <
-      ["id1.1"] = <
-        text = <"BaseProcedureTopic">
-        description = <"An action intended to treat, cure, or restore function or structure such as surgical and physical rehabilitation procedures.">
-      >
-    > 
-  >
-
-  term_bindings = <
-    ["snomed-ct"] = <
-      items = <
-     
-      >
+    term_definitions = <
+        ["en"] = <
+            ["id1.1"] = <
+                text = <"ProcedureTopic">
+                description = <"Description of a healthcare action, independent of action context.
+">
+            >
+            ["id0.2"] = <
+                text = <"description">
+                description = <"An account of the procedure in narrative form.">
+            >
+            ["id0.3"] = <
+                text = <"reason">
+                description = <"The reason for performing this act.">
+            >
+            ["ac0.3"] = <
+                text = <"Value set constraint for reason">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.4"] = <
+                text = <"method">
+                description = <"Technique or way of accomplishing the act, e.g., endoscopic, arthroscopic, etc.">
+            >
+            ["ac0.4"] = <
+                text = <"Value set constraint for method">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.5"] = <
+                text = <"precondition">
+                description = <"Patient state or condition that must be true prior to the performance of the procedure such as 'at rest', 'supine', 'fasting', etc.">
+            >
+            ["ac0.5"] = <
+                text = <"Value set constraint for precondition">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.6"] = <
+                text = <"inputFinding">
+                description = <"Patient findings expected for the performance of the specified procedure. For instance, an x-ray of a fracture prior to a surgical procedure for a bone fracture.">
+            >
+            ["id0.7"] = <
+                text = <"outputFinding">
+                description = <"Patient findings documented during the performance of the procedure.">
+            >
+            ["id0.8"] = <
+                text = <"indication">
+                description = <"Conditions or situations where the procedure is recommended.">
+            >
+            ["ac0.8"] = <
+                text = <"Value set constraint for indication">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.9"] = <
+                text = <"usingDevice">
+                description = <"The instrument or equipment utilized to execute an action">
+            >
+            ["id0.10"] = <
+                text = <"location">
+                description = <"Location where procedure was performed or is to be performed.">
+            >
+        >
     >
-    
-  >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ProcedureTopic/reason/id0.3>
+            ["ac0.4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ProcedureTopic/method/id0.4>
+            ["ac0.5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ProcedureTopic/precondition/id0.5>
+            ["ac0.8"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ProcedureTopic/indication/id0.8>
+        >
+    >

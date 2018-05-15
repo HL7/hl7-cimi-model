@@ -1,0 +1,112 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-WoundExudateTopic.wound_exudate_topic.v1.0.0
+
+specialize
+    CIMI-CORE-AssertionTopic.assertion_topic.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    WoundExudateTopic[id1.1.1.1] matches {    -- WoundExudateTopic
+        consistency matches {
+            Concept[id0.0.0.2] matches {    -- consistency
+                code matches {[ac0.0.0.2]}
+            }
+        }
+        odor matches {
+            Concept[id0.0.0.3] matches {    -- odor
+                code matches {[ac0.0.0.3]}
+            }
+        }
+        color matches {
+            Concept[id0.0.0.4] matches {    -- color
+                code matches {[ac0.0.0.4]}
+            }
+        }
+        drainageAmountQuantitative matches {
+            Quantity[id0.0.0.5]     -- drainageAmountQuantitative
+        }
+        drainageAmountQualitative matches {
+            Concept[id0.0.0.6] matches {    -- drainageAmountQualitative
+                code matches {[ac0.0.0.6]}
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1.1"] = <
+                text = <"WoundExudateTopic">
+                description = <"Assertion about the exudate associated with a wound.">
+            >
+            ["id0.0.0.2"] = <
+                text = <"consistency">
+                description = <"The consistency of exudate that is present in a wound.">
+            >
+            ["ac0.0.0.2"] = <
+                text = <"Value set constraint for consistency">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.3"] = <
+                text = <"odor">
+                description = <"The odor of the exudate.">
+            >
+            ["ac0.0.0.3"] = <
+                text = <"Value set constraint for odor">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.4"] = <
+                text = <"color">
+                description = <"The color of exudate that is present in a wound.">
+            >
+            ["ac0.0.0.4"] = <
+                text = <"Value set constraint for color">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.5"] = <
+                text = <"drainageAmountQuantitative">
+                description = <"The exudate drainage amount when quantifiable.">
+            >
+            ["id0.0.0.6"] = <
+                text = <"drainageAmountQualitative">
+                description = <"The exudate drainage amount assessed using a qualitative scale, for example, none, scant, small, moderate, large. Use of the Bates-Jenson wound assessment tool is recommended.">
+            >
+            ["ac0.0.0.6"] = <
+                text = <"Value set constraint for drainageAmountQualitative">
+                description = <"Top-level value set constraint">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.0.2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/WoundExudateTopic/consistency/id0.0.0.2>
+            ["ac0.0.0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/WoundExudateTopic/odor/id0.0.0.3>
+            ["ac0.0.0.4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/WoundExudateTopic/color/id0.0.0.4>
+            ["ac0.0.0.6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/WoundExudateTopic/drainageAmountQualitative/id0.0.0.6>
+        >
+    >

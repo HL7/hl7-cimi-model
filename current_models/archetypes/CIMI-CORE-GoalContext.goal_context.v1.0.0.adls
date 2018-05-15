@@ -1,0 +1,140 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-GoalContext.goal_context.v1.0.0
+
+specialize
+    CIMI-CORE-FindingContext.finding_context.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    GoalContext[id1.1.1] matches {    -- GoalContext
+        priority matches {
+            Concept[id0.0.2] matches {    -- priority
+                code matches {[ac0.0.2]}
+            }
+        }
+        start matches {
+            Timing[id0.0.3]     -- start
+        }
+        expressedBy matches {
+            EntityOrRole[id0.0.4]     -- expressedBy
+        }
+        category matches {
+            Concept[id0.0.5] matches {    -- category
+                code matches {[ac0.0.5]}
+            }
+        }
+        objectiveOfCare matches {
+            CodedText[id0.0.6]     -- objectiveOfCare
+        }
+        targetDate matches {
+            TemporalValue[id0.0.7]     -- targetDate
+        }
+        addresses matches {
+            ClinicalStatement[id0.0.8]     -- addresses
+        }
+        outcomeCode matches {
+            Concept[id0.0.9] matches {    -- outcomeCode
+                code matches {[ac0.0.9]}
+            }
+        }
+        outcomeReference matches {
+            ClinicalStatement[id0.0.10]     -- outcomeReference
+        }
+        targetValue matches {
+            DataType[id0.0.11]     -- targetValue
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1"] = <
+                text = <"GoalContext">
+                description = <"Clinical statement context for a goal.">
+            >
+            ["id0.0.2"] = <
+                text = <"priority">
+                description = <"Identifies the mutually agreed level of importance associated with reaching&#47;sustaining the goal.">
+            >
+            ["ac0.0.2"] = <
+                text = <"Value set constraint for priority">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.3"] = <
+                text = <"start">
+                description = <"The date or event after which the goal should begin being pursued.">
+            >
+            ["id0.0.4"] = <
+                text = <"expressedBy">
+                description = <"Indicates who established the goal (rather than the subject who is to pursue the goal). ">
+            >
+            ["id0.0.5"] = <
+                text = <"category">
+                description = <"Indicates a category the goal falls within, for example, dietary, safety, behavioral, nursing, physiotherapy.">
+            >
+            ["ac0.0.5"] = <
+                text = <"Value set constraint for category">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.6"] = <
+                text = <"objectiveOfCare">
+                description = <"Human-readable and optionally coded description of a specific desired objective of care, such as &quot;control blood pressure&quot; or &quot;negotiate an obstacle course&quot; or &quot;dance with child at wedding&quot;.">
+            >
+            ["id0.0.7"] = <
+                text = <"targetDate">
+                description = <"Indicates when goal should be reached.">
+            >
+            ["id0.0.8"] = <
+                text = <"addresses">
+                description = <"The identified conditions and other health record elements that are intended to be addressed by the goal.">
+            >
+            ["id0.0.9"] = <
+                text = <"outcomeCode">
+                description = <"Identifies the change (or lack of change) at the point when the status of the goal is assessed.">
+            >
+            ["ac0.0.9"] = <
+                text = <"Value set constraint for outcomeCode">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.10"] = <
+                text = <"outcomeReference">
+                description = <"Details of what's changed (or not changed).">
+            >
+            ["id0.0.11"] = <
+                text = <"targetValue">
+                description = <"The target one wishes to attain with this goal. ">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/GoalContext/priority/id0.0.2>
+            ["ac0.0.5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/GoalContext/category/id0.0.5>
+            ["ac0.0.9"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/GoalContext/outcomeCode/id0.0.9>
+        >
+    >

@@ -1,0 +1,154 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-AdmissionTopic.admission_topic.v1.0.0
+
+specialize
+    CIMI-CORE-ProcedureTopic.procedure_topic.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    AdmissionTopic[id1.1.1] matches {    -- AdmissionTopic
+        levelOfCare matches {
+            Concept[id0.0.2] matches {    -- levelOfCare
+                code matches {[ac0.0.2]}
+            }
+        }
+        source matches {
+            Concept[id0.0.3] matches {    -- source
+                code matches {[ac0.0.3]}
+            }
+        }
+        dietType matches {
+            Concept[id0.0.4] matches {    -- dietType
+                code matches {[ac0.0.4]}
+            }
+        }
+        needsPreAdmitTest matches {
+            Concept[id0.0.5] matches {    -- needsPreAdmitTest
+                code matches {[ac0.0.5]}
+            }
+        }
+        preAdmitAccount matches {
+            Identifier[id0.0.6]     -- preAdmitAccount
+        }
+        preAdmissionIdentifier matches {
+            Identifier[id0.0.7]     -- preAdmissionIdentifier
+        }
+        precautionCode matches {
+            Concept[id0.0.8] matches {    -- precautionCode
+                code matches {[ac0.0.8]}
+            }
+        }
+        reAdmissionIndicator matches {
+            Concept[id0.0.9] matches {    -- reAdmissionIndicator
+                code matches {[ac0.0.9]}
+            }
+        }
+        admissionDiagnosis matches {
+            EncounterReason[id0.0.10]     -- admissionDiagnosis
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1"] = <
+                text = <"AdmissionTopic">
+                description = <"A record about the admission of a patient to a facility generally for the provision of care.">
+            >
+            ["id0.0.2"] = <
+                text = <"levelOfCare">
+                description = <"Indicates the acuity level assigned to the patient at the time of admission, for example, acute, chronic, comatose, critical, improved, moribund.">
+            >
+            ["ac0.0.2"] = <
+                text = <"Value set constraint for levelOfCare">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.3"] = <
+                text = <"source">
+                description = <"Indicates where the patient was admitted. In the US, this field should use the Official Uniform Billing (UB) 04 2008 numeric codes found on form locator 15 [which is] the Point of Origin for Admission or Visit.">
+            >
+            ["ac0.0.3"] = <
+                text = <"Value set constraint for source">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.4"] = <
+                text = <"dietType">
+                description = <"Indicates a special diet type for a patient. ">
+            >
+            ["ac0.0.4"] = <
+                text = <"Value set constraint for dietType">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.5"] = <
+                text = <"needsPreAdmitTest">
+                description = <"Indicates whether the patient must have pre admission testing done in order to be admitted.">
+            >
+            ["ac0.0.5"] = <
+                text = <"Value set constraint for needsPreAdmitTest">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.6"] = <
+                text = <"preAdmitAccount">
+                description = <"Uniquely identifies the patient's pre admit account. Some systems will continue to use the pre admit number as the billing number after the patient has been admitted.">
+            >
+            ["id0.0.7"] = <
+                text = <"preAdmissionIdentifier">
+                description = <"Pre-admission patient identifier">
+            >
+            ["id0.0.8"] = <
+                text = <"precautionCode">
+                description = <"Indicates non-clinical precautions that need to be taken with the patient, for example, aggressive, blind, confused, deaf, on IV, do not resuscitate, paraplegic, etc.">
+            >
+            ["ac0.0.8"] = <
+                text = <"Value set constraint for precautionCode">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.9"] = <
+                text = <"reAdmissionIndicator">
+                description = <"Indicates that a patient is being re admitted to the healthcare facility and gives the circumstances.">
+            >
+            ["ac0.0.9"] = <
+                text = <"Value set constraint for reAdmissionIndicator">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.10"] = <
+                text = <"admissionDiagnosis">
+                description = <"The diagnosis(es) that was the reason for hospitalization at the time of hospitalization.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AdmissionTopic/levelOfCare/id0.0.2>
+            ["ac0.0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AdmissionTopic/source/id0.0.3>
+            ["ac0.0.4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AdmissionTopic/dietType/id0.0.4>
+            ["ac0.0.5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AdmissionTopic/needsPreAdmitTest/id0.0.5>
+            ["ac0.0.8"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AdmissionTopic/precautionCode/id0.0.8>
+            ["ac0.0.9"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AdmissionTopic/reAdmissionIndicator/id0.0.9>
+        >
+    >

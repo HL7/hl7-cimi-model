@@ -1,0 +1,74 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-ResearchStudyArm.research_study_arm.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    ResearchStudyArm[id1] matches {    -- ResearchStudyArm
+        name matches {
+            PlainText[id2]     -- name
+        }
+        code matches {
+            Concept[id3] matches {    -- code
+                code matches {[ac3]}
+            }
+        }
+        description matches {
+            PlainText[id4]     -- description
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"ResearchStudyArm">
+                description = <"Arm refers to a pre-specified group or subgroup of participants in a clinical trial assigned to receive specific interventions (or no intervention) according to a protocol. The protocol describes an expected sequence of events for one of the participants of a study, e.g. Exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up.">
+            >
+            ["id2"] = <
+                text = <"name">
+                description = <"Unique, human-readable label for this arm of the study.">
+            >
+            ["id3"] = <
+                text = <"code">
+                description = <"Categorization of study arm, e.g. experimental, active comparator, placebo comparator.">
+            >
+            ["ac3"] = <
+                text = <"Value set constraint for code">
+                description = <"Top-level value set constraint">
+            >
+            ["id4"] = <
+                text = <"description">
+                description = <"A succinct description of the path through the study that would be followed by a subject adhering to this arm.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ResearchStudyArm/code/id3>
+        >
+    >

@@ -1,0 +1,197 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-PharmacyPromiseContext.pharmacy_promise_context.v1.0.0
+
+specialize
+    CIMI-CORE-PromiseContext.promise_context.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    PharmacyPromiseContext[id1.1.1.1] matches {    -- PharmacyPromiseContext
+        appointmentTime matches {
+            TemporalValue[id0.0.0.2]     -- appointmentTime
+        }
+        expirationDate matches {
+            TemporalValue[id0.0.0.3]     -- expirationDate
+        }
+        isHospitalSupplySelfAdministered matches {
+            Concept[id0.0.0.4] matches {    -- isHospitalSupplySelfAdministered
+                code matches {[ac0.0.0.4]}
+            }
+        }
+        isSelfAdministered matches {
+            Concept[id0.0.0.5] matches {    -- isSelfAdministered
+                code matches {[ac0.0.0.5]}
+            }
+        }
+        lastDispenseDate matches {
+            TemporalValue[id0.0.0.6]     -- lastDispenseDate
+        }
+        needsHumanReview matches {
+            Concept[id0.0.0.7] matches {    -- needsHumanReview
+                code matches {[ac0.0.0.7]}
+            }
+        }
+        numberOfRefillsOrDosesDispensed matches {
+            IntegerType[id0.0.0.8]     -- numberOfRefillsOrDosesDispensed
+        }
+        numberOfRefillsRemaining matches {
+            IntegerType[id0.0.0.9]     -- numberOfRefillsRemaining
+        }
+        requestedAdministrationTime matches {
+            Timing[id0.0.0.10]     -- requestedAdministrationTime
+        }
+        requestedDuration matches {
+            Duration[id0.0.0.11]     -- requestedDuration
+        }
+        scheduleType matches {
+            Concept[id0.0.0.12] matches {    -- scheduleType
+                code matches {[ac0.0.0.12]}
+            }
+        }
+        substitution matches {
+            SubstitutionInformation[id0.0.0.13]     -- substitution
+        }
+        totalDailyDose matches {
+            Quantity[id0.0.0.14]     -- totalDailyDose
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1.1"] = <
+                text = <"PharmacyPromiseContext">
+                description = <"This class represents a MedicationOrder from the perspective of the filling system (i.e., the pharmacy). This class is a subtype of Healthcare Promise, which describes all types or Orders from the filling system perspective, but adds those properties which are specific to medication orders. Although there are many properties shared with MedicationOrder; the pharmacy may change the order within prescribed limits, for example, substituting a generic drug for a branded drug.">
+            >
+            ["id0.0.0.2"] = <
+                text = <"appointmentTime">
+                description = <"Date and time of the appointment for this clinic location.">
+            >
+            ["id0.0.0.3"] = <
+                text = <"expirationDate">
+                description = <"The date after which the order may no longer be filled.">
+            >
+            ["id0.0.0.4"] = <
+                text = <"isHospitalSupplySelfAdministered">
+                description = <"A flag indicating that the medication given to the patient is to be self-administered and is to be supplied by the hospital's pharmacy while they are an inpatient.">
+            >
+            ["ac0.0.0.4"] = <
+                text = <"Value set constraint for isHospitalSupplySelfAdministered">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.5"] = <
+                text = <"isSelfAdministered">
+                description = <"A flag indicating that the medication given to the patient is to be self administered.">
+            >
+            ["ac0.0.0.5"] = <
+                text = <"Value set constraint for isSelfAdministered">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.6"] = <
+                text = <"lastDispenseDate">
+                description = <"The most recent date (and optionally time) that the medication was distributed to a patient, patient care-giver, or the location at which the patient is receiving care.">
+            >
+            ["id0.0.0.7"] = <
+                text = <"needsHumanReview">
+                description = <"Indicates whether a warning is present in the dispensing instructions field and that downstream applications are expected to alert the human user to the presence of the warning. This property is included for compatibility with HL7 version 2.">
+            >
+            ["ac0.0.0.7"] = <
+                text = <"Value set constraint for needsHumanReview">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.8"] = <
+                text = <"numberOfRefillsOrDosesDispensed">
+                description = <"The number of refills or repeats of the medication order that have previously been dispensed, prior to the current order. ">
+            >
+            ["id0.0.0.9"] = <
+                text = <"numberOfRefillsRemaining">
+                description = <"The number of times the prescription can be refilled, prior to the promised dispense. If this is not the initial order and the number of refills remaining is 0, the order cannot be filled without issuance of a new MedicationOrder. For example, if an order indicates dispense 30 tablets plus 3 repeats, and the number of refills remaining is 1, then the promised dispense will reach the maximum order of 120 tablets. Afterward, the number of refills remaining will decrement to 0.">
+            >
+            ["id0.0.0.10"] = <
+                text = <"requestedAdministrationTime">
+                description = <"Specifies when the service is to be performed and how frequently. Note that this is a complex data type that may indicate specific times or intervals (e.g., 10:00 AM, MWF, etc).">
+            >
+            ["id0.0.0.11"] = <
+                text = <"requestedDuration">
+                description = <"The duration of an order as requested by the ordering clinician. The duration would be expressed as a number of days, weeks, hours, etc. Note that this length of time might be determined by a business rule of the facilty. For example, most facilties will have a limit of 7 days for antibiotics, and 3 days for schedule 1 drugs.">
+            >
+            ["id0.0.0.12"] = <
+                text = <"scheduleType">
+                description = <"&quot;This describes the type of schedule for the dispensing of the medication(s) that make up the order. PRE-OP orders are usually considered to be ON-CALL orders, and orders dispensed as MULTI-DOSE CONTAINERS are usually considered to be FILL ON REQUEST orders. C=Continuous, O=One Time, P=PRN, R=Fill On Request, OC=On Call.&quot; (VistA)">
+            >
+            ["ac0.0.0.12"] = <
+                text = <"Value set constraint for scheduleType">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.13"] = <
+                text = <"substitution">
+                description = <"If the Pharmacist has changed the kind of medication to be dispensed to the patient from the one originally ordered by the prescriber, this property provides a categorization of the kind of substitution that was made.
+&quot;Refer to HL7 Table 0167 - Substitution Status in Chapter 2C for suggested values.&quot; - HL7 Version 2.8, RXD-11.
+&quot;Refer to HL7 Table 0167 - Substitution Status in Chapter 2C for suggested values.&quot; - HL7 Version 2.8, RXE-9.
+&quot;Product&#47;Service Substitution, coded&quot; - NCPDP Script (Field 4457, Data Dictionary 201104)
+&quot;Code indicating whether or not the prescriber's instructions regarding generic substitution were followed.&quot; - NCPDP Telecommunication (Field 408-D8, Data Dictionary 201104).
+
+-----
+Possible values include (from HL7 Table 167): 
+No substitute was dispensed. This is equivalent to the default (null) value; 
+A generic substitution was dispensed; 
+A therapeutic substitution was dispensed; 
+No product selection indicated; 
+Substitution not allowed by prescriber; 
+Substitution allowed - patient requested product dispensed; 
+Substitution allowed - pharmacist selected product dispensed; 
+Substitution allowed - generic drug not in stock; 
+Substitution allowed - brand drug dispensed as a generic; 
+Substitution not allowed - brand drug mandated by law; 
+Substitution allowed - generic drug not available in marketplace.
+-----
+Possible values include (From NCPDP ECL):
+No Product Selection Indicated
+Substitution Not Allowed by Prescriber
+Substitution Allowed - Patient Requested Product Dispensed
+Substitution Allowed - Pharmacist Selected Product Dispensed
+Substitution Allowed - Generic Drug Not in Stock
+Substitution Allowed - Brand Drug Dispensed as a Generic Override
+Substitution Not Allowed - Brand Drug Mandated by Law
+Substitution Allowed - Generic Drug Not Available in Marketplace
+Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requested Brand Product To Be Dispensed">
+            >
+            ["id0.0.0.14"] = <
+                text = <"totalDailyDose">
+                description = <"&quot;The total daily dose for this particular pharmaceutical as expressed in terms of actual dispense units.&quot; - HL7 Version 2.8, RXE-19.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.0.4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/PharmacyPromiseContext/isHospitalSupplySelfAdministered/id0.0.0.4>
+            ["ac0.0.0.5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/PharmacyPromiseContext/isSelfAdministered/id0.0.0.5>
+            ["ac0.0.0.7"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/PharmacyPromiseContext/needsHumanReview/id0.0.0.7>
+            ["ac0.0.0.12"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/PharmacyPromiseContext/scheduleType/id0.0.0.12>
+        >
+    >

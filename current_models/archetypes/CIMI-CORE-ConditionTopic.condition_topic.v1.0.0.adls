@@ -1,0 +1,184 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-ConditionTopic.condition_topic.v1.0.0
+
+specialize
+    CIMI-CORE-AssertionTopic.assertion_topic.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    ConditionTopic[id1.1.1.1] matches {    -- ConditionTopic
+        dueTo matches {
+            DueTo[id0.0.0.2]     -- dueTo
+        }
+        severity matches {
+            Concept[id0.0.0.3] matches {    -- severity
+                code matches {[ac0.0.0.3]}
+            }
+        }
+        clinicalCourse matches {
+            Concept[id0.0.0.4] matches {    -- clinicalCourse
+                code matches {[ac0.0.0.4]}
+            }
+        }
+        diseasePhase matches {
+            Concept[id0.0.0.5] matches {    -- diseasePhase
+                code matches {[ac0.0.0.5]}
+            }
+        }
+        associatedSignAndSymptom matches {
+            Concept[id0.0.0.6] matches {    -- associatedSignAndSymptom
+                code matches {[ac0.0.0.6]}
+            }
+        }
+        periodicity matches {
+            Concept[id0.0.0.7] matches {    -- periodicity
+                code matches {[ac0.0.0.7]}
+            }
+        }
+        alleviatingFactor matches {
+            Concept[id0.0.0.8] matches {    -- alleviatingFactor
+                code matches {[ac0.0.0.8]}
+            }
+        }
+        exacerbatingFactor matches {
+            Concept[id0.0.0.9] matches {    -- exacerbatingFactor
+                code matches {[ac0.0.0.9]}
+            }
+        }
+        clinicalStatus matches {
+            Concept[id0.0.0.10] matches {    -- clinicalStatus
+                code matches {[ac0.0.0.10]}
+            }
+        }
+        causedBy matches {
+            CausedByEntityAssociation[id0.0.0.11]     -- causedBy
+        }
+        associatedEntityNOS matches {
+            EntityAssociationNOS[id0.0.0.12]     -- associatedEntityNOS
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1.1"] = <
+                text = <"ConditionTopic">
+                description = <"An assertion that represents a health condition of a patient that runs a clinical course over a period of time, and may be tracked during that time period. ">
+            >
+            ["id0.0.0.2"] = <
+                text = <"dueTo">
+                description = <"The cause of the Clinical finding. This includes such causes as disease vectors and endogenous states (e.g., macular degeneration due to diabetes). Exogenous substances and forces should be captured as causative agent. ">
+            >
+            ["id0.0.0.3"] = <
+                text = <"severity">
+                description = <"Intensity of a symptom or condition. The criteria for this value differ by condition.">
+            >
+            ["ac0.0.0.3"] = <
+                text = <"Value set constraint for severity">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.4"] = <
+                text = <"clinicalCourse">
+                description = <"Both the course and onset of a disease. Many conditions with an acute (sudden) onset also have an acute (short duration) course. Few diseases with a chronic (long - term) course would need to have their onset sub-divided into rapid or gradual subtypes, and thus there is no clear need for separating the rapidity of onset from the duration of a disease; based on testing by implementers and modelers, a single attribute with values that combine these meanings has clearly been more reproducible
+and useful than two attributes that attempt to separate the meanings.">
+            >
+            ["ac0.0.0.4"] = <
+                text = <"Value set constraint for clinicalCourse">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.5"] = <
+                text = <"diseasePhase">
+                description = <"The physiological state of a condition that develops over time. Examples of disease phase include incubation period (exposed, asymptomatic), prodromal (symptoms but not full disease breakout), acute (full manifestation of disease), and convalescent.">
+            >
+            ["ac0.0.0.5"] = <
+                text = <"Value set constraint for diseasePhase">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.6"] = <
+                text = <"associatedSignAndSymptom">
+                description = <"Physical observations captured by a clinician or subjective conditions experienced by a patient that are related to a medical condition.">
+            >
+            ["ac0.0.0.6"] = <
+                text = <"Value set constraint for associatedSignAndSymptom">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.7"] = <
+                text = <"periodicity">
+                description = <"The length of time from one occurrence to the next (e.g., intermittent, weekly, continuous).">
+            >
+            ["ac0.0.0.7"] = <
+                text = <"Value set constraint for periodicity">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.8"] = <
+                text = <"alleviatingFactor">
+                description = <"An action or intervention that makes a symptom less severe. Examples may include: rest, heat, ice, etc.
+">
+            >
+            ["ac0.0.0.8"] = <
+                text = <"Value set constraint for alleviatingFactor">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.9"] = <
+                text = <"exacerbatingFactor">
+                description = <"An action or intervention which makes a symptom more severe.">
+            >
+            ["ac0.0.0.9"] = <
+                text = <"Value set constraint for exacerbatingFactor">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.10"] = <
+                text = <"clinicalStatus">
+                description = <"For an assertion of a health condition, an indication of the status of the condition from the point of view of physiology or clinical diagnostic process. Values may typically include: Active, Relapse, Remission, Resolved, Confirmed, Ruled out, Unknown.">
+            >
+            ["ac0.0.0.10"] = <
+                text = <"Value set constraint for clinicalStatus">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.11"] = <
+                text = <"causedBy">
+                description = <"The substance, medication, micro-organism that is associated with the occurrence of a Condition from temporal or causative perspectives">
+            >
+            ["id0.0.0.12"] = <
+                text = <"associatedEntityNOS">
+                description = <"">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ConditionTopic/severity/id0.0.0.3>
+            ["ac0.0.0.4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ConditionTopic/clinicalCourse/id0.0.0.4>
+            ["ac0.0.0.5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ConditionTopic/diseasePhase/id0.0.0.5>
+            ["ac0.0.0.6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ConditionTopic/associatedSignAndSymptom/id0.0.0.6>
+            ["ac0.0.0.7"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ConditionTopic/periodicity/id0.0.0.7>
+            ["ac0.0.0.8"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ConditionTopic/alleviatingFactor/id0.0.0.8>
+            ["ac0.0.0.9"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ConditionTopic/exacerbatingFactor/id0.0.0.9>
+            ["ac0.0.0.10"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ConditionTopic/clinicalStatus/id0.0.0.10>
+        >
+    >

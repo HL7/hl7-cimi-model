@@ -1,80 +1,101 @@
-archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-ActionContext.action_context.v1.0.0
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-ActionContext.action_context.v1.0.0
 
 specialize
-  CIMI-CORE-StatementContext.statement_context.v1
+    CIMI-CORE-StatementContext.statement_context.v1.0.0
 
 language
-  original_language = <[ISO_639-1::en]>
+    original_language = <[ISO_639-1::en]>
 
 description
-  original_author = <
-    ["name"] = <"Claude Nanjo">
-    ["organisation"] = <"Cognitive Medical Systems">
-    ["email"] = <"cnanjo@cognitivemedicine.com">
-    ["date"] = <"11/24/2016">
-  >
-  details = <
-    ["en"] = <
-      language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'clinical statement' pattern">
-      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"action","context">
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
     >
-  >
-  other_details = <["model_level"] = <"reference">>
-  lifecycle_state = <"unmanaged">
-  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
-  custodian_namespace = <"org.opencimi">
-  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
-  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
-  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
-  ip_acknowledgements = <
-    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
-    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
-  >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
 
 definition
-  ActionContext[id1.1] matches {
-    type matches {
-      Concept[id2] matches {code matches {[ac1.1]}}
+    ActionContext[id1.1] matches {    -- ActionContext
+        justification matches {
+            Concept[id0.2] matches {    -- justification
+                code matches {[ac0.2]}
+            }
+        }
+        status matches {
+            Concept[id0.3] matches {    -- status
+                code matches {[ac0.3]}
+            }
+        }
+        scope matches {
+            Concept[id0.4] matches {    -- scope
+                code matches {[ac0.4]}
+            }
+        }
+        supportingInformation matches {
+            InformationEntryAssociation[id0.5]     -- supportingInformation
+        }
     }
-    justification matches {
-      Concept[id0.1]
-    }
-    currentStatus matches {
-      Attribution[id0.2]
-    }
-  }
 
 terminology
-  term_definitions = <
-    ["en"] = <
-      ["id1.1"] = <
-        text = <"Action context">
-        description = <"The ActionContext class aligns with the SNOMED Situations with Explicit Context and provides the context for the Act topic of a clinical statement. For instance, a statement about a procedure may specify that the procedure has been proposed, ordered, planned, performed or possibly not performed. ">
-      >
-      ["id0.1"] = <
-        text = <"Justification">
-        description = <"Reason the action was done or justification for the action. Reasons may also be specified for not performing an action. ">
-      >
-      ["id0.2"] = <
-        text = <"Current status">
-        description = <"The latest status of an action within the specified context. An action may be interpretable within a specific context such as whether it is planned, ordered, or performed. Moreover, within each of these context, an action may have a set of allowable states in which it can exist. For instance, a proposal may be rejected or an order may be signed, canceled or superceded by another order. It is expected that set of such states will vary based on the type of action context. The status code must coincide with the activity code of one of the attribution elements of statusHistory if a context status history is provided.">
-      >
-      ["ac1.1"] = <
-        text = <"Action context range">
-        description = <"Allowed values for the SNOMED CT Situation with Explicit Context 'Procedure context' attribute">
-      >
+    term_definitions = <
+        ["en"] = <
+            ["id1.1"] = <
+                text = <"ActionContext">
+                description = <"The ActionContext class provides the context for the ProcedureTopic of a clinical statement. For instance, a statement about a procedure may specify that the procedure has been proposed, ordered, planned, performed or possibly not performed. This class aligns with the SNOMED Situations with Explicit Context.">
+            >
+            ["id0.2"] = <
+                text = <"justification">
+                description = <"Reason the action was done or justification for the action. Reasons may also be specified for not performing an action. 
+">
+            >
+            ["ac0.2"] = <
+                text = <"Value set constraint for justification">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.3"] = <
+                text = <"status">
+                description = <"The latest recorded status of an action within the specified context. An action may be interpretable within a specific context such as whether it is planned, ordered, or performed. Moreover, within each of these contexts, an action may have a set of allowable states in which it can exist. For instance, a proposal may be rejected or an order may be signed, canceled or superceded by another order. 
+">
+            >
+            ["ac0.3"] = <
+                text = <"Value set constraint for status">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.4"] = <
+                text = <"scope">
+                description = <"Indicates the scope or clinical setting where the context applies, e.g., Inpatient, outpatient, community.
+">
+            >
+            ["ac0.4"] = <
+                text = <"Value set constraint for scope">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.5"] = <
+                text = <"supportingInformation">
+                description = <"Additional information that supports the performance, non-performance, ordering, or proposing of the clinical action, for example, the patient height and weight, or documentation of heart rate before administering the medication (in case medication needs to be held if heart rate falls in a specific range).">
+            >
+        >
     >
-  >
-
-  term_bindings = <
-    ["cimi"] = <
-      items = <
-        
-        ["ac1.1"] = <http://example.com/valueset/action_context_range_vs.v0.0.1>
-      >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ActionContext/justification/id0.2>
+            ["ac0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ActionContext/status/id0.3>
+            ["ac0.4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ActionContext/scope/id0.4>
+        >
     >
-  >
-

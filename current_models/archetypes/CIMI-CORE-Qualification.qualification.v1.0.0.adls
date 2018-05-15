@@ -1,0 +1,109 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-Qualification.qualification.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    Qualification[id1] matches {    -- Qualification
+        code matches {
+            Concept[id2] matches {    -- code
+                code matches {[ac2]}
+            }
+        }
+        level matches {
+            Concept[id3] matches {    -- level
+                code matches {[ac3]}
+            }
+        }
+        issuingOrganization matches {
+            Organization[id4]     -- issuingOrganization
+        }
+        issuingEntityUri matches {
+            UriType[id5]     -- issuingEntityUri
+        }
+        dateIssued matches {
+            Date[id6]     -- dateIssued
+        }
+        role matches {
+            Concept[id7] matches {    -- role
+                code matches {[ac7]}
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"Qualification">
+                description = <"Education, training or special skills.">
+            >
+            ["id2"] = <
+                text = <"code">
+                description = <"Concept representing the type of qualification">
+            >
+            ["ac2"] = <
+                text = <"Value set constraint for code">
+                description = <"Top-level value set constraint">
+            >
+            ["id3"] = <
+                text = <"level">
+                description = <"The level of the qualification">
+            >
+            ["ac3"] = <
+                text = <"Value set constraint for level">
+                description = <"Top-level value set constraint">
+            >
+            ["id4"] = <
+                text = <"issuingOrganization">
+                description = <"The organization responsible for issuing the qualification.">
+            >
+            ["id5"] = <
+                text = <"issuingEntityUri">
+                description = <"The issuing country where the qualification is valid.">
+            >
+            ["id6"] = <
+                text = <"dateIssued">
+                description = <"The date the qualification was issued.">
+            >
+            ["id7"] = <
+                text = <"role">
+                description = <"The roles where the qualification applies - e.g. registered nurse, physician">
+            >
+            ["ac7"] = <
+                text = <"Value set constraint for role">
+                description = <"Top-level value set constraint">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Qualification/code/id2>
+            ["ac3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Qualification/level/id3>
+            ["ac7"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Qualification/role/id7>
+        >
+    >

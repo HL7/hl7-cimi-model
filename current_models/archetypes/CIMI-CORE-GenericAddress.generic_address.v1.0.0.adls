@@ -1,0 +1,97 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-GenericAddress.generic_address.v1.0.0
+
+specialize
+    CIMI-CORE-Address.address.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    GenericAddress[id1.1] matches {    -- GenericAddress
+        line matches {
+            PlainText[id0.2]     -- line
+        }
+        city matches {
+            CodedText[id0.3]     -- city
+        }
+        district matches {
+            CodedText[id0.4]     -- district
+        }
+        state matches {
+            CodedText[id0.5]     -- state
+        }
+        postalCode matches {
+            CodedText[id0.6]     -- postalCode
+        }
+        country matches {
+            CodedText[id0.7]     -- country
+        }
+        periodOfUse matches {
+            IntervalValue[id0.8]     -- periodOfUse
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1"] = <
+                text = <"GenericAddress">
+                description = <"A generic and not fully structured address expressed using postal conventions (as opposed to GPS or other location definition formats).">
+            >
+            ["id0.2"] = <
+                text = <"line">
+                description = <"This component contains the house number, apartment number, street name, street direction, P.O. Box number, delivery hints, and similar address information.">
+            >
+            ["id0.3"] = <
+                text = <"city">
+                description = <"The name of the city, town, village or other community or delivery center.">
+            >
+            ["id0.4"] = <
+                text = <"district">
+                description = <"The name of the administrative area (county).">
+            >
+            ["id0.5"] = <
+                text = <"state">
+                description = <"Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).">
+            >
+            ["id0.6"] = <
+                text = <"postalCode">
+                description = <"A postal code designating a region defined by the postal service.">
+            >
+            ["id0.7"] = <
+                text = <"country">
+                description = <"Country - a nation as commonly understood or generally accepted.">
+            >
+            ["id0.8"] = <
+                text = <"periodOfUse">
+                description = <"Time period when address was&#47;is in use.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <>
+    >

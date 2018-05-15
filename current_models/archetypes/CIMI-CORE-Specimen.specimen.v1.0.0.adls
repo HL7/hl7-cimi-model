@@ -1,0 +1,286 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-Specimen.specimen.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    Specimen[id1] matches {    -- Specimen
+        parentSpecimenIdentifier matches {
+            Identifier[id2]     -- parentSpecimenIdentifier
+        }
+        classCode matches {
+            Concept[id3] matches {    -- classCode
+                code matches {[ac3]}
+            }
+        }
+        type matches {
+            Concept[id4] matches {    -- type
+                code matches {[ac4]}
+            }
+        }
+        subtype matches {
+            Concept[id5] matches {    -- subtype
+                code matches {[ac5]}
+            }
+        }
+        risk matches {
+            Concept[id6] matches {    -- risk
+                code matches {[ac6]}
+            }
+        }
+        handling matches {
+            Concept[id7] matches {    -- handling
+                code matches {[ac7]}
+            }
+        }
+        isDerived matches {
+            Concept[id8] matches {    -- isDerived
+                code matches {[ac8]}
+            }
+        }
+        form matches {
+            Concept[id9] matches {    -- form
+                code matches {[ac9]}
+            }
+        }
+        role matches {
+            Concept[id10] matches {    -- role
+                code matches {[ac10]}
+            }
+        }
+        originalMeasurement matches {
+            Quantity[id11]     -- originalMeasurement
+        }
+        currentMeasurement matches {
+            Quantity[id12]     -- currentMeasurement
+        }
+        condition matches {
+            Concept[id13] matches {    -- condition
+                code matches {[ac13]}
+            }
+        }
+        purity matches {
+            Concept[id14] matches {    -- purity
+                code matches {[ac14]}
+            }
+        }
+        concentration matches {
+            Quantity[id15]     -- concentration
+        }
+        numberOfContainers matches {
+            IntegerType[id16]     -- numberOfContainers
+        }
+        childRole matches {
+            Concept[id17] matches {    -- childRole
+                code matches {[ac17]}
+            }
+        }
+        expiration matches {
+            TemporalValue[id18]     -- expiration
+        }
+        groupCount matches {
+            IntegerType[id19]     -- groupCount
+        }
+        collectionProcedure matches {
+            ClinicalStatement[id20]     -- collectionProcedure
+        }
+        processingActivity matches {
+            ClinicalStatement[id21]     -- processingActivity
+        }
+        container matches {
+            SpecimenContainer[id22]     -- container
+        }
+        individualGroupedOrPooledIndicator matches {
+            Concept[id23] matches {    -- individualGroupedOrPooledIndicator
+                code matches {[ac23]}
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"Specimen">
+                description = <"A specimen is a substance, physical object, or collection of objects, that the laboratory considers a single discrete, uniquely identified unit that is the subject of one or more steps in the laboratory workflow. A specimen may include multiple physical pieces as long as they are considered a single unit within the laboratory workflow. A specimen results from one to many specimen collection procedures, and may be contained in multiple specimen containers. Specimen may have one or more processing activities. ">
+            >
+            ["id2"] = <
+                text = <"parentSpecimenIdentifier">
+                description = <"Specimen identifier of the specimen from which the current specimen was derived .">
+            >
+            ["id3"] = <
+                text = <"classCode">
+                description = <"Coded representation of the general category of the specimen, for example, environmental, food, or biologic product.">
+            >
+            ["ac3"] = <
+                text = <"Value set constraint for classCode">
+                description = <"Top-level value set constraint">
+            >
+            ["id4"] = <
+                text = <"type">
+                description = <"Coded representation of the precise nature of the entity that will be the source material for the observation, e.g., stool, tissue, blood, CSF ">
+            >
+            ["ac4"] = <
+                text = <"Value set constraint for type">
+                description = <"Top-level value set constraint">
+            >
+            ["id5"] = <
+                text = <"subtype">
+                description = <"Coded representation of lower level categorization of the specimen. In Clinical Genomics, there is a need to identify specific subtypes such as somatic or germline samples.">
+            >
+            ["ac5"] = <
+                text = <"Value set constraint for subtype">
+                description = <"Top-level value set constraint">
+            >
+            ["id6"] = <
+                text = <"risk">
+                description = <"This field contains any known or suspected specimen hazards, e.g., exceptionally infectious agent, blood from a hepatitis patient, BioSafetyLevel (BSL), flammable, radioactive.">
+            >
+            ["ac6"] = <
+                text = <"Value set constraint for risk">
+                description = <"Top-level value set constraint">
+            >
+            ["id7"] = <
+                text = <"handling">
+                description = <"Coded representation of how the specimen and&#47;or container need to be handled from the time of collection through the initiation of testing, e.g., keep frozen, do not allow contact with water">
+            >
+            ["ac7"] = <
+                text = <"Value set constraint for handling">
+                description = <"Top-level value set constraint">
+            >
+            ["id8"] = <
+                text = <"isDerived">
+                description = <"Flag to note that the current specimen is derived from another specimen. Derivation procedure will be indicated by the SpecimenProcessingActivity – processingProcedure code.  
+
+Conformance Statement - if the &quot;Is derived&quot; flag is checked, the parentSpecimenIdentifer attribute for this specimen (see second entry in this table) must be filled out.">
+            >
+            ["ac8"] = <
+                text = <"Value set constraint for isDerived">
+                description = <"Top-level value set constraint">
+            >
+            ["id9"] = <
+                text = <"form">
+                description = <"Coded representation specifying the state and nature of the material, e.g., solid, liquid, gas, tablet, ointment, gel ">
+            >
+            ["ac9"] = <
+                text = <"Value set constraint for form">
+                description = <"Top-level value set constraint">
+            >
+            ["id10"] = <
+                text = <"role">
+                description = <"Coded representation of the purpose of the sample as related to the analytical procedure being performed, e.g., reference sample, proficiency sample, QC sample, clinical.">
+            >
+            ["ac10"] = <
+                text = <"Value set constraint for role">
+                description = <"Top-level value set constraint">
+            >
+            ["id11"] = <
+                text = <"originalMeasurement">
+                description = <"The initial volume, mass or size of the specimen.  ">
+            >
+            ["id12"] = <
+                text = <"currentMeasurement">
+                description = <"The amount of specimen currently available for use in further testing. ">
+            >
+            ["id13"] = <
+                text = <"condition">
+                description = <"A mode or state of being that describes the nature of the specimen, for example, hemolyzed or clotted. ">
+            >
+            ["ac13"] = <
+                text = <"Value set constraint for condition">
+                description = <"Top-level value set constraint">
+            >
+            ["id14"] = <
+                text = <"purity">
+                description = <"A concept used to indicate freedom from contaminants of a given specimen. Note that this attribute is only needed in certain domains, for example in bio-banking. ">
+            >
+            ["ac14"] = <
+                text = <"Value set constraint for purity">
+                description = <"Top-level value set constraint">
+            >
+            ["id15"] = <
+                text = <"concentration">
+                description = <"Numeric value describing the abundance of the specimen constituent divided by the total volume of a mixture. Note that this attribute is only needed in certain domains, for example in bio-banking.">
+            >
+            ["id16"] = <
+                text = <"numberOfContainers">
+                description = <"Numeric value used to verify receipt of specimens.">
+            >
+            ["id17"] = <
+                text = <"childRole">
+                description = <"Coded representation of the purpose or role of a derived specimen with respect to its parent, for example, aliquot, block for tissue sections from a specimen, or slide from a block.">
+            >
+            ["ac17"] = <
+                text = <"Value set constraint for childRole">
+                description = <"Top-level value set constraint">
+            >
+            ["id18"] = <
+                text = <"expiration">
+                description = <"The date after which the specimen is no longer viable, typically a set period after the collection time.">
+            >
+            ["id19"] = <
+                text = <"groupCount">
+                description = <"The number of individual specimens of a particular type represented by this instance of a specimen. For example, samples from 25 animals in a cattle herd are collected.">
+            >
+            ["id20"] = <
+                text = <"collectionProcedure">
+                description = <"Information about the collection procedure performed to obtain the specimen.">
+            >
+            ["id21"] = <
+                text = <"processingActivity">
+                description = <"The specimen processing activity applied on this specimen.">
+            >
+            ["id22"] = <
+                text = <"container">
+                description = <"The container(s) holding this specimen.">
+            >
+            ["id23"] = <
+                text = <"individualGroupedOrPooledIndicator">
+                description = <"Coded representation of the type of sample. EXAMPLE(S): individual, grouped or pooled sample for example from a herd of cattle. NOTE: May need to track the identifiers of pool constituents, and&#47;or the group counts.">
+            >
+            ["ac23"] = <
+                text = <"Value set constraint for individualGroupedOrPooledIndicator">
+                description = <"Top-level value set constraint">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Specimen/classCode/id3>
+            ["ac4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Specimen/type/id4>
+            ["ac5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Specimen/subtype/id5>
+            ["ac6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Specimen/risk/id6>
+            ["ac7"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Specimen/handling/id7>
+            ["ac8"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Specimen/isDerived/id8>
+            ["ac9"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Specimen/form/id9>
+            ["ac10"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Specimen/role/id10>
+            ["ac13"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Specimen/condition/id13>
+            ["ac14"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Specimen/purity/id14>
+            ["ac17"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Specimen/childRole/id17>
+            ["ac23"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Specimen/individualGroupedOrPooledIndicator/id23>
+        >
+    >

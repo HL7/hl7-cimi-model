@@ -1,0 +1,123 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-Medication.medication.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    Medication[id1] matches {    -- Medication
+        code matches {
+            Concept[id2] matches {    -- code
+                code matches {[ac2]}
+            }
+        }
+        status matches {
+            Concept[id3] matches {    -- status
+                code matches {[ac3]}
+            }
+        }
+        manufacturer matches {
+            Organization[id4]     -- manufacturer
+        }
+        form matches {
+            Concept[id5] matches {    -- form
+                code matches {[ac5]}
+            }
+        }
+        amount matches {
+            Quantity[id6]     -- amount
+        }
+        ingredient matches {
+            Ingredient[id7]     -- ingredient
+        }
+        batchLotNumber matches {
+            PlainText[id8]     -- batchLotNumber
+        }
+        batchExpirationDate matches {
+            DateTime[id9]     -- batchExpirationDate
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"Medication">
+                description = <"A class representing a medication, either a prescription drug or over-the-counter drug (potentially including vitamins, herbal remedies, and dietary supplements) that is used to prevent, treat, or relieve symptoms of a disease or abnormal condition. It covers the ingredients and the packaging for a medication.">
+            >
+            ["id2"] = <
+                text = <"code">
+                description = <"The medication concept that represents this medication.">
+            >
+            ["ac2"] = <
+                text = <"Value set constraint for code">
+                description = <"Top-level value set constraint">
+            >
+            ["id3"] = <
+                text = <"status">
+                description = <"A code to indicate if the medication is in active use. This status is not intended to specify if the medication is part of a formulary.">
+            >
+            ["ac3"] = <
+                text = <"Value set constraint for status">
+                description = <"Top-level value set constraint">
+            >
+            ["id4"] = <
+                text = <"manufacturer">
+                description = <"Describes the details of the manufacturer of the medication product. This is not intended to represent the distributor of a medication product.">
+            >
+            ["id5"] = <
+                text = <"form">
+                description = <"The medication form such as tablet, capsule, ampoule, etc...">
+            >
+            ["ac5"] = <
+                text = <"Value set constraint for form">
+                description = <"Top-level value set constraint">
+            >
+            ["id6"] = <
+                text = <"amount">
+                description = <"Specific amount of the drug in the packaged product, for example, 20 tablets. When specifying a product, e.g., insulin glargine 100 unit per mL solution for injection, this attribute provides additional clarification of the packaged amount (for example, 3 mL, 10mL, etc).">
+            >
+            ["id7"] = <
+                text = <"ingredient">
+                description = <"Active and&#47;or inactive ingredient">
+            >
+            ["id8"] = <
+                text = <"batchLotNumber">
+                description = <"The assigned lot number of a batch associated with the specified product. ">
+            >
+            ["id9"] = <
+                text = <"batchExpirationDate">
+                description = <"When this specific batch of product will expire.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Medication/code/id2>
+            ["ac3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Medication/status/id3>
+            ["ac5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Medication/form/id5>
+        >
+    >

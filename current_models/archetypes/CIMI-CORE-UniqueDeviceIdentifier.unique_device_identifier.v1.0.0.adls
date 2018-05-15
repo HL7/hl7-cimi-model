@@ -1,0 +1,105 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-UniqueDeviceIdentifier.unique_device_identifier.v1.0.0
+
+specialize
+    CIMI-CORE-Identifier.identifier.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    UniqueDeviceIdentifier[id1.1] matches {    -- UniqueDeviceIdentifier
+        deviceIdentifier matches {
+            PlainText[id0.2]     -- deviceIdentifier
+        }
+        udiLabelName matches {
+            PlainText[id0.3]     -- udiLabelName
+        }
+        jurisdiction matches {
+            UriType[id0.4]     -- jurisdiction
+        }
+        carrierHrf matches {
+            PlainText[id0.5]     -- carrierHrf
+        }
+        carrierAidc matches {
+            ParsableContent[id0.6]     -- carrierAidc
+        }
+        issuer matches {
+            UriType[id0.7]     -- issuer
+        }
+        entryType matches {
+            Concept[id0.8] matches {    -- entryType
+                code matches {[ac0.8]}
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1"] = <
+                text = <"UniqueDeviceIdentifier">
+                description = <"Unique device identifier (UDI) assigned to device label or package.">
+            >
+            ["id0.2"] = <
+                text = <"deviceIdentifier">
+                description = <"The device identifier (DI) is a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device.">
+            >
+            ["id0.3"] = <
+                text = <"udiLabelName">
+                description = <"Name of device as used in labeling or catalog.">
+            >
+            ["id0.4"] = <
+                text = <"jurisdiction">
+                description = <"The identity of the authoritative source for UDI generation within a jurisdiction. All UDIs are globally unique within a single namespace. with the appropriate repository uri as the system. For example, UDIs of devices managed in the U.S. by the FDA, the value is http:&#47;&#47;hl7.org&#47;fhir&#47;NamingSystem&#47;fda-udi.">
+            >
+            ["id0.5"] = <
+                text = <"carrierHrf">
+                description = <"The full UDI carrier as the human readable form (HRF) representation of the barcode string as printed on the packaging of the device.">
+            >
+            ["id0.6"] = <
+                text = <"carrierAidc">
+                description = <"The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology representation of the barcode string as printed on the packaging of the device - E.g a barcode or RFID. Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC Formats SHALL be base64 encoded.">
+            >
+            ["id0.7"] = <
+                text = <"issuer">
+                description = <"Organization that is charged with issuing UDIs for devices. For example, the US FDA issuers include : 1) GS1: http:&#47;&#47;hl7.org&#47;fhir&#47;NamingSystem&#47;gs1-di, 2) HIBCC: http:&#47;&#47;hl7.org&#47;fhir&#47;NamingSystem&#47;hibcc-dI, 3) ICCBBA for blood containers: http:&#47;&#47;hl7.org&#47;fhir&#47;NamingSystem&#47;iccbba-blood-di, 4) ICCBA for other devices: http:&#47;&#47;hl7.org&#47;fhir&#47;NamingSystem&#47;iccbba-other-di.">
+            >
+            ["id0.8"] = <
+                text = <"entryType">
+                description = <"A coded entry to indicate how the data was entered.">
+            >
+            ["ac0.8"] = <
+                text = <"Value set constraint for entryType">
+                description = <"Top-level value set constraint">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.8"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/UniqueDeviceIdentifier/entryType/id0.8>
+        >
+    >

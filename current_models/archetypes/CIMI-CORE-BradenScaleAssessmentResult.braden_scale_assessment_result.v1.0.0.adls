@@ -1,0 +1,156 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-BradenScaleAssessmentResult.braden_scale_assessment_result.v1.0.0
+
+specialize
+    CIMI-CORE-AssertionTopic.assertion_topic.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    BradenScaleAssessmentResult[id1.1.1.1] matches {    -- BradenScaleAssessmentResult
+        moistureExposure matches {
+            Concept[id0.0.0.2] matches {    -- moistureExposure
+                code matches {[ac0.0.0.2]}
+            }
+        }
+        sensoryPerception matches {
+            Concept[id0.0.0.3] matches {    -- sensoryPerception
+                code matches {[ac0.0.0.3]}
+            }
+        }
+        physicalActivity matches {
+            Concept[id0.0.0.4] matches {    -- physicalActivity
+                code matches {[ac0.0.0.4]}
+            }
+        }
+        physicalMobility matches {
+            Concept[id0.0.0.5] matches {    -- physicalMobility
+                code matches {[ac0.0.0.5]}
+            }
+        }
+        nutritionIntakePattern matches {
+            Concept[id0.0.0.6] matches {    -- nutritionIntakePattern
+                code matches {[ac0.0.0.6]}
+            }
+        }
+        frictionAndShear matches {
+            Concept[id0.0.0.7] matches {    -- frictionAndShear
+                code matches {[ac0.0.0.7]}
+            }
+        }
+        totalScore matches {
+            Quantity[id0.0.0.8]     -- totalScore
+        }
+        riskLevel matches {
+            Concept[id0.0.0.9] matches {    -- riskLevel
+                code matches {[ac0.0.0.9]}
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1.1"] = <
+                text = <"BradenScaleAssessmentResult">
+                description = <"The BradenScaleAssessmentResult class captures the results of evaluating a patient with the Braden Scale to assess an adult patient's susceptibility to skin breakdown. The summation of the scores ranges from 6-23.
+
+Note: this class does not represent the assessment instrument itself which is considered to be a knowledge artifact rather than an entry in a patient record.">
+            >
+            ["id0.0.0.2"] = <
+                text = <"moistureExposure">
+                description = <"The moisture exposure attribute is an element of the braden score skin assessment tool. It evaluates the degree to which skin is exposed to moisture. Values range from 1-4 and correspond as follows: '1'corresponds to the patients being constantly moist, '2' corresponds to Moist, '3' to Occasionally moist, and a '4' to Rarely moist.">
+            >
+            ["ac0.0.0.2"] = <
+                text = <"Value set constraint for moistureExposure">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.3"] = <
+                text = <"sensoryPerception">
+                description = <"An element of the braden score skin assessment tool. This section evaluates a patient's ability to respond meaningfully to pressure-related discomfort. Values range from 1-4 and correspond as follows: '1' corresponds completely limited ability, '2' corresponds to a Very Limited ability, '3' to a Slightly Limited ability, and a '4' to No Impairment.">
+            >
+            ["ac0.0.0.3"] = <
+                text = <"Value set constraint for sensoryPerception">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.4"] = <
+                text = <"physicalActivity">
+                description = <"An element of the braden score skin assessment tool. This section evaluates the patient's degree of physical activity. Values range from 1-4 and the numbers correspond as follows: '1'corresponds to the patients being bedfast, '2' corresponds to Chairfast, '3' to Walks occasionally, and a '4' to Walks frequently.">
+            >
+            ["ac0.0.0.4"] = <
+                text = <"Value set constraint for physicalActivity">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.5"] = <
+                text = <"physicalMobility">
+                description = <"An element of the braden score skin assessment tool. This section evaluates the patient's ability to change and control their body position. Values range from 1-4 and correspond as follows: '1'corresponds to the patient being completely immobile, '2' corresponds to 'Very limited' mobility, '3' to 'Slightly Limited' mobility, and a '4' to 'No limitations'.">
+            >
+            ["ac0.0.0.5"] = <
+                text = <"Value set constraint for physicalMobility">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.6"] = <
+                text = <"nutritionIntakePattern">
+                description = <"An element of the braden score skin assessment tool. This section evaluates the patient's usual food intake pattern. Values range from 1-4 and correspond as follows: '1'corresponds to 'very poor' nutrition, '2' corresponds to 'probably inadequate' nutrition, '3' to 'Adequate' nutrition, and a '4' to 'Excellent'.">
+            >
+            ["ac0.0.0.6"] = <
+                text = <"Value set constraint for nutritionIntakePattern">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.7"] = <
+                text = <"frictionAndShear">
+                description = <"An element of the braden score skin assessment tool. This section evaluates the patient's potential exposure to skin friction and shear. Values range from 1-3 and correspond as follows: '1' corresponds to 'Problem' with friction and shear, '2' corresponds to 'Potential problem', '3' to 'No apparent problem'.">
+            >
+            ["ac0.0.0.7"] = <
+                text = <"Value set constraint for frictionAndShear">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.8"] = <
+                text = <"totalScore">
+                description = <"The summation of the 6 elements of the braden score skin assessment tool. Values range from 6-23.">
+            >
+            ["id0.0.0.9"] = <
+                text = <"riskLevel">
+                description = <"The overall, qualitative risk to the patient based on the Braden Total Score and the answers are No Risk: Total score 19-23 , Mild risk: total score 15-18 , Moderate risk: total score 13-14 , High risk: total score 10-12 , and Very high risk: total score 9 or lower . ">
+            >
+            ["ac0.0.0.9"] = <
+                text = <"Value set constraint for riskLevel">
+                description = <"Top-level value set constraint">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.0.2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/BradenScaleAssessmentResult/moistureExposure/id0.0.0.2>
+            ["ac0.0.0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/BradenScaleAssessmentResult/sensoryPerception/id0.0.0.3>
+            ["ac0.0.0.4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/BradenScaleAssessmentResult/physicalActivity/id0.0.0.4>
+            ["ac0.0.0.5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/BradenScaleAssessmentResult/physicalMobility/id0.0.0.5>
+            ["ac0.0.0.6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/BradenScaleAssessmentResult/nutritionIntakePattern/id0.0.0.6>
+            ["ac0.0.0.7"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/BradenScaleAssessmentResult/frictionAndShear/id0.0.0.7>
+            ["ac0.0.0.9"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/BradenScaleAssessmentResult/riskLevel/id0.0.0.9>
+        >
+    >

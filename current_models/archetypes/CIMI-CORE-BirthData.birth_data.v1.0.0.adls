@@ -1,0 +1,95 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-BirthData.birth_data.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    BirthData[id1] matches {    -- BirthData
+        birthDatetime matches {
+            TemporalValue[id2]     -- birthDatetime
+        }
+        birthAddress matches {
+            Address[id3]     -- birthAddress
+        }
+        multipleBirthIndicator matches {
+            Concept[id4] matches {    -- multipleBirthIndicator
+                code matches {[ac4]}
+            }
+        }
+        birthPlurality matches {
+            IntegerType[id5]     -- birthPlurality
+        }
+        birthOrder matches {
+            IntegerType[id6]     -- birthOrder
+        }
+        birthCertificateNumber matches {
+            PlainText[id7]     -- birthCertificateNumber
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"BirthData">
+                description = <"Type supporting the capture of birth-related information.">
+            >
+            ["id2"] = <
+                text = <"birthDatetime">
+                description = <"When the birth occurred.">
+            >
+            ["id3"] = <
+                text = <"birthAddress">
+                description = <"Address where birth occurred.">
+            >
+            ["id4"] = <
+                text = <"multipleBirthIndicator">
+                description = <"Indicates whether the birth event was a multiple birth event.">
+            >
+            ["ac4"] = <
+                text = <"Value set constraint for multipleBirthIndicator">
+                description = <"Top-level value set constraint">
+            >
+            ["id5"] = <
+                text = <"birthPlurality">
+                description = <"The number of babies resulting from a single pregnancy">
+            >
+            ["id6"] = <
+                text = <"birthOrder">
+                description = <"Integer indicating the sequence number of this birth.">
+            >
+            ["id7"] = <
+                text = <"birthCertificateNumber">
+                description = <"The birth certificate number associated with this birth.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/BirthData/multipleBirthIndicator/id4>
+        >
+    >

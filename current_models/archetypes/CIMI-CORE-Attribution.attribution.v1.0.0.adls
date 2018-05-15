@@ -1,123 +1,104 @@
-archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-Attribution.attribution.v1.0.0
-  
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-Attribution.attribution.v1.0.0
+
 language
-  original_language = <[ISO_639-1::en]>
+    original_language = <[ISO_639-1::en]>
 
 description
-  original_author = <
-    ["name"] = <"Patrick Langford">
-    ["organisation"] = <"Intermountain Healthcare">
-    ["email"] = <"patrick@neuronsong.com">
-    ["date"] = <"10/06/2014">
-  >
-  details = <
-    ["en"] = <
-      language = <[ISO_639-1::en]>
-      purpose = <"Archetype for CIMI 'action' concept">
-      use = <"Use for action.">
-      keywords = <"action">
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
     >
-  >
-  lifecycle_state = <"unmanaged">
-  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
-  custodian_namespace = <"org.opencimi">
-  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
-  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
-  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
-  ip_acknowledgements = <
-    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
-    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
-  >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
 
 definition
-  Attribution[id1] matches { 
-    activity matches {
-      Concept[id3] 
+    Attribution[id1] matches {    -- Attribution
+        recordedOn matches {
+            Instant[id2]     -- recordedOn
+        }
+        recordedBy matches {
+            Entity[id3]     -- recordedBy
+        }
+        activityTime matches {
+            TemporalValue[id4]     -- activityTime
+        }
+        reason matches {
+            Concept[id5] matches {    -- reason
+                code matches {[ac5]}
+            }
+        }
+        location matches {
+            Location[id6]     -- location
+        }
+        participant matches {
+            Entity[id7]     -- participant
+        }
+        signature matches {
+            Signature[id8]     -- signature
+        }
     }
-    recordedOn matches {
-      DateTime[id4]  
-    }
-    recordedBy matches { 
-      Party[id5] 
-    }
-    activityTimeRange matches { 
-      IntervalValue<Date>[id6] 
-    }
-    reason matches {
-      Concept[id7]  
-    }
-    location matches { 
-      Location[id8]  
-    }
-    policy matches {
-      UriType[id9] 
-    } 
-    participant matches {
-      PartyAssociation[id10] 
-    }  
-    signature matches { 
-      Signature[id12] 
-    }
-    method matches { 
-      Concept[id13] 
-    }
-  }
 
 terminology
-  term_definitions = <
-    ["en"] = <
-      ["id1"] = <
-        text = <"Attribution">
-      >
-      ["id3"] = <
-        text = <"Activity">
-      >
-      ["id4"] = <
-        text = <"Recorded on">
-      >
-      ["id5"] = <
-        text = <"Recorded by">
-      >
-      ["id6"] = <
-        text = <"Activity time range">
-      >
-      ["id7"] = <
-        text = <"Reason">
-      >
-      ["id8"] = <
-        text = <"Location">
-      >
-      ["id9"] = <
-        text = <"Policy">
-      >
-      ["id10"] = <
-        text = <"Participant">
-      >
-      ["id12"] = <
-        text = <"Signature">
-      >
-      ["id13"] = <
-        text = <"Method">
-      >
-    >
-  >
-  term_bindings = <
-    ["snomed-ct"] = <
-      items = <
-        ["id1"] = <http://snomed.info/id/129264002>
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"Attribution">
+                description = <"Attribution provides a formal pattern and reusable structure for attributes of a record that describes an activity in a process involved in producing, delivering or otherwise influencing the entry in a record. Attribution provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
 
-        ["id3"] = <http://snomed.info/id/129264002>
-        ["id4"] = <http://snomed.info/id/364713004>
-        ["id5"] = <http://snomed.info/id/364713004>
-        ["id6"] = <http://snomed.info/id/364713004>
-        ["id7"] = <http://snomed.info/id/364713004>
-        ["id8"] = <http://snomed.info/id/364713004>
-        ["id9"] = <http://snomed.info/id/364713004>
-        ["id10"] = <http://snomed.info/id/138875005>
-        
-        ["id12"] = <http://snomed.info/id/288532009>
-        ["id13"] = <http://snomed.info/id/288532009>
-      >
+Attribution provides a common reference model pattern that may be included directly within a clinical statement (e.g., the metadata associated with the recording of a clinical statement in a system) or within the Provenance pattern when it is preferrable to have such information external to but referencing the clinical statement (see Provenance). Note that, when included directly within a clinical statement, updates made to attribution attribute values will result in a versioning change in the instance. When part of the Provenance class, updates to provenance do not result in an update of the clinical statement referenced by the Provenance class (see Provenance.target).">
+            >
+            ["id2"] = <
+                text = <"recordedOn">
+                description = <"The time at which the activity was recorded.">
+            >
+            ["id3"] = <
+                text = <"recordedBy">
+                description = <"The person or entity capturing the attribution information.">
+            >
+            ["id4"] = <
+                text = <"activityTime">
+                description = <"The period during which the activity occurred.">
+            >
+            ["id5"] = <
+                text = <"reason">
+                description = <"The reason that the activity was taking place.">
+            >
+            ["ac5"] = <
+                text = <"Value set constraint for reason">
+                description = <"Top-level value set constraint">
+            >
+            ["id6"] = <
+                text = <"location">
+                description = <"Where the activity occurred, if relevant.">
+            >
+            ["id7"] = <
+                text = <"participant">
+                description = <"A person, entity, or other party responsible for execution of some facet of the activity. ">
+            >
+            ["id8"] = <
+                text = <"signature">
+                description = <"A digital signature on the target Reference(s). The signer should match a Attribution.participant. The purpose of the signature is indicated.">
+            >
+        >
     >
-  >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Attribution/reason/id5>
+        >
+    >

@@ -1,0 +1,85 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-PlanContext.plan_context.v1.0.0
+
+specialize
+    CIMI-CORE-ActionContext.action_context.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    PlanContext[id1.1.1] matches {    -- PlanContext
+        planned matches {
+            Attribution[id0.0.2]     -- planned
+        }
+        fulfillsOrder matches {
+            ClinicalStatement[id0.0.3]     -- fulfillsOrder
+        }
+        basedOn matches {
+            ClinicalStatement[id0.0.4]     -- basedOn
+        }
+        expectedPerformanceTime matches {
+            TemporalValue[id0.0.5]     -- expectedPerformanceTime
+        }
+        expectedPerformer matches {
+            EntityOrRole[id0.0.6]     -- expectedPerformer
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1"] = <
+                text = <"PlanContext">
+                description = <"A record indicating an action in the planning phase. Typically, this would include a time at which the action is scheduled to be performed.
+">
+            >
+            ["id0.0.2"] = <
+                text = <"planned">
+                description = <"Information about who planned the action, when they planned it, etc...">
+            >
+            ["id0.0.3"] = <
+                text = <"fulfillsOrder">
+                description = <"The order that is partly or wholly enacted by the performance of this act.
+">
+            >
+            ["id0.0.4"] = <
+                text = <"basedOn">
+                description = <"The proposal that is partly or wholly fulfilled  by the performance of this act.">
+            >
+            ["id0.0.5"] = <
+                text = <"expectedPerformanceTime">
+                description = <"The time when the action is expected to be performed.">
+            >
+            ["id0.0.6"] = <
+                text = <"expectedPerformer">
+                description = <"Persons who are expected to or intended to perform this action, e.g., the person who will perform the surgery. ">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <>
+    >

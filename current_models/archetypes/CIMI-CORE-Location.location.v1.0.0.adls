@@ -1,0 +1,123 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-Location.location.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    Location[id1] matches {    -- Location
+        locationName matches {
+            Name[id2]     -- locationName
+        }
+        type matches {
+            Concept[id3] matches {    -- type
+                code matches {[ac3]}
+            }
+        }
+        condition matches {
+            Concept[id4] matches {    -- condition
+                code matches {[ac4]}
+            }
+        }
+        electronicContact matches {
+            ElectronicContact[id5]     -- electronicContact
+        }
+        validityPeriod matches {
+            IntervalValue[id6]     -- validityPeriod
+        }
+        status matches {
+            Concept[id7] matches {    -- status
+                code matches {[ac7]}
+            }
+        }
+        purpose matches {
+            Concept[id8] matches {    -- purpose
+                code matches {[ac8]}
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"Location">
+                description = <"A description of a location in terms of who to contact at the location, and activities that may take place at the location. The subclasses of Location, GeographicalLocation and HealthCareFacilityLocation, define the actual location of the Location.">
+            >
+            ["id2"] = <
+                text = <"locationName">
+                description = <"Names associated with this location. E.g., 10 West Bed 2">
+            >
+            ["id3"] = <
+                text = <"type">
+                description = <"Indicates the type of location.">
+            >
+            ["ac3"] = <
+                text = <"Value set constraint for type">
+                description = <"Top-level value set constraint">
+            >
+            ["id4"] = <
+                text = <"condition">
+                description = <"A description of the condition of the location.">
+            >
+            ["ac4"] = <
+                text = <"Value set constraint for condition">
+                description = <"Top-level value set constraint">
+            >
+            ["id5"] = <
+                text = <"electronicContact">
+                description = <"Contact information associated with this location - for instance, contact information to reserve the location.">
+            >
+            ["id6"] = <
+                text = <"validityPeriod">
+                description = <"The interval of time when this location is relevant or available.">
+            >
+            ["id7"] = <
+                text = <"status">
+                description = <"A code representing the status of the location.">
+            >
+            ["ac7"] = <
+                text = <"Value set constraint for status">
+                description = <"Top-level value set constraint">
+            >
+            ["id8"] = <
+                text = <"purpose">
+                description = <"Indicates the purpose of this location.">
+            >
+            ["ac8"] = <
+                text = <"Value set constraint for purpose">
+                description = <"Top-level value set constraint">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Location/type/id3>
+            ["ac4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Location/condition/id4>
+            ["ac7"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Location/status/id7>
+            ["ac8"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/Location/purpose/id8>
+        >
+    >

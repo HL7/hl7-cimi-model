@@ -1,0 +1,77 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-TransferTopic.transfer_topic.v1.0.0
+
+specialize
+    CIMI-CORE-ProcedureTopic.procedure_topic.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    TransferTopic[id1.1.1] matches {    -- TransferTopic
+        category matches {
+            Concept[id0.0.2] matches {    -- category
+                code matches {[ac0.0.2]}
+            }
+        }
+        transferFromLocation matches {
+            Location[id0.0.3]     -- transferFromLocation
+        }
+        transferToLocation matches {
+            Location[id0.0.4]     -- transferToLocation
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1"] = <
+                text = <"TransferTopic">
+                description = <"Documents the transfer of a patient from one location or responsible organization to another. Note that a transfer from one organization to another will, by definition, trigger a new encounter. A transfer from one location to another may trigger a new encounter depending on whether the responsible organization has changed. A movement from one bed within the same ward to another probably will not, but a movement from one ward to another probably would.">
+            >
+            ["id0.0.2"] = <
+                text = <"category">
+                description = <"Categorizes the patient transfer. Possible values include Admission, Transfer, Discharge, etc.">
+            >
+            ["ac0.0.2"] = <
+                text = <"Value set constraint for category">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.3"] = <
+                text = <"transferFromLocation">
+                description = <"The prior patient location if the patient is being transferred. This is null if the patient is new.&quot; - HL7 Version 2.8, PV1-6">
+            >
+            ["id0.0.4"] = <
+                text = <"transferToLocation">
+                description = <"The location to which the patient has been transferred. ">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/TransferTopic/category/id0.0.2>
+        >
+    >

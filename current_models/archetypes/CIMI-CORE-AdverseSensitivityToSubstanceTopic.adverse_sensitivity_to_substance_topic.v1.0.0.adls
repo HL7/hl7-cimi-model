@@ -1,0 +1,133 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-AdverseSensitivityToSubstanceTopic.adverse_sensitivity_to_substance_topic.v1.0.0
+
+specialize
+    CIMI-CORE-AssertionTopic.assertion_topic.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    AdverseSensitivityToSubstanceTopic[id1.1.1.1] matches {    -- AdverseSensitivityToSubstanceTopic
+        substance matches {
+            Substance[id0.0.0.2]     -- substance
+        }
+        sensitivityType matches {
+            Concept[id0.0.0.3] matches {    -- sensitivityType
+                code matches {[ac0.0.0.3]}
+            }
+        }
+        category matches {
+            Concept[id0.0.0.4] matches {    -- category
+                code matches {[ac0.0.0.4]}
+            }
+        }
+        criticality matches {
+            Concept[id0.0.0.5] matches {    -- criticality
+                code matches {[ac0.0.0.5]}
+            }
+        }
+        associatedReaction matches {
+            ClinicalStatement[id0.0.0.6]     -- associatedReaction
+        }
+        sensitivityTest matches {
+            ClinicalStatement[id0.0.0.7]     -- sensitivityTest
+        }
+        clinicalStatus matches {
+            Concept[id0.0.0.8] matches {    -- clinicalStatus
+                code matches {[ac0.0.0.8]}
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1.1"] = <
+                text = <"AdverseSensitivityToSubstanceTopic">
+                description = <"A finding related to an individual's risk of harm from exposure to a substance or class of substances.">
+            >
+            ["id0.0.0.2"] = <
+                text = <"substance">
+                description = <"The substance the subject of information is allergic or sensitive to.">
+            >
+            ["id0.0.0.3"] = <
+                text = <"sensitivityType">
+                description = <"A code that indicates whether this sensitivity is of an allergic nature or an intolerance to a substance.">
+            >
+            ["ac0.0.0.3"] = <
+                text = <"Value set constraint for sensitivityType">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.4"] = <
+                text = <"category">
+                description = <"Category of the identified substance, e.g., food, medication, environment, or biologic. Some substances may fit multiple categories.">
+            >
+            ["ac0.0.0.4"] = <
+                text = <"Value set constraint for category">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.5"] = <
+                text = <"criticality">
+                description = <"The potential seriousness of a future reaction. This represents a clinical judgment about the worst case scenario for a future reaction. It would be based on the severity of past reactions, the dose and route of exposure that produced past reactions, and the life-threatening or organ system threatening potential of the reaction type.">
+            >
+            ["ac0.0.0.5"] = <
+                text = <"Value set constraint for criticality">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.6"] = <
+                text = <"associatedReaction">
+                description = <"A documented adverse reaction(s) that was used as evidence for the allergy&#47;intolerance assertion. 
+">
+            >
+            ["id0.0.0.7"] = <
+                text = <"sensitivityTest">
+                description = <"Tests performed to assess sensitivity to the a suspected entity.">
+            >
+            ["id0.0.0.8"] = <
+                text = <"clinicalStatus">
+                description = <"The state of the allergy or intolerance at the particular point in time. Examples include: active, inactive, resolved.
+
+Example: John Doe has hay fever. He undergoes desensitization therapy, the allergy is resolved.
+
+Example: John Doe has hay fever. Luckily for John, it is winter time and the allergy is inactive.
+
+Note: Need a better value set. Does not make sense for Penicillin.">
+            >
+            ["ac0.0.0.8"] = <
+                text = <"Value set constraint for clinicalStatus">
+                description = <"Top-level value set constraint">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AdverseSensitivityToSubstanceTopic/sensitivityType/id0.0.0.3>
+            ["ac0.0.0.4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AdverseSensitivityToSubstanceTopic/category/id0.0.0.4>
+            ["ac0.0.0.5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AdverseSensitivityToSubstanceTopic/criticality/id0.0.0.5>
+            ["ac0.0.0.8"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AdverseSensitivityToSubstanceTopic/clinicalStatus/id0.0.0.8>
+        >
+    >

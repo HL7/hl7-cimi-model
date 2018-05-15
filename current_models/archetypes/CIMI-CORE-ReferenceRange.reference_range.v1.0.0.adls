@@ -1,0 +1,81 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-ReferenceRange.reference_range.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    ReferenceRange[id1] matches {    -- ReferenceRange
+        referenceCriterion matches {
+            Concept[id2] matches {    -- referenceCriterion
+                code matches {[ac2]}
+            }
+        }
+        narrative matches {
+            PlainText[id3]     -- narrative
+        }
+        criteria matches {
+            Concept[id4] matches {    -- criteria
+                code matches {[ac4]}
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"ReferenceRange">
+                description = <"A reference range for the specific instance after lookup from, say, a reference range table given specific criteria. Note that this reference range is not definitional in nature but rather refers to the reference range considered for the given observation for a subject.">
+            >
+            ["id2"] = <
+                text = <"referenceCriterion">
+                description = <"] Indicates how the given range should be interpreted, for example, as normal, critically high, etc.">
+            >
+            ["ac2"] = <
+                text = <"Value set constraint for referenceCriterion">
+                description = <"Top-level value set constraint">
+            >
+            ["id3"] = <
+                text = <"narrative">
+                description = <"A human-oriented description of the reference range.">
+            >
+            ["id4"] = <
+                text = <"criteria">
+                description = <"The specific criteria that apply for the given reference range. For instance, reference ranges may be specified in a lookup table based on a set of criteria. If a row in this table is selected as the applicable reference range for a measurement, 'criteria' lists the specific criteria for that row in the table. E.g., reference range for post-menopausal women.">
+            >
+            ["ac4"] = <
+                text = <"Value set constraint for criteria">
+                description = <"Top-level value set constraint">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ReferenceRange/referenceCriterion/id2>
+            ["ac4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/ReferenceRange/criteria/id4>
+        >
+    >

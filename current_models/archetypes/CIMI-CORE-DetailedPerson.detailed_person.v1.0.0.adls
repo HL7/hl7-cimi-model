@@ -1,0 +1,154 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-DetailedPerson.detailed_person.v1.0.0
+
+specialize
+    CIMI-CORE-Person.person.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    DetailedPerson[id1.1] matches {    -- DetailedPerson
+        race matches {
+            Concept[id0.2] matches {    -- race
+                code matches {[ac0.2]}
+            }
+        }
+        ethnicity matches {
+            Concept[id0.3] matches {    -- ethnicity
+                code matches {[ac0.3]}
+            }
+        }
+        citizenship matches {
+            Citizenship[id0.4]     -- citizenship
+        }
+        residency matches {
+            Residency[id0.5]     -- residency
+        }
+        religion matches {
+            Concept[id0.6] matches {    -- religion
+                code matches {[ac0.6]}
+            }
+        }
+        educationLevel matches {
+            Concept[id0.7] matches {    -- educationLevel
+                code matches {[ac0.7]}
+            }
+        }
+        qualification matches {
+            Qualification[id0.8]     -- qualification
+        }
+        disability matches {
+            Concept[id0.9] matches {    -- disability
+                code matches {[ac0.9]}
+            }
+        }
+        occupation matches {
+            Occupation[id0.10]     -- occupation
+        }
+        language matches {
+            LanguageCapability[id0.11]     -- language
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1"] = <
+                text = <"DetailedPerson">
+                description = <"Refinement of the Person class with additional attributes.">
+            >
+            ["id0.2"] = <
+                text = <"race">
+                description = <"A subjective association of a person with a named category of humans sharing common history, traits, place of origin, or other inherited background. (US only) The race code associated with this person.">
+            >
+            ["ac0.2"] = <
+                text = <"Value set constraint for race">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.3"] = <
+                text = <"ethnicity">
+                description = <"Identification with or belonging to a social group that has a common national or cultural tradition. (US only) An indicator of Hispanic or Latino origin.">
+            >
+            ["ac0.3"] = <
+                text = <"Value set constraint for ethnicity">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.4"] = <
+                text = <"citizenship">
+                description = <"The person's citizenship.">
+            >
+            ["id0.5"] = <
+                text = <"residency">
+                description = <"The person's country of residence.">
+            >
+            ["id0.6"] = <
+                text = <"religion">
+                description = <"The religion of the person">
+            >
+            ["ac0.6"] = <
+                text = <"Value set constraint for religion">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.7"] = <
+                text = <"educationLevel">
+                description = <"The education level of the person.">
+            >
+            ["ac0.7"] = <
+                text = <"Value set constraint for educationLevel">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.8"] = <
+                text = <"qualification">
+                description = <"The qualifications of the person.">
+            >
+            ["id0.9"] = <
+                text = <"disability">
+                description = <"A physical or mental impairment that substantially limits one or more major life activity, for example, caring for oneself, performing manual tasks, seeing, hearing, eating, sleeping, walking, etc. ">
+            >
+            ["ac0.9"] = <
+                text = <"Value set constraint for disability">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.10"] = <
+                text = <"occupation">
+                description = <"Person's occupation">
+            >
+            ["id0.11"] = <
+                text = <"language">
+                description = <"The language(s) spoken by the individual.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedPerson/race/id0.2>
+            ["ac0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedPerson/ethnicity/id0.3>
+            ["ac0.6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedPerson/religion/id0.6>
+            ["ac0.7"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedPerson/educationLevel/id0.7>
+            ["ac0.9"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedPerson/disability/id0.9>
+        >
+    >

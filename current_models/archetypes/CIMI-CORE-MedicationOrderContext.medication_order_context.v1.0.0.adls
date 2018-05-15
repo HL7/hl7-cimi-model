@@ -1,0 +1,98 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-MedicationOrderContext.medication_order_context.v1.0.0
+
+specialize
+    CIMI-CORE-OrderContext.order_context.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    MedicationOrderContext[id1.1.1.1.1] matches {    -- MedicationOrderContext
+        dosageInstruction matches {
+            DosageInstruction[id0.0.0.0.2]     -- dosageInstruction
+        }
+        dispenseInstructions matches {
+            DispenseInstructions[id0.0.0.0.3]     -- dispenseInstructions
+        }
+        substitutionInstructions matches {
+            SubstitutionInstruction[id0.0.0.0.4]     -- substitutionInstructions
+        }
+        pharmacyOrderCategory matches {
+            Concept[id0.0.0.0.5] matches {    -- pharmacyOrderCategory
+                code matches {[ac0.0.0.0.5]}
+            }
+        }
+        pharmacyOrderSetting matches {
+            Concept[id0.0.0.0.6] matches {    -- pharmacyOrderSetting
+                code matches {[ac0.0.0.0.6]}
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1.1.1"] = <
+                text = <"MedicationOrderContext">
+                description = <"Context for a medication order.">
+            >
+            ["id0.0.0.0.2"] = <
+                text = <"dosageInstruction">
+                description = <"Instructions on how the medication is to be given.">
+            >
+            ["id0.0.0.0.3"] = <
+                text = <"dispenseInstructions">
+                description = <"Instructions for dispensing the medication.">
+            >
+            ["id0.0.0.0.4"] = <
+                text = <"substitutionInstructions">
+                description = <"Medication substitution instructions - primarily whether substitutions are allowed.">
+            >
+            ["id0.0.0.0.5"] = <
+                text = <"pharmacyOrderCategory">
+                description = <"The pharmacy order category is used to group medication orders that follow similar site-specific workflows, often for large-scale expedited processing. Examples (from HL7 V2) include medication, IV large volume solutions, and other solutions.">
+            >
+            ["ac0.0.0.0.5"] = <
+                text = <"Value set constraint for pharmacyOrderCategory">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.0.6"] = <
+                text = <"pharmacyOrderSetting">
+                description = <"&quot;Indicates where type of medication order and where the medication is expected to be consumed or administered.&quot; - HL7 FHIR, MedicationOrder.category Possible values include: Inpatient, Outpatient, Community">
+            >
+            ["ac0.0.0.0.6"] = <
+                text = <"Value set constraint for pharmacyOrderSetting">
+                description = <"Top-level value set constraint">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.0.0.5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/MedicationOrderContext/pharmacyOrderCategory/id0.0.0.0.5>
+            ["ac0.0.0.0.6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/MedicationOrderContext/pharmacyOrderSetting/id0.0.0.0.6>
+        >
+    >

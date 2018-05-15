@@ -1,0 +1,112 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-DischargeTopic.discharge_topic.v1.0.0
+
+specialize
+    CIMI-CORE-ProcedureTopic.procedure_topic.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    DischargeTopic[id1.1.1] matches {    -- DischargeTopic
+        disposition matches {
+            Concept[id0.0.2] matches {    -- disposition
+                code matches {[ac0.0.2]}
+            }
+        }
+        needOutpatientFollowup matches {
+            Concept[id0.0.3] matches {    -- needOutpatientFollowup
+                code matches {[ac0.0.3]}
+            }
+        }
+        dischargeInstructionsStatement matches {
+            ClinicalStatement[id0.0.4]     -- dischargeInstructionsStatement
+        }
+        dischargeInstructions matches {
+            Text[id0.0.5]     -- dischargeInstructions
+        }
+        dischargeFromLocation matches {
+            Location[id0.0.6]     -- dischargeFromLocation
+        }
+        dischargeToLocation matches {
+            Location[id0.0.7]     -- dischargeToLocation
+        }
+        dischargeDiagnosis matches {
+            EncounterReason[id0.0.8]     -- dischargeDiagnosis
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1"] = <
+                text = <"DischargeTopic">
+                description = <"A record pertaining to the discharge of a patient from an institution.">
+            >
+            ["id0.0.2"] = <
+                text = <"disposition">
+                description = <"Contains the patient's anticipated location or status following the encounter (i.e., discharged to home, expired, etc.). In the US, use the Official Uniform Billing (UB) 04 2008 numeric codes found on form locator 17. Note that while the encounter is still &quot;active&quot; (i.e., the encounter does not have an end date yet) this attribute should be interpreted as the expected discharge disposition. When the encounter is &quot;completed&quot; this attribute contains the actual discharge disposition.">
+            >
+            ["ac0.0.2"] = <
+                text = <"Value set constraint for disposition">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.3"] = <
+                text = <"needOutpatientFollowup">
+                description = <"Flag indicating whether patient follow is required post-discharge.">
+            >
+            ["ac0.0.3"] = <
+                text = <"Value set constraint for needOutpatientFollowup">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.4"] = <
+                text = <"dischargeInstructionsStatement">
+                description = <"Pointer to a Patient Education record which documents provision of instructions to the Patient upon the completion of an Encounter. The PatientEducationPerformed class provides additional information regarding who provided the instructions and when, as well as an indication of the patient's level of understanding.">
+            >
+            ["id0.0.5"] = <
+                text = <"dischargeInstructions">
+                description = <"Instructions given to the patient upon completion of an encounter. ">
+            >
+            ["id0.0.6"] = <
+                text = <"dischargeFromLocation">
+                description = <"&quot;The location to which the patient is assigned. It is a role played by a place at which services may be provided. Note that a single physical place can play multiple service delivery location roles each with its own attributes. For example, a Podiatry clinic and Research clinic may meet on alternate days in the same physical location; each clinic uses its own mailing address and telephone number.&quot; (HL7)">
+            >
+            ["id0.0.7"] = <
+                text = <"dischargeToLocation">
+                description = <"Indicates the healthcare facility to which the patient was discharged.">
+            >
+            ["id0.0.8"] = <
+                text = <"dischargeDiagnosis">
+                description = <"The diagnosis(es) determined to be the reason for hospitalization at the time of discharge (this may be the same or different from the hospital admission diagnosis (added for Transition of Care).">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DischargeTopic/disposition/id0.0.2>
+            ["ac0.0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DischargeTopic/needOutpatientFollowup/id0.0.3>
+        >
+    >

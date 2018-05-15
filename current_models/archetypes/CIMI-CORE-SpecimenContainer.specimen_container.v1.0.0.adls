@@ -1,0 +1,230 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-SpecimenContainer.specimen_container.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    SpecimenContainer[id1] matches {    -- SpecimenContainer
+        containerName matches {
+            PlainText[id2]     -- containerName
+        }
+        type matches {
+            Text[id3]     -- type
+        }
+        material matches {
+            Concept[id4] matches {    -- material
+                code matches {[ac4]}
+            }
+        }
+        cap matches {
+            Concept[id5] matches {    -- cap
+                code matches {[ac5]}
+            }
+        }
+        additive matches {
+            Concept[id6] matches {    -- additive
+                code matches {[ac6]}
+            }
+        }
+        condition matches {
+            Concept[id7] matches {    -- condition
+                code matches {[ac7]}
+            }
+        }
+        identifierLocation matches {
+            Concept[id8] matches {    -- identifierLocation
+                code matches {[ac8]}
+            }
+        }
+        barrierDelta matches {
+            Quantity[id9]     -- barrierDelta
+        }
+        bottomDelta matches {
+            Quantity[id10]     -- bottomDelta
+        }
+        capacity matches {
+            Quantity[id11]     -- capacity
+        }
+        length matches {
+            Quantity[id12]     -- length
+        }
+        width matches {
+            Quantity[id13]     -- width
+        }
+        height matches {
+            Quantity[id14]     -- height
+        }
+        diameter matches {
+            Quantity[id15]     -- diameter
+        }
+        identifierEmbedded matches {
+            Concept[id16] matches {    -- identifierEmbedded
+                code matches {[ac16]}
+            }
+        }
+        identifierReaderType matches {
+            Concept[id17] matches {    -- identifierReaderType
+                code matches {[ac17]}
+            }
+        }
+        configuration matches {
+            CodedText[id18]     -- configuration
+        }
+        separatorType matches {
+            Concept[id19] matches {    -- separatorType
+                code matches {[ac19]}
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"SpecimenContainer">
+                description = <"Physical object that touches and holds specimen. 
+
+EXAMPLES: slide, tube, box, jar ">
+            >
+            ["id2"] = <
+                text = <"containerName">
+                description = <"A non-unique textual identifier for the specimen container, e.g., screwcap jar, blood tube, slide, paraffin block.">
+            >
+            ["id3"] = <
+                text = <"type">
+                description = <"Coded representation of the categorization of a container, e.g., screw jar top, serum tube, slide.">
+            >
+            ["id4"] = <
+                text = <"material">
+                description = <"Coded representation of the material composition of the container, e.g.,  codes for glass, plastic, metal.">
+            >
+            ["ac4"] = <
+                text = <"Value set constraint for material">
+                description = <"Top-level value set constraint">
+            >
+            ["id5"] = <
+                text = <"cap">
+                description = <"Coded representation of the type of container cap, e.g., red top, tiger top, purple, blue. Container caps may be used to identify differences in container attributes to facilitate tracking and processing.">
+            >
+            ["ac5"] = <
+                text = <"Value set constraint for cap">
+                description = <"Top-level value set constraint">
+            >
+            ["id6"] = <
+                text = <"additive">
+                description = <"Substances introduced in order to preserve, maintain or enhance the particular nature or component of the specimen, e.g., formalin, Citrate, EDTA ">
+            >
+            ["ac6"] = <
+                text = <"Value set constraint for additive">
+                description = <"Top-level value set constraint">
+            >
+            ["id7"] = <
+                text = <"condition">
+                description = <"A textual note or description regarding discrepancies or anomalies observed about a container, e.g., cap not sealed, label not firmly attached, tube received broken.">
+            >
+            ["ac7"] = <
+                text = <"Value set constraint for condition">
+                description = <"Top-level value set constraint">
+            >
+            ["id8"] = <
+                text = <"identifierLocation">
+                description = <"Placement of the identifier on or in the container.">
+            >
+            ["ac8"] = <
+                text = <"Value set constraint for identifierLocation">
+                description = <"Top-level value set constraint">
+            >
+            ["id9"] = <
+                text = <"barrierDelta">
+                description = <"Distance from the Point of Reference to the separator material (barrier) within the container in units specified below, e.g., serum gel tube, tubes that are being centrifuged.">
+            >
+            ["id10"] = <
+                text = <"bottomDelta">
+                description = <"Thickness of the container at the bottom of the container. For instance, adjustment to make to the drop distance based on the container parameter (tube height) and the thickness of the container wall at the bottom - idea is to not break the tip off the pipette.">
+            >
+            ["id11"] = <
+                text = <"capacity">
+                description = <"The maximum amount of a substance or number of physical objects that a container can hold. For tubes this is draw volume, for tissue micro array slides it could be the number of wells. ">
+            >
+            ["id12"] = <
+                text = <"length">
+                description = <"The longest horizontal measurement of an object.">
+            >
+            ["id13"] = <
+                text = <"width">
+                description = <"Distance from side to side, measuring across the object at right angles to the length. ">
+            >
+            ["id14"] = <
+                text = <"height">
+                description = <"The measurement of vertical distance.">
+            >
+            ["id15"] = <
+                text = <"diameter">
+                description = <"The distance across a circle.  Applies only to cylindrical containers. ">
+            >
+            ["id16"] = <
+                text = <"identifierEmbedded">
+                description = <"Boolean indicating if the identifier is placed inside the container material.">
+            >
+            ["ac16"] = <
+                text = <"Value set constraint for identifierEmbedded">
+                description = <"Top-level value set constraint">
+            >
+            ["id17"] = <
+                text = <"identifierReaderType">
+                description = <"Equipment needed to read the identifier on the container such as barcode scanner, chip reader, if all else fails human ">
+            >
+            ["ac17"] = <
+                text = <"Value set constraint for identifierReaderType">
+                description = <"Top-level value set constraint">
+            >
+            ["id18"] = <
+                text = <"configuration">
+                description = <"Defines the row and column layout for the container. For instance, available positions for specimen on a slide (4 quadrant slide). ">
+            >
+            ["id19"] = <
+                text = <"separatorType">
+                description = <"material in a fluid collection container that facilities the separation of cellular or solid material from liquid, e.g., SST, buffy cell layer ">
+            >
+            ["ac19"] = <
+                text = <"Value set constraint for separatorType">
+                description = <"Top-level value set constraint">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/SpecimenContainer/material/id4>
+            ["ac5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/SpecimenContainer/cap/id5>
+            ["ac6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/SpecimenContainer/additive/id6>
+            ["ac7"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/SpecimenContainer/condition/id7>
+            ["ac8"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/SpecimenContainer/identifierLocation/id8>
+            ["ac16"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/SpecimenContainer/identifierEmbedded/id16>
+            ["ac17"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/SpecimenContainer/identifierReaderType/id17>
+            ["ac19"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/SpecimenContainer/separatorType/id19>
+        >
+    >

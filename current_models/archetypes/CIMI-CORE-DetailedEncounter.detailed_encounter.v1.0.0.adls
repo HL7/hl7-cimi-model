@@ -1,0 +1,367 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-DetailedEncounter.detailed_encounter.v1.0.0
+
+specialize
+    CIMI-CORE-Encounter.encounter.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    DetailedEncounter[id1.1.1] matches {    -- DetailedEncounter
+        accountId matches {
+            Identifier[id0.0.2]     -- accountId
+        }
+        accountStatus matches {
+            Concept[id0.0.3] matches {    -- accountStatus
+                code matches {[ac0.0.3]}
+            }
+        }
+        alternateVisitId matches {
+            Identifier[id0.0.4]     -- alternateVisitId
+        }
+        ambulatoryStatus matches {
+            Concept[id0.0.5] matches {    -- ambulatoryStatus
+                code matches {[ac0.0.5]}
+            }
+        }
+        chargePriceIndicator matches {
+            Concept[id0.0.6] matches {    -- chargePriceIndicator
+                code matches {[ac0.0.6]}
+            }
+        }
+        chiefComplaint matches {
+            Text[id0.0.7]     -- chiefComplaint
+        }
+        encounterBillingType matches {
+            Concept[id0.0.8] matches {    -- encounterBillingType
+                code matches {[ac0.0.8]}
+            }
+        }
+        financialClass matches {
+            Concept[id0.0.9] matches {    -- financialClass
+                code matches {[ac0.0.9]}
+            }
+        }
+        hospitalService matches {
+            Concept[id0.0.10] matches {    -- hospitalService
+                code matches {[ac0.0.10]}
+            }
+        }
+        isEmploymentRelated matches {
+            Concept[id0.0.11] matches {    -- isEmploymentRelated
+                code matches {[ac0.0.11]}
+            }
+        }
+        modeOfArrival matches {
+            Concept[id0.0.12] matches {    -- modeOfArrival
+                code matches {[ac0.0.12]}
+            }
+        }
+        patientType matches {
+            Concept[id0.0.13] matches {    -- patientType
+                code matches {[ac0.0.13]}
+            }
+        }
+        previousServiceDate matches {
+            TemporalValue[id0.0.14]     -- previousServiceDate
+        }
+        publicityCode matches {
+            Concept[id0.0.15] matches {    -- publicityCode
+                code matches {[ac0.0.15]}
+            }
+        }
+        reasonForVisit matches {
+            Concept[id0.0.16] matches {    -- reasonForVisit
+                code matches {[ac0.0.16]}
+            }
+        }
+        referralSource matches {
+            Concept[id0.0.17] matches {    -- referralSource
+                code matches {[ac0.0.17]}
+            }
+        }
+        servicingFacility matches {
+            Concept[id0.0.18] matches {    -- servicingFacility
+                code matches {[ac0.0.18]}
+            }
+        }
+        specialArrangements matches {
+            Concept[id0.0.19] matches {    -- specialArrangements
+                code matches {[ac0.0.19]}
+            }
+        }
+        specialCourtesy matches {
+            Concept[id0.0.20] matches {    -- specialCourtesy
+                code matches {[ac0.0.20]}
+            }
+        }
+        triageNotes matches {
+            Annotation[id0.0.21]     -- triageNotes
+        }
+        assignedPatientLocation matches {
+            Location[id0.0.22]     -- assignedPatientLocation
+        }
+        pendingLocation matches {
+            Location[id0.0.23]     -- pendingLocation
+        }
+        serviceDeliveryLocation matches {
+            Location[id0.0.24]     -- serviceDeliveryLocation
+        }
+        temporaryLocation matches {
+            Location[id0.0.25]     -- temporaryLocation
+        }
+        priorTemporaryLocation matches {
+            Location[id0.0.26]     -- priorTemporaryLocation
+        }
+        origin matches {
+            Location[id0.0.27]     -- origin
+        }
+        serviceProvider matches {
+            Organization[id0.0.28]     -- serviceProvider
+        }
+        confidentialityCode matches {
+            Concept[id0.0.29] matches {    -- confidentialityCode
+                code matches {[ac0.0.29]}
+            }
+        }
+        length matches {
+            Duration[id0.0.30]     -- length
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1"] = <
+                text = <"DetailedEncounter">
+                description = <"An interaction between a patient and a practitioner under the auspices of a given organization for the purpose of providing healthcare-related service(s). It is important to understand that if the there is a change in provider or organization, by definition a new encounter will be generated. For example, if a patient is moved from Surgery to Post-Op, a new encounter is generated. Similarly, if a patient receives care from 2 nurses while in Post-Op, there will be 2 encounters.">
+            >
+            ["id0.0.2"] = <
+                text = <"accountId">
+                description = <"The patient’s account number in the context of the admitting or providing institution.">
+            >
+            ["id0.0.3"] = <
+                text = <"accountStatus">
+                description = <"&quot;Contains the account status.&quot; - HL7 Version 2.8, PV1-41. Note that HL7 does not suggest any values for this code (in User-defined Table 117).">
+            >
+            ["ac0.0.3"] = <
+                text = <"Value set constraint for accountStatus">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.4"] = <
+                text = <"alternateVisitId">
+                description = <"&quot;Contains the alternative, temporary, or pending optional visit ID number to be used if needed. Multiple alternate identifiers may be sent.&quot; - HL7 Version 2.8, PV1-50
+Uniquely identifies this patient visit using an identification scheme other than the one used for the &quot;id&quot; property. This allows for different systems or organizations to assign different identifiers to the same visit.">
+            >
+            ["id0.0.5"] = <
+                text = <"ambulatoryStatus">
+                description = <"&quot;Indicates any permanent or transient handicapped conditions.&quot; - HL7 Version 2.8, PV1-15.
+Possible values include (from HL7 V2 Table 9): No functional limitations; Ambulates with assistive device; Wheelchair&#47;stretcher bound; Comatose - non-responsive; Disoriented; Vision impaired; Hearing impaired; Speech impaired; Non-English speaking; Functional level unknown; Oxygen therapy; Special equipment (tubes, IVs, catheters); Amputee; Mastectomy; Paraplegic; Pregnant.">
+            >
+            ["ac0.0.5"] = <
+                text = <"Value set constraint for ambulatoryStatus">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.6"] = <
+                text = <"chargePriceIndicator">
+                description = <"&quot;Contains the code used to determine which price schedule is to be used for room and bed charges.&quot; - HL7 Version 2.8, PV1-21. Note that HL7 does not suggest any values for this code (in User-defined Table 32).">
+            >
+            ["ac0.0.6"] = <
+                text = <"Value set constraint for chargePriceIndicator">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.7"] = <
+                text = <"chiefComplaint">
+                description = <"Describes the primary reason, in the patient's words, for the encounter&#47;visit. This field contrasts with the reasonForVisit, which is the clinician's assessment of the reason for the encounter&#47;visit. ">
+            >
+            ["id0.0.8"] = <
+                text = <"encounterBillingType">
+                description = <"Describes the encounter in terms of evaluation and management (e.g., diagnosis or procedure associated with the encounter). For example, Maintenance visit, 5 minutes or less. ">
+            >
+            ["ac0.0.8"] = <
+                text = <"Value set constraint for encounterBillingType">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.9"] = <
+                text = <"financialClass">
+                description = <"&quot;Contains the financial class(es) assigned to the patient for the purpose of identifying sources of reimbursement.&quot; - HL7 Version 2.8, PV1-20 Note that HL7 does not suggest any values for this code (in User-defined Table 64).">
+            >
+            ["ac0.0.9"] = <
+                text = <"Value set constraint for financialClass">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.10"] = <
+                text = <"hospitalService">
+                description = <"&quot;Contains the treatment or type of surgery that the patient is scheduled to receive.&quot; - HL7 Version 2.8, PV1-10. Possible Values (from HL7 Table 69) include: Cardiac Service, Medical Service, Pulmonary Service, Surgical Service, Urology Service.">
+            >
+            ["ac0.0.10"] = <
+                text = <"Value set constraint for hospitalService">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.11"] = <
+                text = <"isEmploymentRelated">
+                description = <"&quot;Specifies whether a patient's illness was job-related.&quot; - HL7 Version 2.8, PV2-15">
+            >
+            ["ac0.0.11"] = <
+                text = <"Value set constraint for isEmploymentRelated">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.12"] = <
+                text = <"modeOfArrival">
+                description = <"] Identifies the mode of transportation of the patient’s arrival, for example, ambulance, car, walking etc.">
+            >
+            ["ac0.0.12"] = <
+                text = <"Value set constraint for modeOfArrival">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.13"] = <
+                text = <"patientType">
+                description = <"&quot;Contains site-specific values that identify the patient type.&quot; - HL7 Version 2.8, PV1-18 Note that HL7 does not suggest any values for this code (in User-defined Table 18).">
+            >
+            ["ac0.0.13"] = <
+                text = <"Value set constraint for patientType">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.14"] = <
+                text = <"previousServiceDate">
+                description = <"&quot;Contains the date of previous service for the same recurring condition. This may be a required field for billing certain illnesses (e.g., accident related) to a third party.&quot; - HL7 Version 2.8, PV2-14.">
+            >
+            ["id0.0.15"] = <
+                text = <"publicityCode">
+                description = <"&quot;Contains a user-defined code indicating what level of publicity is allowed for a specific visit.&quot; - HL7 Version 2.8, PV2-21. Possible values include (from HL7 V2 Table 215): Family only; No Publicity; Other; Unknown.">
+            >
+            ["ac0.0.15"] = <
+                text = <"Value set constraint for publicityCode">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.16"] = <
+                text = <"reasonForVisit">
+                description = <"The reason for the encounter&#47;visit from the clinician's point of view. This field contrasts with the chiefComplaint, which is the patient's description of the reason for the encounter&#47;visit.">
+            >
+            ["ac0.0.16"] = <
+                text = <"Value set constraint for reasonForVisit">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.17"] = <
+                text = <"referralSource">
+                description = <"Identifies the source of the admission or encounter. In other words, identified where the patient was before being sent for this encounter. Possible values include: Community, Other facility, etc.">
+            >
+            ["ac0.0.17"] = <
+                text = <"Value set constraint for referralSource">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.18"] = <
+                text = <"servicingFacility">
+                description = <"&quot;This field is used in a multiple facility environment, e.g., multiple campuses or buildings, to indicate the healthcare facility with which this visit is associated.&quot; - HL7 Version 2.8, PV1-39. Note that HL7 does not suggest any values for this code (in User-defined Table 115).">
+            >
+            ["ac0.0.18"] = <
+                text = <"Value set constraint for servicingFacility">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.19"] = <
+                text = <"specialArrangements">
+                description = <"A set of values representing the types of special arrangements provided or to be provided for this patient encounter (e.g., wheelchair, stretcher, interpreter, attendant, seeing eye dog)">
+            >
+            ["ac0.0.19"] = <
+                text = <"Value set constraint for specialArrangements">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.20"] = <
+                text = <"specialCourtesy">
+                description = <"&quot;Indicates whether the patient will be extended certain special courtesies.&quot; - HL7 Version 2.8, PV1-22. Note that HL7 does not suggest any values for this code (in User-defined Table 45).">
+            >
+            ["ac0.0.20"] = <
+                text = <"Value set constraint for specialCourtesy">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.21"] = <
+                text = <"triageNotes">
+                description = <"Triage notes for the patient visit. Added for Public Health Reporting Initiative.">
+            >
+            ["id0.0.22"] = <
+                text = <"assignedPatientLocation">
+                description = <"&quot;This field contains the patient's initial assigned location or the location to which the patient is being moved. The first component may be the nursing station for inpatient locations, or clinic or department, for locations other than inpatient. For canceling a transaction or discharging a patient, the current location (after the cancellation event or before the discharge event) should be in this field.&quot; - HL7 Version 2.8, PV1-3">
+            >
+            ["id0.0.23"] = <
+                text = <"pendingLocation">
+                description = <"	
+&quot;Indicates the point of care, room, bed, healthcare facility ID, and bed status to which the patient may be moved. The first component may be the nursing station for inpatient locations, or the clinic, department, or home for locations other than inpatient.&quot; - HL7 Version 2.8, PV1-42">
+            >
+            ["id0.0.24"] = <
+                text = <"serviceDeliveryLocation">
+                description = <"&quot;The location to which the patient is assigned. It is a role played by a place at which services may be provided. Note that a single physical place can play multiple service delivery location roles each with its own attributes. For example, a Podiatry clinic and Research clinic may meet on alternate days in the same physical location; each clinic uses its own mailing address and telephone number.&quot; (HL7)">
+            >
+            ["id0.0.25"] = <
+                text = <"temporaryLocation">
+                description = <"&quot;Contains a location other than the assigned location required for a temporary period of time (e.g., OR, operating theatre, etc.).&quot; - HL7 Version 2.8, PV1-11">
+            >
+            ["id0.0.26"] = <
+                text = <"priorTemporaryLocation">
+                description = <"&quot;This field is used to reflect the patient's temporary location (such as the operating room&#47;theatre or x-ray) prior to a transfer from a temporary location to an actual location, or from a temporary location to another temporary location. The first component may be the nursing station for inpatient locations, or the clinic, department, or home for locations other than inpatient.&quot; - HL7 Version 2.8, PV1-43">
+            >
+            ["id0.0.27"] = <
+                text = <"origin">
+                description = <"The location from which the patient came before admission">
+            >
+            ["id0.0.28"] = <
+                text = <"serviceProvider">
+                description = <"An organization that is in charge of maintaining the information of this Encounter (e.g. who maintains the report or the master service catalog item, etc.). This MAY be the same as the organization on the Patient record, however it could be different. This MAY not be not the Service Delivery Location's Organization.">
+            >
+            ["id0.0.29"] = <
+                text = <"confidentialityCode">
+                description = <"Contains a set of values that control the disclosure of information about this patient">
+            >
+            ["ac0.0.29"] = <
+                text = <"Value set constraint for confidentialityCode">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.30"] = <
+                text = <"length">
+                description = <"Quantity of time the encounter lasted. This excludes the time during leaves of absence.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/accountStatus/id0.0.3>
+            ["ac0.0.5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/ambulatoryStatus/id0.0.5>
+            ["ac0.0.6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/chargePriceIndicator/id0.0.6>
+            ["ac0.0.8"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/encounterBillingType/id0.0.8>
+            ["ac0.0.9"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/financialClass/id0.0.9>
+            ["ac0.0.10"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/hospitalService/id0.0.10>
+            ["ac0.0.11"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/isEmploymentRelated/id0.0.11>
+            ["ac0.0.12"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/modeOfArrival/id0.0.12>
+            ["ac0.0.13"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/patientType/id0.0.13>
+            ["ac0.0.15"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/publicityCode/id0.0.15>
+            ["ac0.0.16"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/reasonForVisit/id0.0.16>
+            ["ac0.0.17"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/referralSource/id0.0.17>
+            ["ac0.0.18"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/servicingFacility/id0.0.18>
+            ["ac0.0.19"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/specialArrangements/id0.0.19>
+            ["ac0.0.20"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/specialCourtesy/id0.0.20>
+            ["ac0.0.29"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/DetailedEncounter/confidentialityCode/id0.0.29>
+        >
+    >

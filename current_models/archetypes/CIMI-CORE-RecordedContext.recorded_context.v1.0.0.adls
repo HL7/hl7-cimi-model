@@ -1,0 +1,69 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-RecordedContext.recorded_context.v1.0.0
+
+specialize
+    CIMI-CORE-FindingContext.finding_context.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    RecordedContext[id1.1.1] matches {    -- RecordedContext
+        issued matches {
+            Instant[id0.0.2]     -- issued
+        }
+        comment matches {
+            PlainText[id0.0.3]     -- comment
+        }
+        observed matches {
+            Attribution[id0.0.4]     -- observed
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1"] = <
+                text = <"RecordedContext">
+                description = <"Statement context pertaining to evaluation results.">
+            >
+            ["id0.0.2"] = <
+                text = <"issued">
+                description = <"The date and time this observation was made available to providers, typically after the results have been reviewed and verified.">
+            >
+            ["id0.0.3"] = <
+                text = <"comment">
+                description = <"Comments about result. May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.">
+            >
+            ["id0.0.4"] = <
+                text = <"observed">
+                description = <"Information about who observed the characteristic, when did they make the observation, etc...">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <>
+    >

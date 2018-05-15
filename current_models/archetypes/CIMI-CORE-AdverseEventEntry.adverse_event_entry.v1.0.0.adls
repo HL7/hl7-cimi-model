@@ -1,0 +1,127 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-AdverseEventEntry.adverse_event_entry.v1.0.0
+
+specialize
+    CIMI-CORE-InformationEntry.information_entry.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    AdverseEventEntry[id1.1] matches {    -- AdverseEventEntry
+        description matches {
+            PlainText[id0.2]     -- description
+        }
+        type matches {
+            Concept[id0.3] matches {    -- type
+                code matches {[ac0.3]}
+            }
+        }
+        referenceDocumentation matches {
+            Composition[id0.4]     -- referenceDocumentation
+        }
+        relevantMedicalHistory matches {
+            ClinicalStatement[id0.5]     -- relevantMedicalHistory
+        }
+        seriousness matches {
+            Concept[id0.6] matches {    -- seriousness
+                code matches {[ac0.6]}
+            }
+        }
+        criticality matches {
+            Concept[id0.7] matches {    -- criticality
+                code matches {[ac0.7]}
+            }
+        }
+        timing matches {
+            Timing[id0.8]     -- timing
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1"] = <
+                text = <"AdverseEventEntry">
+                description = <"An entry in the patient record documenting an untoward or unexpected finding observed during the course of an activity or an activity.
+
+Adverse events may capture either a workflow breach that may or may not result in harm but that must be documented for quality improvement purposes or an adverse finding whether or not it can be traceable to an actual workflow breach.">
+            >
+            ["id0.2"] = <
+                text = <"description">
+                description = <"An account or explanation of the adverse event in narrative.">
+            >
+            ["id0.3"] = <
+                text = <"type">
+                description = <"Concept representing the type of adverse event such as 'incorrect medication', 'wrong dose', 'incorrect procedure', 'preventive action not taken'.
+
+TBD - Need to flesh and better understand what this value set contains.">
+            >
+            ["ac0.3"] = <
+                text = <"Value set constraint for type">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.4"] = <
+                text = <"referenceDocumentation">
+                description = <"Any documentation supplied when documenting this event.">
+            >
+            ["id0.5"] = <
+                text = <"relevantMedicalHistory">
+                description = <"Relevant medical history for documentation purposes.">
+            >
+            ["id0.6"] = <
+                text = <"seriousness">
+                description = <"Clinical significance of this adverse event, usually associated with events that pose a threat to a patient's life or functioning. Seriousness serves as a primary guide for determining regulatory reporting obligations.">
+            >
+            ["ac0.6"] = <
+                text = <"Value set constraint for seriousness">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.7"] = <
+                text = <"criticality">
+                description = <"Judgement about the worse case scenario for a recurrence of an adverse event of this type.
+
+Note the difference between seriousness and criticality:  giving the wrong substance to a patient might not have had a serious impact to their health (e.g., administered Vitamin D by error) but the act of giving a wrong substance to a patient could be life threatening if the patient were allergic&#47;intolerant to that substance. 
+
+Another example: Patient is given a medication that adversely impacts their heart rhythm. This poses a life-threatening risk to the patient even if the actual instance was of moderate seriousness.">
+            >
+            ["ac0.7"] = <
+                text = <"Value set constraint for criticality">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.8"] = <
+                text = <"timing">
+                description = <"Used when one needs to indicate that the adverse event occurred relative to an other event. For instance, it can be used to indicate that an infection was acquired within some time interval post hospital admission.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AdverseEventEntry/type/id0.3>
+            ["ac0.6"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AdverseEventEntry/seriousness/id0.6>
+            ["ac0.7"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AdverseEventEntry/criticality/id0.7>
+        >
+    >

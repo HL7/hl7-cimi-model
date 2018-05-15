@@ -1,0 +1,112 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-PatientRelatedEducationTopic.patient_related_education_topic.v1.0.0
+
+specialize
+    CIMI-CORE-ProcedureTopic.procedure_topic.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    PatientRelatedEducationTopic[id1.1.1] matches {    -- PatientRelatedEducationTopic
+        educationBarrier matches {
+            Concept[id0.0.2] matches {    -- educationBarrier
+                code matches {[ac0.0.2]}
+            }
+        }
+        educationMethod matches {
+            Concept[id0.0.3] matches {    -- educationMethod
+                code matches {[ac0.0.3]}
+            }
+        }
+        predefinedEducationalMaterial matches {
+            Concept[id0.0.4] matches {    -- predefinedEducationalMaterial
+                code matches {[ac0.0.4]}
+            }
+        }
+        personalizedEducationMaterial matches {
+            Concept[id0.0.5] matches {    -- personalizedEducationMaterial
+                code matches {[ac0.0.5]}
+            }
+        }
+        providingOrganization matches {
+            Organization[id0.0.6]     -- providingOrganization
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1"] = <
+                text = <"PatientRelatedEducationTopic">
+                description = <"This class captures information about counselling or education provided to (or an attempt to provide to) the Patient or to the Patient's representative and provides a means to note how well the Patient understood the information provided. Patient Education may be in the form of written instructions - either pre-defined materials, or personalized instructions - as well as oral counseling.">
+            >
+            ["id0.0.2"] = <
+                text = <"educationBarrier">
+                description = <"Cognitive or sensory barriers to receiving counseling.">
+            >
+            ["ac0.0.2"] = <
+                text = <"Value set constraint for educationBarrier">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.3"] = <
+                text = <"educationMethod">
+                description = <"The communication method used to provide the patient counseling.">
+            >
+            ["ac0.0.3"] = <
+                text = <"Value set constraint for educationMethod">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.4"] = <
+                text = <"predefinedEducationalMaterial">
+                description = <"This property identifies any pre-defined written materials provided to the Patient. In many cases, Patient Education is accomplished by the provision of standardized materials produced based on the Patient's condition or based on a Procedure that the Patient has undergone. For example, there is a standardized Discharge Instructions for Diverticulitis. Use this property to identify any pre-printed materials provided to the patient. Use the textProvided property to identify any other personalized instructions.">
+            >
+            ["ac0.0.4"] = <
+                text = <"Value set constraint for predefinedEducationalMaterial">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.5"] = <
+                text = <"personalizedEducationMaterial">
+                description = <"This property contains the contents of any written materials (usually personalized materials) provided to the Patient. ">
+            >
+            ["ac0.0.5"] = <
+                text = <"Value set constraint for personalizedEducationMaterial">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.6"] = <
+                text = <"providingOrganization">
+                description = <"The organization providing this service.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/PatientRelatedEducationTopic/educationBarrier/id0.0.2>
+            ["ac0.0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/PatientRelatedEducationTopic/educationMethod/id0.0.3>
+            ["ac0.0.4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/PatientRelatedEducationTopic/predefinedEducationalMaterial/id0.0.4>
+            ["ac0.0.5"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/PatientRelatedEducationTopic/personalizedEducationMaterial/id0.0.5>
+        >
+    >

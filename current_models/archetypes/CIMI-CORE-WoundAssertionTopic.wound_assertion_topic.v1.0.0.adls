@@ -1,0 +1,182 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-WoundAssertionTopic.wound_assertion_topic.v1.0.0
+
+specialize
+    CIMI-CORE-FindingSiteAssertionTopic.finding_site_assertion_topic.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    WoundAssertionTopic[id1.1.1.1.1.1] matches {    -- WoundAssertionTopic
+        woundIdentifier matches {
+            Identifier[id0.0.0.0.0.2]     -- woundIdentifier
+        }
+        periwoundCondition matches {
+            Concept[id0.0.0.0.0.3] matches {    -- periwoundCondition
+                code matches {[ac0.0.0.0.0.3]}
+            }
+        }
+        woundSize matches {
+            DimensionalFeature[id0.0.0.0.0.4]     -- woundSize
+        }
+        tunneling matches {
+            Component[id0.0.0.0.0.5]     -- tunneling
+        }
+        undermining matches {
+            Component[id0.0.0.0.0.6]     -- undermining
+        }
+        woundBed matches {
+            WoundBed[id0.0.0.0.0.7]     -- woundBed
+        }
+        woundEdge matches {
+            WoundEdge[id0.0.0.0.0.8]     -- woundEdge
+        }
+        exudate matches {
+            Component[id0.0.0.0.0.9]     -- exudate
+        }
+        visibleInternalStructure matches {
+            Concept[id0.0.0.0.0.10] matches {    -- visibleInternalStructure
+                code matches {[ac0.0.0.0.0.10]}
+            }
+        }
+        trend matches {
+            Concept[id0.0.0.0.0.11] matches {    -- trend
+                code matches {[ac0.0.0.0.0.11]}
+            }
+        }
+        visibleStructure matches {
+            Concept[id0.0.0.0.0.12] matches {    -- visibleStructure
+                code matches {[ac0.0.0.0.0.12]}
+            }
+        }
+        pressureUlcerAssociation matches {
+            Concept[id0.0.0.0.0.13] matches {    -- pressureUlcerAssociation
+                code matches {[ac0.0.0.0.0.13]}
+            }
+        }
+        wouldTypeEtiology matches {
+            Concept[id0.0.0.0.0.14] matches {    -- wouldTypeEtiology
+                code matches {[ac0.0.0.0.0.14]}
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1.1.1.1"] = <
+                text = <"WoundAssertionTopic">
+                description = <"A determination that a wound exists at a particular body site, as well as the properties or condition of that wound. ">
+            >
+            ["id0.0.0.0.0.2"] = <
+                text = <"woundIdentifier">
+                description = <"A human-readable identifier for the lesion; e.g., a letter or integer.">
+            >
+            ["id0.0.0.0.0.3"] = <
+                text = <"periwoundCondition">
+                description = <"Description of the skin around the wound in terms of color, induration, warmth and edema. ">
+            >
+            ["ac0.0.0.0.0.3"] = <
+                text = <"Value set constraint for periwoundCondition">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.0.0.4"] = <
+                text = <"woundSize">
+                description = <"The dimensional features of the wound such as length, width, perimeter, etc...">
+            >
+            ["id0.0.0.0.0.5"] = <
+                text = <"tunneling">
+                description = <"Description of tunneling observed for this wound.">
+            >
+            ["id0.0.0.0.0.6"] = <
+                text = <"undermining">
+                description = <"Description of undermining observed for this wound.">
+            >
+            ["id0.0.0.0.0.7"] = <
+                text = <"woundBed">
+                description = <"Description of the bed of a wound.">
+            >
+            ["id0.0.0.0.0.8"] = <
+                text = <"woundEdge">
+                description = <"Description of the edge of a wound.">
+            >
+            ["id0.0.0.0.0.9"] = <
+                text = <"exudate">
+                description = <"Description of the exudate observed on this wound.">
+            >
+            ["id0.0.0.0.0.10"] = <
+                text = <"visibleInternalStructure">
+                description = <"Internal structure that is visible outside the body.">
+            >
+            ["ac0.0.0.0.0.10"] = <
+                text = <"Value set constraint for visibleInternalStructure">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.0.0.11"] = <
+                text = <"trend">
+                description = <"A measure of improvement or deterioration in wound healing.">
+            >
+            ["ac0.0.0.0.0.11"] = <
+                text = <"Value set constraint for trend">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.0.0.12"] = <
+                text = <"visibleStructure">
+                description = <"Devices and&#47;or foreign bodies visible in a wound.">
+            >
+            ["ac0.0.0.0.0.12"] = <
+                text = <"Value set constraint for visibleStructure">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.0.0.13"] = <
+                text = <"pressureUlcerAssociation">
+                description = <"Is the wound associated with a device or pressure point?">
+            >
+            ["ac0.0.0.0.0.13"] = <
+                text = <"Value set constraint for pressureUlcerAssociation">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.0.0.14"] = <
+                text = <"wouldTypeEtiology">
+                description = <"The causative agent that contributes to the formation and persistence of a wound.">
+            >
+            ["ac0.0.0.0.0.14"] = <
+                text = <"Value set constraint for wouldTypeEtiology">
+                description = <"Top-level value set constraint">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.0.0.0.3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/WoundAssertionTopic/periwoundCondition/id0.0.0.0.0.3>
+            ["ac0.0.0.0.0.10"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/WoundAssertionTopic/visibleInternalStructure/id0.0.0.0.0.10>
+            ["ac0.0.0.0.0.11"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/WoundAssertionTopic/trend/id0.0.0.0.0.11>
+            ["ac0.0.0.0.0.12"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/WoundAssertionTopic/visibleStructure/id0.0.0.0.0.12>
+            ["ac0.0.0.0.0.13"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/WoundAssertionTopic/pressureUlcerAssociation/id0.0.0.0.0.13>
+            ["ac0.0.0.0.0.14"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/WoundAssertionTopic/wouldTypeEtiology/id0.0.0.0.0.14>
+        >
+    >

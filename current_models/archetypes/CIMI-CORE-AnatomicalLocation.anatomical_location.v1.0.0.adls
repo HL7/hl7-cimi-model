@@ -1,0 +1,88 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-AnatomicalLocation.anatomical_location.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    AnatomicalLocation[id1] matches {    -- AnatomicalLocation
+        code matches {
+            Concept[id2] matches {    -- code
+                code matches {[ac2]}
+            }
+        }
+        laterality matches {
+            Concept[id3] matches {    -- laterality
+                code matches {[ac3]}
+            }
+        }
+        anatomicalDirection matches {
+            Concept[id4] matches {    -- anatomicalDirection
+                code matches {[ac4]}
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1"] = <
+                text = <"AnatomicalLocation">
+                description = <"A part of the body.">
+            >
+            ["id2"] = <
+                text = <"code">
+                description = <"The anatomical location code">
+            >
+            ["ac2"] = <
+                text = <"Value set constraint for code">
+                description = <"Top-level value set constraint">
+            >
+            ["id3"] = <
+                text = <"laterality">
+                description = <"The side of a bilaterally duplicated structure.">
+            >
+            ["ac3"] = <
+                text = <"Value set constraint for laterality">
+                description = <"Top-level value set constraint">
+            >
+            ["id4"] = <
+                text = <"anatomicalDirection">
+                description = <"A direction on with respect to planes of the body, for example, proximal, distal, lateral, medial.">
+            >
+            ["ac4"] = <
+                text = <"Value set constraint for anatomicalDirection">
+                description = <"Top-level value set constraint">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac2"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AnatomicalLocation/code/id2>
+            ["ac3"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AnatomicalLocation/laterality/id3>
+            ["ac4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/AnatomicalLocation/anatomicalDirection/id4>
+        >
+    >

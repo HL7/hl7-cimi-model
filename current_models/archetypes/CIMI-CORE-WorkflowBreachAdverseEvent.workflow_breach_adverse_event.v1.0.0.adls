@@ -1,0 +1,84 @@
+archetype (adl_version=2.1.0; rm_release=0.0.5; generated)
+    CIMI-CORE-WorkflowBreachAdverseEvent.workflow_breach_adverse_event.v1.0.0
+
+specialize
+    CIMI-CORE-ReportedActivity.reported_activity.v1.0.0
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-16-09">
+        ["organization"] = <"Health Level 7">
+        ["name"] = <"CIMI Working Group">
+        ["email"] = <"cimi@lists.hl7.org">
+    >
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+            copyright = <"Copyright (c) Health Level 7 <http://cimi.hl7.org>">
+            other_details = <
+                ["lifecycle_state"] = <"unmanaged">
+                ["custodian_namespace"] = <"org.hl7.cimi">
+                ["custodian_organization"] = <"Health Level 7 <http://hl7.org>">
+                ["license"] = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+                ["ip_acknowledgement_loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+                ["ip_acknowledgement_snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+            >
+        >
+    >
+
+definition
+    WorkflowBreachAdverseEvent[id1.1.1.1] matches {    -- WorkflowBreachAdverseEvent
+        expectedActivity matches {
+            ClinicalStatement[id0.0.0.2]     -- expectedActivity
+        }
+        outcome matches {
+            ClinicalStatement[id0.0.0.3]     -- outcome
+        }
+        breachCategory matches {
+            Concept[id0.0.0.4] matches {    -- breachCategory
+                code matches {[ac0.0.0.4]}
+            }
+        }
+        impactedDownstreamActivity matches {
+            ClinicalStatement[id0.0.0.5]     -- impactedDownstreamActivity
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en"] = <
+            ["id1.1.1.1"] = <
+                text = <"WorkflowBreachAdverseEvent">
+                description = <"An undesired activity or breach of protocol, regardless of whether it resulted in harm to the subject, which must be documented.">
+            >
+            ["id0.0.0.2"] = <
+                text = <"expectedActivity">
+                description = <"The activity that should have or was being performed when the workflow breach occurred. ">
+            >
+            ["id0.0.0.3"] = <
+                text = <"outcome">
+                description = <"The finding that resulted from the reported activity. ">
+            >
+            ["id0.0.0.4"] = <
+                text = <"breachCategory">
+                description = <"A classification of the breach in terms of its outcome, for example, 'near miss', 'no adverse outcome', or 'adverse outcome'.">
+            >
+            ["ac0.0.0.4"] = <
+                text = <"Value set constraint for breachCategory">
+                description = <"Top-level value set constraint">
+            >
+            ["id0.0.0.5"] = <
+                text = <"impactedDownstreamActivity">
+                description = <"The set of activities impacted by this workflow breach. For instance, the supply of a medication with the wrong label will impact both the downstream dispense workflow and medication administration workflow before the adverse event is observed.">
+            >
+        >
+    >
+    term_bindings = <
+        ["snomed-ct"] = <
+            ["ac0.0.0.4"] = <http://cimi.hl7.org/terminology/valueset/snomed-ct/WorkflowBreachAdverseEvent/breachCategory/id0.0.0.4>
+        >
+    >
