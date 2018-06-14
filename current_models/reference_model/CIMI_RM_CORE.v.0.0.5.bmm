@@ -12,7 +12,7 @@ rm_release = <"0.0.5">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Thu Mar 22 12:01:03 PDT 2018">
+schema_revision = <"Thu Jun 14 09:13:50 PDT 2018">
 schema_lifecycle_state = <"Informative">
 schema_description = <"CIMI_RM_CORE.v0.0.5.mdzip - Schema generated from UML">
 
@@ -20,14 +20,13 @@ schema_description = <"CIMI_RM_CORE.v0.0.5.mdzip - Schema generated from UML">
 -- ----------------------------------
 -- archetyping
 -- ----------------------------------
-archetype_rm_closure_packages = <"CIMI_Reference_Model.Core", "CIMI_Reference_Model.DataTypes", "CIMI_Reference_Model.PrimitiveTypes">
 packages = <
 	["CIMI_Reference_Model"] = <
 		name = <"CIMI_Reference_Model">
 		packages = <
 			["Core"] = <
 				name = <"Core">
-				classes = <"Archetyped", "Locatable", "IndependentArchetypable", "NonIndependentArchetypable">
+				classes = <"Archetyped", "Locatable", "Independent", "NonIndependent">
 			>
 			["DataTypes"] = <
 				name = <"DataTypes">
@@ -35,7 +34,7 @@ packages = <
 			>
 			["PrimitiveTypes"] = <
 				name = <"PrimitiveTypes">
-				classes = <"Any", "Array", "List", "Boolean", "Byte", "Character", "Integer", "Real", "String", "URI", "TerminologyCode">
+				classes = <"Any", "List", "Boolean", "Byte", "Character", "Integer", "Real", "String", "URI", "TerminologyCode">
 			>
 		>
 	>
@@ -84,14 +83,14 @@ An instance of the class ARCHETYPED contains the relevant archetype identificati
 			>
 		>
 	>
-	["IndependentArchetypable"] = <
+	["Independent"] = <
 		documentation = <"Archetypable type that has an independent existence meaning that its existence is not dependent on the containing type.">
-		name = <"IndependentArchetypable">
+		name = <"Independent">
 		ancestors = <"Locatable",...>
 	>
-	["NonIndependentArchetypable"] = <
+	["NonIndependent"] = <
 		documentation = <"Archetypable type that has a non-independent existence - that is, whose existence is determined by its containing type.">
-		name = <"NonIndependentArchetypable">
+		name = <"NonIndependent">
 		ancestors = <"Locatable",...>
 	>
 	["NumericalValue"] = <
@@ -143,7 +142,7 @@ An instance of the class ARCHETYPED contains the relevant archetype identificati
 	["DataType"] = <
 		documentation = <"Serves as a common ancestor of all CIMI types which represent the core granularity of the model.">
 		name = <"DataType">
-		ancestors = <"NonIndependentArchetypable",...>
+		ancestors = <"NonIndependent",...>
 	>
 	["Date"] = <
 		documentation = <"Represents one day in time, as measured on the Gregorian calendar, used for recording time when the exact time is unknown or excessive precision is undesired, such as birth dates. Date uses the semantics defined by ISO 8601.">
@@ -327,6 +326,7 @@ Note that although the term &quot;ordinal&quot; in mathematics means natural num
 	["TermMapping"] = <
 		documentation = <"Represents an alternative (&quot;mapped&quot;) Concept associated with a source concept (i.e., CodedText.concept or the textual value of the CodedText when no equivalent concept has been defined), and the relative match of the mapped Concept with respect to the source Concept. Mappings may be used to add classification terms (e.g. adding ICD classifiers to SNOMED descriptive terms), for computational convenience, or to provide equivalents in other terminologies (e.g. across nursing vocabularies).">
 		name = <"TermMapping">
+		ancestors = <"DataType",...>
 		properties = <
 			["match"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The relative match of the mapped concept to the original (target) concept. Examples include broader (i.e., the mapped term is more general than the original), equivalent, narrower (e.g. mapped concept is &quot;atypical diabetes mellitus&quot; and the original term is &quot;diabetes mellitus&quot;), or unknown. ">
@@ -493,17 +493,6 @@ Note that although the term &quot;ordinal&quot; in mathematics means natural num
 	["Any"] = <
 		documentation = <"Abstract supertype. Usually maps to a type like &quot;Any&quot; or &quot;Object&quot; in an object system. Defined here to provide the value and reference equality semantics.">
 		name = <"Any">
-	>
-	["Array"] = <
-		documentation = <"A collection of ordered items that may be are indexed by number.">
-		name = <"Array">
-		ancestors = <"Any",...>
-		generic_parameter_defs = <
-			["T"] = <
-				name = <"T">
-				conforms_to_type = <"Any">
-			>
-		>
 	>
 	["List"] = <
 		documentation = <"An ordered collection of items with non-unique membership.">

@@ -12,7 +12,7 @@ rm_release = <"0.0.5">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Thu Mar 22 12:01:03 PDT 2018">
+schema_revision = <"Thu Jun 14 09:13:50 PDT 2018">
 schema_lifecycle_state = <"Informative">
 schema_description = <"CIMI_RM_FOUNDATION.v0.0.5.mdzip - Schema generated from UML">
 
@@ -20,7 +20,6 @@ schema_description = <"CIMI_RM_FOUNDATION.v0.0.5.mdzip - Schema generated from U
 -- ----------------------------------
 -- archetyping
 -- ----------------------------------
-archetype_rm_closure_packages = <"CIMI_Foundation_RM.Common", "CIMI_Foundation_RM.Composition", "CIMI_Foundation_RM.Entity", "CIMI_Foundation_RM.Party">
 includes = <
 	["1"] = <
 		id = <"cimi_rm_core_0.0.5">
@@ -36,7 +35,7 @@ packages = <
 			>
 			["Composition"] = <
 				name = <"Composition">
-				classes = <"Content", "Entry", "Composition", "Section">
+				classes = <"Content", "Entry", "Composition", "EntryGroup">
 			>
 			["Entity"] = <
 				name = <"Entity">
@@ -44,7 +43,7 @@ packages = <
 			>
 			["Party"] = <
 				name = <"Party">
-				classes = <"Role", "Party", "PartyAssociation">
+				classes = <"Role", "EntityOrRole", "PartyAssociation", "Participation">
 			>
 		>
 	>
@@ -53,7 +52,7 @@ class_definitions = <
 	["Address"] = <
 		documentation = <"Base class for addresses to be specialized based on regional and realm-specific needs.">
 		name = <"Address">
-		ancestors = <"NonIndependentArchetypable",...>
+		ancestors = <"NonIndependent",...>
 		properties = <
 			["use"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Concept indicating purpose of this address such as whether the address is a home address or a work address.">
@@ -129,7 +128,7 @@ class_definitions = <
 	["ElectronicContact"] = <
 		documentation = <"Data structure representing an electronic contact such as an email address or a phone number.">
 		name = <"ElectronicContact">
-		ancestors = <"NonIndependentArchetypable",...>
+		ancestors = <"NonIndependent",...>
 		properties = <
 			["protocol"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Telecommunications form for contact point - what communications system is required to make use of the contact (e.g., phone, fax, email, pager, url, sms, other).">
@@ -176,7 +175,7 @@ class_definitions = <
 	["Name"] = <
 		documentation = <"Abstract supertype for the name of an entity.">
 		name = <"Name">
-		ancestors = <"NonIndependentArchetypable",...>
+		ancestors = <"NonIndependent",...>
 		properties = <
 			["nameAsText"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The name as plain unstructured or semi-structured text.">
@@ -306,7 +305,7 @@ class_definitions = <
 	["Occupation"] = <
 		documentation = <"Describes the kind of job a person has held.">
 		name = <"Occupation">
-		ancestors = <"NonIndependentArchetypable",...>
+		ancestors = <"NonIndependent",...>
 		properties = <
 			["code"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"An occupation. Likely to be realm-specific.">
@@ -337,7 +336,7 @@ class_definitions = <
 	["Qualification"] = <
 		documentation = <"Education, training or special skills.">
 		name = <"Qualification">
-		ancestors = <"NonIndependentArchetypable",...>
+		ancestors = <"NonIndependent",...>
 		properties = <
 			["code"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Concept representing the type of qualification">
@@ -380,7 +379,7 @@ class_definitions = <
 	["Residency"] = <
 		documentation = <"Type supporting the capture of residency information.">
 		name = <"Residency">
-		ancestors = <"NonIndependentArchetypable",...>
+		ancestors = <"NonIndependent",...>
 		properties = <
 			["region"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The country or state of residence.">
@@ -434,7 +433,7 @@ class_definitions = <
 	["BirthData"] = <
 		documentation = <"Type supporting the capture of birth-related information.">
 		name = <"BirthData">
-		ancestors = <"NonIndependentArchetypable",...>
+		ancestors = <"NonIndependent",...>
 		properties = <
 			["birthDatetime"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"When the birth occurred.">
@@ -472,7 +471,7 @@ class_definitions = <
 	["Citizenship"] = <
 		documentation = <"Type supporting the capture of citizenship information. ">
 		name = <"Citizenship">
-		ancestors = <"NonIndependentArchetypable",...>
+		ancestors = <"NonIndependent",...>
 		properties = <
 			["country"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Code representing the country of citizenship.">
@@ -493,7 +492,7 @@ class_definitions = <
 	["DeathData"] = <
 		documentation = <"Information of about a death event.">
 		name = <"DeathData">
-		ancestors = <"NonIndependentArchetypable",...>
+		ancestors = <"NonIndependent",...>
 		properties = <
 			["deceasedIndicator"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Code indicating whether the patient is deceased.">
@@ -569,12 +568,12 @@ class_definitions = <
 	["Identifier"] = <
 		documentation = <"Base class representing an identifier scheme.">
 		name = <"Identifier">
-		ancestors = <"NonIndependentArchetypable",...>
+		ancestors = <"NonIndependent",...>
 	>
 	["Accreditation"] = <
 		documentation = <"Type supporting the capture of accreditation information.">
 		name = <"Accreditation">
-		ancestors = <"NonIndependentArchetypable",...>
+		ancestors = <"NonIndependent",...>
 		properties = <
 			["identifier"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"An identifier for the accreditation.">
@@ -604,7 +603,7 @@ class_definitions = <
 	["Content"] = <
 		documentation = <"Abstract ancestor of all concrete content types. A unit of content that makes up a composition - e.g., a clinical statement in a patient record, a simple or composite action is a knowledge document, a catalog entry in a catalog.">
 		name = <"Content">
-		ancestors = <"IndependentArchetypable",...>
+		ancestors = <"Independent",...>
 	>
 	["Entry"] = <
 		documentation = <"An ENTRY is the minimal unit of logical information or knowledge documented within a composition such as a clinical statement in a patient record, a knowledge entry in a knowledge artifact, a product in a product catalog, etc...
@@ -616,7 +615,7 @@ class_definitions = <
 	["Composition"] = <
 		documentation = <"A composition represents a document such as a patient record, a knowledge artifact, or a catalog definition.">
 		name = <"Composition">
-		ancestors = <"IndependentArchetypable",...>
+		ancestors = <"Independent",...>
 		properties = <
 			["content"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"The content that makes up a composition.">
@@ -629,9 +628,9 @@ class_definitions = <
 			>
 		>
 	>
-	["Section"] = <
+	["EntryGroup"] = <
 		documentation = <"Represents a heading in a heading structure, or section tree . Can also be used to represent a collection of entries without metadata.">
-		name = <"Section">
+		name = <"EntryGroup">
 		ancestors = <"Content",...>
 		properties = <
 			["content"] = (P_BMM_CONTAINER_PROPERTY) <
@@ -648,17 +647,8 @@ class_definitions = <
 	["Entity"] = <
 		documentation = <"Root class for entities such as people, organizations, and devices that have a separately identifiable existence.">
 		name = <"Entity">
-		ancestors = <"Party",...>
+		ancestors = <"EntityOrRole",...>
 		properties = <
-			["identifier"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"An identifier for an entity such as a person's social security number or a device UDI.">
-				name = <"identifier">
-				type_def = <
-					container_type = <"List">
-					type = <"Identifier">
-				>
-				cardinality = <|>=0|>
-			>
 			["description"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"A human-readable description of the entity.">
 				name = <"description">
@@ -997,17 +987,8 @@ class_definitions = <
 
 Note that attributes of the actor (an entity) that remain constant regardless of the role the actor plays should be part of the entity and not the role. For instance, a person may be a practitioner and a patient. In both cases their date of birth will be the same and thus such information should not be part of the role.">
 		name = <"Role">
-		ancestors = <"Party",...>
+		ancestors = <"EntityOrRole",...>
 		properties = <
-			["identifier"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"An identifier for the role such as a patient identifier within the scope of an institution. ">
-				name = <"identifier">
-				type_def = <
-					container_type = <"List">
-					type = <"Identifier">
-				>
-				cardinality = <|>=0|>
-			>
 			["type"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The type of role taken on by an entity participating in an activity.">
 				name = <"type">
@@ -1019,24 +1000,19 @@ Note that attributes of the actor (an entity) that remain constant regardless of
 				name = <"actor">
 				type = <"Entity">
 			>
-			["actingOnBehalfOf"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Populate this field if the party is acting on behalf of another party.">
-				name = <"actingOnBehalfOf">
-				type = <"Party">
-			>
 		>
 	>
-	["Party"] = <
+	["EntityOrRole"] = <
 		documentation = <"A party may be either an entity such as a specific person or organization or a role played by an entity such as patient or care provider.">
-		name = <"Party">
-		ancestors = <"IndependentArchetypable",...>
+		name = <"EntityOrRole">
+		ancestors = <"Independent",...>
 		properties = <
-			["associatedWith"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Used to capture a relationship between two parties outside of the already specified 'actor' and 'actingOnBehalfOf' relationships.">
-				name = <"associatedWith">
+			["identifier"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"An identifier for the role or the entity such as a social security identifier or a provider identifier within the scope of an institution. ">
+				name = <"identifier">
 				type_def = <
 					container_type = <"List">
-					type = <"PartyAssociation">
+					type = <"Identifier">
 				>
 				cardinality = <|>=0|>
 			>
@@ -1045,20 +1021,14 @@ Note that attributes of the actor (an entity) that remain constant regardless of
 	["PartyAssociation"] = <
 		documentation = <"A directed association to a party (i.e., a role or an entity). The PartyAssociation pattern can be used to represent a participation in an activity or a relationship that exists between two parties.">
 		name = <"PartyAssociation">
-		ancestors = <"NonIndependentArchetypable",...>
+		ancestors = <"NonIndependent",...>
 		generic_parameter_defs = <
 			["P"] = <
 				name = <"P">
-				conforms_to_type = <"Party">
+				conforms_to_type = <"EntityOrRole">
 			>
 		>
 		properties = <
-			["type"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The type of association between an activity, a party, or an information entry to a party. For instance,  the association may be that between two people (a relationship) such as a brother or mother relationship to a patient or the association between the performer of an activity and the activity itself (performance) or the subject of an entry in the patient's record and the subject of the record.">
-				name = <"type">
-				type = <"Concept">
-				is_mandatory = <True>
-			>
 			["validityPeriod"] = (P_BMM_GENERIC_PROPERTY) <
 				documentation = <"The period of time when the relationship holds or held.">
 				name = <"validityPeriod">
@@ -1073,6 +1043,23 @@ Note that attributes of the actor (an entity) that remain constant regardless of
 Note that the target is optional when it is understood based on the party association type (e.g., a 'self' relationship for the subject of information).">
 				name = <"target">
 				type = <"P">
+			>
+		>
+	>
+	["Participation"] = <
+		documentation = <"Association between a party (entity or a role) in an activity.">
+		name = <"Participation">
+		ancestors = <"NonIndependent",...>
+		properties = <
+			["participant"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The party participating in the activity.">
+				name = <"participant">
+				type = <"EntityOrRole">
+			>
+			["onBehalfOf"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The party this agent is representing in the context of this specific participation.">
+				name = <"onBehalfOf">
+				type = <"EntityOrRole">
 			>
 		>
 	>
